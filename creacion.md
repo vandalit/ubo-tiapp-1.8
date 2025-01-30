@@ -7,14 +7,12 @@ Antes de comenzar, asegúrate de tener instalados los siguientes elementos en tu
 - **Vue CLI**: Si no lo tienes instalado, puedes hacerlo ejecutando:
 
   ```bash
-  Copy
   npm install -g @vue/cli
   ```
 
   Verifica la instalación con:
 
   ```bash
-  Copy
   vue --version
   ```
 
@@ -23,7 +21,6 @@ Antes de comenzar, asegúrate de tener instalados los siguientes elementos en tu
 Abre una terminal y navega hasta el directorio donde deseas crear tu proyecto. Luego, ejecuta el siguiente comando para iniciar la creación del proyecto:
 
 ```bash
-Copy
 vue create mi-proyecto
 ```
 
@@ -38,7 +35,6 @@ Después de ejecutar el comando anterior, Vue CLI te presentará opciones para c
    Cuando te pregunte si deseas usar un preset predeterminado o personalizar la configuración, selecciona:
 
    ```bash
-   Copy
    ❯ Manually select features
    ```
 
@@ -89,7 +85,7 @@ Después de ejecutar el comando anterior, Vue CLI te presentará opciones para c
 Una vez creado el proyecto, navega al directorio del proyecto e instala Bootstrap y sus dependencias:
 
 ```bash
-bashCopycd mi-proyecto
+cd mi-proyecto
 npm install bootstrap@5.3.0
 ```
 
