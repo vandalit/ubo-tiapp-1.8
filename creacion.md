@@ -155,7 +155,6 @@ Para integrar Bootstrap con SASS en tu proyecto Vue, sigue estos pasos:
 Finalmente, inicia el servidor de desarrollo para ver tu proyecto en acción:
 
 ```bash
-Copy
 npm run serve
 ```
 
@@ -166,7 +165,7 @@ Abre tu navegador y navega a http://localhost:8080 (o el puerto que indique la t
 Para resumir, aquí están los comandos principales que ejecutaste:
 
 ```bash
-bashCopy# Instalar Vue CLI globalmente (si no lo tienes)
+# Instalar Vue CLI globalmente (si no lo tienes)
 npm install -g @vue/cli
 
 # Crear el proyecto
