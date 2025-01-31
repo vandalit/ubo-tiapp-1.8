@@ -2,7 +2,6 @@
   <div id="app">
     <!-- Navegación -->
     <Navbar />
-
     <router-view />
     <Footer />
   </div>
@@ -21,7 +20,7 @@ export default {
 
 
 <style lang="scss">
-@import "@/assets/scss/main.scss";
+@import "./assets/styles/main.scss";
 /* Estilos del contenedor */
 #app {
   text-align: center;
