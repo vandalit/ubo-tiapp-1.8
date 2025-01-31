@@ -2,12 +2,7 @@
   <div id="app">
     <!-- Navegación -->
     <Navbar />
-    <nav>
-    <router-link to="/" class="nav-link">Home</router-link>
-    <router-link to="/about" class="nav-link">Nosotros</router-link>
-    <router-link to="/news" class="nav-link">Noticias</router-link>
-    <router-link to="/dashboard" class="nav-link">Dashboard</router-link>
-    </nav>
+
     <router-view />
     <Footer />
   </div>

@@ -19,6 +19,8 @@
   <style scoped lang="scss">
   .carusel {
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
     padding: 10px;
     margin: auto;
   }
