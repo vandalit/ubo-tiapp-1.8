@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12 col-md-4">
+  <div class="col-12 col-md-4 ">
     <!-- Añadir estas clases para asegurar que cada tarjeta ocupa 4 columnas en pantallas medianas -->
     <div class="card">
       <!-- Contenedor de imagen centrado -->
@@ -48,5 +48,13 @@ export default {
   /* Para asegurar que la imagen cubra todo el espacio sin distorsionarse */
   border-radius: 50%;
   /* Hace que la imagen sea circular */
+}
+
+@media screen and (max-width: 768px) {
+  .card {
+    width: 100%;
+    margin: 10px auto; /* Centra la tarjeta */
+  }
+  
 }
 </style>

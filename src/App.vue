@@ -24,6 +24,5 @@ export default {
 /* Estilos del contenedor */
 #app {
   text-align: center;
-  padding: 1rem;
 }
 </style>

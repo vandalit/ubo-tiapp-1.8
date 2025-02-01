@@ -1,6 +1,11 @@
 @import './_variables';
 
 // Reset de estilos
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 body {
   margin: 0;
   padding: 0;
