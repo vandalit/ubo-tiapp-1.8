@@ -1,0 +1,43 @@
+[
+    {
+      "name": "Registrar Incidente",
+      "image": "https://placehold.co/200x100?text=Registrar+Incidente",
+      "description": "Permite reportar cualquier incidente de ciberseguridad a través de un formulario centralizado, asegurando la trazabilidad y una respuesta rápida.",
+      "button_active": true,
+      "button_text": "Ir a Formulario",
+      "button_route": "/registro-incidente"
+    },
+    {
+      "name": "Políticas de contraseñas",
+      "image": "https://placehold.co/200x100?text=Políticas+de+Contraseñas",
+      "description": "Un conjunto de normas para forzar contraseñas seguras en la organización y reducir los riesgos de accesos no autorizados.",
+      "button_active": false,
+      "button_text": "",
+      "button_route": ""
+    },
+    {
+      "name": "Phishing",
+      "image": "https://placehold.co/200x100?text=Phishing",
+      "description": "Entrenamiento para identificar y reportar correos electrónicos maliciosos que buscan robar información sensible.",
+      "button_active": true,
+      "button_text": "Aprender más",
+      "button_route": "/phishing-info"
+    },
+    {
+      "name": "Antivirus Corporativo",
+      "image": "https://placehold.co/200x100?text=Antivirus+Corporativo",
+      "description": "Solución de antivirus para todos los equipos corporativos, asegurando protección frente a amenazas comunes y avanzadas.",
+      "button_active": false,
+      "button_text": "",
+      "button_route": ""
+    },
+    {
+      "name": "Reportes",
+      "image": "https://placehold.co/200x100?text=Reportes",
+      "description": "Tableros y paneles para visualizar las principales métricas e incidentes de ciberseguridad, facilitando la toma de decisiones.",
+      "button_active": false,
+      "button_text": "",
+      "button_route": ""
+    }
+  ]
+  

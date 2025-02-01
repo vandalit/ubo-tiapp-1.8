@@ -1,6 +1,7 @@
 <template>
-  <div class="cyber">
-    <h2>cybersecurity</h2>
+
+  <div class="services container">
+    <h2>Cyberseguridad</h2>
     <p> xxxxxxxx</p>
     <!-- Banner de ancho completo -->
     <div class="banner">
@@ -35,29 +36,64 @@
       <br>
     </div>
   </div>
+
+
+
+
+  <div class="services-view container">
+    <h1>Servicios</h1>
+
+    <!-- Condicional: si NO estamos en carrusel, muestra la grilla -->
+    <CardGrid v-if="!isCarouselView" :services="services" @selectService="openCarousel" />
+
+    <!-- Si ESTAMOS en carrusel, muestra el componente Carousel -->
+    <Carousel v-else :services="services" :selectedIndex="selectedIndex" @closeCarousel="closeCarousel" />
+  </div>
 </template>
 
-<script>
-import { ref } from 'vue';
+<script setup>
+import { ref, onMounted } from 'vue'
+import CardGrid from '@/components/CardGrid.vue'
+import Carousel from '@/components/Carousel.vue'
 
-export default {
-  name: 'Cybersecurity',
-  setup() {
-    const isExpanded = ref(false); // Controla si el texto está expandido
+// Importamos el JSON (o fetch si es remoto)
+import cyberData  from '@/assets/cybersecurity.json'
 
-    const toggleText = () => {
-      isExpanded.value = !isExpanded.value; // Alterna el estado de expansión
-    };
+// Control de datos
+const services = ref([])
+const isCarouselView = ref(false)
+const selectedIndex = ref(0)
 
-    return {
-      isExpanded,
-      toggleText
-    };
-  }
-};
+// Estado adicional para controlar si está expandido
+const isExpanded = ref(false)
+function toggleText() {
+  isExpanded.value = !isExpanded.value
+}
+
+// Cargamos los datos al montar
+onMounted(() => {
+  services.value = cyberData 
+})
+
+// Cuando se selecciona un servicio en la grilla, abrimos carrusel
+function openCarousel(index) {
+  selectedIndex.value = index
+  isCarouselView.value = true
+}
+
+// Cuando se cierra el carrusel, volvemos a la grilla
+function closeCarousel() {
+  isCarouselView.value = false
+}
+
 </script>
 
 <style scoped>
+.services-view {
+  /* Estilos que cnecesites */
+  color: brown;
+}
+
 .section {
   margin: 0px;
 }
