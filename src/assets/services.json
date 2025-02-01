@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Seguimiento Proyectos TI",
+    "image": "https://placehold.co/200x100",
+    "description": "El seguimiento de proyectos TI consiste en monitorear y evaluar el progreso de los proyectos levantados, para asegurar que se cumplan los objetivos, plazos y presupuestos establecidos.",
+    "button_active": true,
+    "button_text": "Log In",
+    "button_route": "/login"
+  },
+  {
+    "name": "Mesa de Ayuda TI",
+    "image": "https://placehold.co/200x100",
+    "description": "La Mesa de Ayuda TI brinda soporte técnico a los usuarios en cuanto a la resolución de problemas tecnológicos.",
+    "button_active": false,
+    "button_text": "",
+    "button_route": ""
+  },
+  {
+    "name": "Consultoría TI",
+    "image": "https://placehold.co/200x100",
+    "description": "Consultoría especializada para optimizar el uso de los recursos tecnológicos en la organización.",
+    "button_active": true,
+    "button_text": "Learn More",
+    "button_route": "/consultoria"
+  },
+  {
+    "name": "Accesos Inalámbricos",
+    "image": "https://placehold.co/200x100",
+    "description": "Soluciones para el establecimiento de redes inalámbricas seguras y de alto rendimiento.",
+    "button_active": false,
+    "button_text": "",
+    "button_route": ""
+  },
+  {
+    "name": "Licencias Softwares",
+    "image": "https://placehold.co/200x100",
+    "description": "Venta y gestión de licencias para una amplia variedad de programas y plataformas tecnológicas.",
+    "button_active": true,
+    "button_text": "Learn More",
+    "button_route": "/licencias"
+  },
+  {
+    "name": "Capacitaciones",
+    "image": "https://placehold.co/200x100",
+    "description": "Programas de capacitación para actualizar y mejorar las habilidades de los equipos de trabajo en TI.",
+    "button_active": true,
+    "button_text": "Log In",
+    "button_route": "/login"
+  }
+]

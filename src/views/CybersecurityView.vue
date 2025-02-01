@@ -41,7 +41,7 @@
 import { ref } from 'vue';
 
 export default {
-  name: 'Section',
+  name: 'Cybersecurity',
   setup() {
     const isExpanded = ref(false); // Controla si el texto está expandido
 

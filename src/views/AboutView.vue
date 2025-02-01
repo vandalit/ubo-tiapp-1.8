@@ -56,7 +56,7 @@ import Card from '@/components/CardTeam.vue';
 import teamData from '@/assets/equipo.json'; // Asegúrate de tener la ruta correcta al archivo JSON
 
 export default {
-  name: 'AboutView',
+  name: 'About',
   components: {
     Card
   },
