@@ -22,7 +22,8 @@
       <!-- Descripción expandida -->
       <transition name="fade">
         <p v-if="isExpanded">
-          Este es el texto adicional que se muestra cuando el usuario hace clic en el botón "Ver más".
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt placeat unde in quod tempora molestiae minima 
+          numquam, iste explicabo quia saepe. Laboriosam, officiis? Quisquam nulla ipsa soluta. Tempore, quo nobis!
         </p>
       </transition>
 
@@ -51,7 +52,7 @@
 
 <script>
 import { ref } from 'vue';
-import Card from '@/components/Card.vue';
+import Card from '@/components/CardTeam.vue';
 import teamData from '@/assets/equipo.json'; // Asegúrate de tener la ruta correcta al archivo JSON
 
 export default {

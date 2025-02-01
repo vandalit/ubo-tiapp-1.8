@@ -8,7 +8,7 @@
   </template>
   
   <script>
-  import Card from './Card.vue';
+  import Card from './CardTeam.vue';
   
   export default {
     name: "Carousel",

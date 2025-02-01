@@ -3,7 +3,7 @@
     <h1>Bienvenido a News</h1>
     <p>Explora nuestras secciones</p>
   </div>
-  <Carousel />
+
 
 </template>
 
