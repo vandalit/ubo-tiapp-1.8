@@ -1,0 +1,45 @@
+[
+    {
+      "id": 1,
+      "name": "Jonathan Morales Sandoval",
+      "role": "Director de TI",
+      "image": "https://placehold.co/100x100"
+    },
+    {
+      "id": 2,
+      "name": "Ana María López",
+      "role": "Jefa de Proyectos",
+      "image": "https://placehold.co/100x100"
+    },
+    {
+      "id": 3,
+      "name": "Carlos Fernández",
+      "role": "Desarrollador Frontend",
+      "image": "https://placehold.co/100x100"
+    },
+    {
+      "id": 4,
+      "name": "Patricia Gómez",
+      "role": "Desarrolladora Backend",
+      "image": "https://placehold.co/100x100"
+    },
+    {
+      "id": 5,
+      "name": "Luis Torres",
+      "role": "Administrador de Sistemas",
+      "image": "https://placehold.co/100x100"
+    },
+    {
+      "id": 6,
+      "name": "Sara Martínez",
+      "role": "Soporte Técnico",
+      "image": "https://placehold.co/100x100"
+    },
+    {
+      "id": 7,
+      "name": "Martín Pérez",
+      "role": "Diseñador UX/UI",
+      "image": "https://placehold.co/100x100"
+    }
+  ]
+  
