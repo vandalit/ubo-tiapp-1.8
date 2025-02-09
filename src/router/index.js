@@ -5,6 +5,9 @@ import News from "@/views/NewsView.vue";
 import Dashboard from "@/views/DashboardView.vue";
 import Cybersecurity from "@/views/CybersecurityView.vue";
 import Services from "@/views/ServicesView.vue";
+import LoginView from '@/views/LoginView.vue';
+import DashboardView from '@/views/DashboardView.vue';
+import EditProject from '@/components/EditProject.vue';
 
 
 const routes = [
@@ -14,6 +17,9 @@ const routes = [
   { path: "/dashboard", name: "Dashboard", component: Dashboard },
   { path: "/services", name: "Services", component: Services },
   { path: "/cybersecurity", name: "Cybersecurity", component: Cybersecurity },
+  { path: '/login', name: 'Login', component: LoginView },
+  { path: '/dashboard', name: 'Dashboard', component: DashboardView },
+  { path: '/edit-project/:id', name: 'EditProject', component: EditProject }, 
 ];
 
 const router = createRouter({
