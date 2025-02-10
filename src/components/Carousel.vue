@@ -1,43 +1,44 @@
 <template>
-  <div class="carousel-container">
-    <div class="card d-flex flex-row" style="min-height: 200px;">
-      <!-- Imagen ocupando un tercio -->
-      <img
-        :src="currentService.image"
-        alt="Imagen del servicio"
-        class="w-25"
-      />
+  <div class="carousel-wrapper">
+    <div class="carousel-card">
+      <!-- Sección imagen a la izquierda -->
+      <div class="image-area">
+        <img
+          :src="currentService.image"
+          alt="Imagen del servicio"
+          class="service-img"
+        />
+        <!-- Botón "-" flotante en la esquina -->
+        <button class="minus-btn" @click.stop="close">
+          <i class="fa fa-minus"></i>
+        </button>
+      </div>
 
-      <!-- Contenido textual en los 2/3 restantes -->
-      <div class="card-body">
-        <h3>{{ currentService.name }}</h3>
-        <p>{{ currentService.description }}</p>
+      <!-- Sección de contenido textual -->
+      <div class="content-area">
+        <h3 class="title">{{ currentService.name }}</h3>
+        <p class="description">
+          {{ currentService.description }}
+        </p>
 
-        <!-- Si button_active es true, mostramos el botón con su ruta -->
-        <router-link
-          v-if="currentService.button_active"
-          :to="currentService.button_route"
-          class="btn btn-success"
-        >
-          {{ currentService.button_text }}
-        </router-link>
-
-        <!-- Flechas para moverse en el carousel -->
-        <div class="mt-3">
-          <button class="btn btn-outline-primary me-2" @click="prevSlide">
+        <!-- Flechas para moverse en el carrusel -->
+        <div class="carousel-nav">
+          <button class="btn-arrow me-2" @click="prevSlide">
             <i class="fa fa-chevron-left"></i>
           </button>
-          <button class="btn btn-outline-primary" @click="nextSlide">
+          <button class="btn-arrow" @click="nextSlide">
             <i class="fa fa-chevron-right"></i>
           </button>
         </div>
-      </div>
 
-      <!-- Botón toggle "-" para regresar a la grilla -->
-      <div class="card-footer ms-auto">
-        <button class="btn btn-danger" @click="close">
-          <i class="fa fa-minus"></i>
-        </button>
+        <!-- Botón de Login (si button_active == true) -->
+        <router-link
+          v-if="currentService.button_active"
+          :to="currentService.button_route"
+          class="btn btn-primary ms-auto"
+        >
+          {{ currentService.button_text }}
+        </router-link>
       </div>
     </div>
   </div>
@@ -59,10 +60,10 @@ const props = defineProps({
 
 const emits = defineEmits(['closeCarousel'])
 
-// currentIndex es el índice de la tarjeta que se muestra actualmente en el carrusel.
+// Índice actual del carrusel
 const currentIndex = ref(props.selectedIndex)
 
-// Si cambia selectedIndex desde el padre, también lo sincronizamos:
+// Si cambia `selectedIndex` en el padre, se sincroniza
 watch(
   () => props.selectedIndex,
   (newVal) => {
@@ -74,33 +75,122 @@ function close() {
   emits('closeCarousel')
 }
 
-// Computed para el servicio actual
 const currentService = computed(() => {
   return props.services[currentIndex.value]
 })
 
-// Funciones de siguiente y anterior (con “ciclado”)
+// Navegación “cíclica”
 function nextSlide() {
   currentIndex.value =
     (currentIndex.value + 1) % props.services.length
 }
-
 function prevSlide() {
-  // Si estamos en el primero y vamos para atrás, saltamos al último
   currentIndex.value =
-    (currentIndex.value - 1 + props.services.length) %
-    props.services.length
+    (currentIndex.value - 1 + props.services.length) % props.services.length
 }
 </script>
 
 <style scoped>
-.carousel-container {
-  /* Ajusta contenedor; puedes poner tu layout responsivo */
-  color: blue;
+/* Contenedor general para centrar o ajustar espaciado */
+.carousel-wrapper {
+  padding: 1rem;
+  /* Ajusta si deseas más o menos espacio */
 }
-.card-footer {
+
+/* Tarjeta principal que agrupa imagen y contenido */
+.carousel-card {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  background-color: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  position: relative;
+  max-width: 900px;  /* Ajusta según tu diseño */
+  margin: 0 auto;    /* Centrar horizontalmente */
+}
+
+/* Área de la imagen (aprox 1/3 del ancho) */
+.image-area {
+  position: relative;
+  flex: 0 0 300px; /* Ajustar según diseño (puede ser width fija o % del contenedor) */
+  background-color: #f9f9f9;
+}
+
+.service-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Botón "-" flotante en la esquina inferior derecha de la imagen */
+.minus-btn {
   position: absolute;
   bottom: 1rem;
   right: 1rem;
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  width: 36px;
+  height: 36px;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+.minus-btn i {
+  color: #0d2c5b; /* Ajusta color corporativo */
+  font-size: 1.1rem;
+}
+
+/* Contenido textual */
+.content-area {
+  flex: 1 1 auto;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column; /* Para acomodar flechas y botón login abajo */
+}
+
+/* Título y descripción */
+.title {
+  font-size: 1.5rem;
+  color: #0d2c5b; /* Ajusta al color corporativo */
+  margin-bottom: 0.5rem;
+}
+
+.description {
+  font-size: 1rem;
+  color: #4a4a4a;
+  margin-bottom: 1rem;
+  /* line-height si quieres más espacio entre líneas */
+}
+
+/* Flechas de navegación */
+.carousel-nav {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.btn-arrow {
+  border: 1px solid #ccc;
+  background: #fff;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d2c5b;
+  cursor: pointer;
+}
+
+.btn-arrow:hover {
+  background: #e6e6e6;
+}
+
+/* Botón Login (usa Bootstrap .btn .btn-primary, ajusta si quieres un color distinto) */
 </style>
