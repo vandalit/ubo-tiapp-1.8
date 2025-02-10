@@ -21,26 +21,33 @@
           {{ currentService.description }}
         </p>
 
-        <!-- Flechas para moverse en el carrusel -->
-        <div class="carousel-nav">
-          <button class="btn-arrow me-2" @click="prevSlide">
-            <i class="fa fa-chevron-left"></i>
-          </button>
-          <button class="btn-arrow" @click="nextSlide">
-            <i class="fa fa-chevron-right"></i>
-          </button>
+       
+        <!-- Parte inferior: flechas + botón en la misma fila -->
+        <div class="content-footer">
+          <!-- Flechas de navegación -->
+          <div class="carousel-nav">
+            <button class="btn-arrow me-2" @click="prevSlide">
+              <i class="fa fa-chevron-left"></i>
+            </button>
+            <button class="btn-arrow" @click="nextSlide">
+              <i class="fa fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <!-- Botón de Login (si button_active == true) -->
+          <router-link
+            v-if="currentService.button_active"
+            :to="currentService.button_route"
+            class="btn btn-primary ms-3 boton-oculto"
+          >
+            {{ currentService.button_text }}
+          </router-link>
         </div>
 
-        <!-- Botón de Login (si button_active == true) -->
-        <router-link
-          v-if="currentService.button_active"
-          :to="currentService.button_route"
-          class="btn btn-primary ms-auto"
-        >
-          {{ currentService.button_text }}
-        </router-link>
       </div>
+
     </div>
+
   </div>
 </template>
 
@@ -103,12 +110,12 @@ function prevSlide() {
   flex-direction: row;
   align-items: stretch;
   background-color: #fff;
-  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
   position: relative;
   max-width: 900px;  /* Ajusta según tu diseño */
   margin: 0 auto;    /* Centrar horizontalmente */
+  margin-bottom: 100px;
 }
 
 /* Área de la imagen (aprox 1/3 del ancho) */
@@ -116,6 +123,7 @@ function prevSlide() {
   position: relative;
   flex: 0 0 300px; /* Ajustar según diseño (puede ser width fija o % del contenedor) */
   background-color: #f9f9f9;
+
 }
 
 .service-img {
@@ -123,6 +131,8 @@ function prevSlide() {
   height: 100%;
   object-fit: cover;
   display: block;
+  border-radius: 16px;
+
 }
 
 /* Botón "-" flotante en la esquina inferior derecha de la imagen */
@@ -142,16 +152,19 @@ function prevSlide() {
   justify-content: center;
 }
 .minus-btn i {
-  color: #0d2c5b; /* Ajusta color corporativo */
+  color: #1ea3e1; /* Ajusta color corporativo */
   font-size: 1.1rem;
 }
 
 /* Contenido textual */
 .content-area {
   flex: 1 1 auto;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem 0rem 2rem;
   display: flex;
   flex-direction: column; /* Para acomodar flechas y botón login abajo */
+  justify-content: space-between;
+  min-height: 300px;
+
 }
 
 /* Título y descripción */
@@ -164,33 +177,45 @@ function prevSlide() {
 .description {
   font-size: 1rem;
   color: #4a4a4a;
-  margin-bottom: 1rem;
+  margin-bottom: 0;
   /* line-height si quieres más espacio entre líneas */
+  padding-bottom: 1rem;
 }
+
+/* Footer con flechas y botón “Login” en la misma fila */
+.content-footer {
+  display: flex;
+  align-items: center; 
+  justify-content: space-between; /* O space-between si quieres separarlos */
+}
+
+
 
 /* Flechas de navegación */
 .carousel-nav {
   display: flex;
   align-items: center;
-  margin-bottom: 1rem;
 }
 
 .btn-arrow {
-  border: 1px solid #ccc;
-  background: #fff;
-  border-radius: 50%;
+  background: #c1c1c1;
+  border-radius: 25%;
   width: 38px;
   height: 38px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #0d2c5b;
+  color: #ffffff;
   cursor: pointer;
 }
 
 .btn-arrow:hover {
-  background: #e6e6e6;
+  background: #1ea3e1;
 }
 
 /* Botón Login (usa Bootstrap .btn .btn-primary, ajusta si quieres un color distinto) */
+.boton-oculto {
+  background: #1ea3e1;
+  align-self: flex-end;
+}
 </style>

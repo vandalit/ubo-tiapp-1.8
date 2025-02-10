@@ -1,8 +1,11 @@
 <template>
 
   <div class="services container">
-    <h2>Cyberseguridad</h2>
-    <p> xxxxxxxx</p>
+    <div class="cyber-tittle">
+      <h2>Cyberseguridad</h2>
+      <p> xxxxxxxx</p>
+    </div>
+    
     <!-- Banner de ancho completo -->
     <div class="banner">
       <img src="https://placehold.co/1500x500" alt="Banner" class="img-fluid" />
@@ -125,6 +128,10 @@ function closeCarousel() {
 .content p {
   font-size: 1rem;
   line-height: 1.5;
+}
+
+.cyber-tittle {
+  text-align: left;
 }
 
 .btn-link {

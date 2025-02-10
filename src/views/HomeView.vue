@@ -95,7 +95,7 @@ export default {
    ====== HERO SECTION ====== 
 */
 .hero-section {
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 /* Títulos de la sección Hero */
@@ -103,12 +103,14 @@ export default {
   font-size: 1.75rem;
   font-weight: 700;
   color: #0d2c5b; /* Ajusta al color corporativo */
+  text-align: left;
 }
 
 .hero-subtitle {
   font-size: 1rem;
   color: #737373;
   margin-bottom: 1rem;
+  text-align: left;
 }
 
 /* Contenedor de la imagen y elementos superpuestos */

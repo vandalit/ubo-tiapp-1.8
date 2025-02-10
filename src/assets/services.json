@@ -17,7 +17,7 @@
   },
   {
     "name": "Consultoría TI",
-    "image": "https://placehold.co/200x100",
+    "image": "https://placehold.co/100x100",
     "description": "Consultoría especializada para optimizar el uso de los recursos tecnológicos en la organización.",
     "button_active": false,
     "button_text": "Learn More",
@@ -25,7 +25,7 @@
   },
   {
     "name": "Accesos Inalámbricos",
-    "image": "https://placehold.co/200x100",
+    "image": "https://placehold.co/100x100",
     "description": "Soluciones para el establecimiento de redes inalámbricas seguras y de alto rendimiento.",
     "button_active": false,
     "button_text": "",
@@ -33,7 +33,7 @@
   },
   {
     "name": "Licencias Softwares",
-    "image": "https://placehold.co/200x100",
+    "image": "https://placehold.co/100x100",
     "description": "Venta y gestión de licencias para una amplia variedad de programas y plataformas tecnológicas.",
     "button_active": false,
     "button_text": "Leer más",
@@ -41,7 +41,7 @@
   },
   {
     "name": "Capacitaciones",
-    "image": "https://placehold.co/200x100",
+    "image": "https://placehold.co/100x100",
     "description": "Programas de capacitación para actualizar y mejorar las habilidades de los equipos de trabajo en TI.",
     "button_active": false,
     "button_text": "Log In",

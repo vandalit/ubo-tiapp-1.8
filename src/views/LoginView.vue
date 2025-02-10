@@ -1,31 +1,25 @@
 <template>
   <div class="login-container">
+    <!-- Imagen de fondo a pantalla completa -->
+    <div class="background"></div>
 
-    <!-- Hero / Imagen de fondo con logo -->
-    <div class="hero-section">
-      <img
-        class="hero-background"
-        src="https://placehold.co/1920x1080?text=Fondo+Portal+TI"
-        alt="Fondo login"
-      />
-      <div class="hero-overlay">
-        <!-- Logo Universidad (placeholder) -->
+    <!-- Contenedor central con dos cajas lado a lado -->
+    <div class="centered-content">
+      <!-- Caja izquierda: solo logo -->
+      <div class="left-box shadow">
         <img
-          class="ubo-logo"
           src="https://placehold.co/300x300?text=Logo+UBO"
-          alt="Universidad Bernardo O'Higgins"
+          alt="Logo UBO"
+          class="ubo-logo"
         />
-        <h2 class="hero-title text-white mt-3">
-          Nuestra Data TI <br />
-          <small class="fs-6 text-light">Accede con tu cuenta</small>
-        </h2>
       </div>
-    </div>
 
-    <!-- Sección de login (tarjeta de acceso) -->
-    <div class="login-card-container">
-      <div class="login-card shadow rounded p-4">
-        <h5 class="mb-4">Te damos la bienvenida al portal <strong>UBO TI</strong></h5>
+      <!-- Caja derecha: formulario de login -->
+      <div class="right-box shadow">
+        <h5 class="mb-3">
+          Te damos la bienvenida al portal
+          <strong>UBO TI</strong>
+        </h5>
 
         <!-- Campo Usuario -->
         <div class="mb-3">
@@ -68,7 +62,9 @@
         </div>
 
         <!-- Botón Login -->
-        <button @click="login" class="btn btn-primary w-100 mb-2">Ingresar</button>
+        <button @click="login" class="btn btn-primary w-100 mb-2">
+          Ingresar
+        </button>
 
         <!-- Mensaje de error -->
         <p v-if="loginError" class="text-danger mb-0">
@@ -76,55 +72,6 @@
         </p>
       </div>
     </div>
-
-    <!-- Footer con varias columnas -->
-    <footer class="page-footer bg-light pt-4 pb-3">
-      <div class="container">
-        <div class="row">
-          <!-- Equipo -->
-          <div class="col-6 col-md-2">
-            <h6 class="fw-bold">Equipo</h6>
-            <ul class="list-unstyled">
-              <li>Jefatura</li>
-              <li>Desarrolladores</li>
-            </ul>
-          </div>
-          <!-- Servicios -->
-          <div class="col-6 col-md-2">
-            <h6 class="fw-bold">Servicios</h6>
-            <ul class="list-unstyled">
-              <li>Registro</li>
-              <li>Consultoría</li>
-              <li>Seguridad</li>
-            </ul>
-          </div>
-          <!-- Proyectos -->
-          <div class="col-6 col-md-2 mt-3 mt-md-0">
-            <h6 class="fw-bold">Proyectos</h6>
-            <ul class="list-unstyled">
-              <li>01 Proyecto TI</li>
-              <li>02 Proyecto Seguridad</li>
-              <li>03 Proyecto Laboratorio</li>
-              <li>04 Proyecto Auditorio</li>
-            </ul>
-          </div>
-          <!-- Intranet -->
-          <div class="col-6 col-md-2 mt-3 mt-md-0">
-            <h6 class="fw-bold">Intranet</h6>
-            <ul class="list-unstyled">
-              <li>Log In</li>
-            </ul>
-          </div>
-          <!-- Ticket de ayuda -->
-          <div class="col-12 col-md-2 mt-3 mt-md-0">
-            <h6 class="fw-bold">Ticket de ayuda</h6>
-          </div>
-        </div>
-        <div class="text-center mt-3 small text-secondary">
-          © Universidad Bernardo O’Higgins
-        </div>
-      </div>
-    </footer>
   </div>
 </template>
 
@@ -157,78 +104,72 @@ export default {
 </script>
 
 <style scoped>
-/* Contenedor principal */
+/* 
+  ===== Contenedor general =====
+  Ocupa toda la pantalla para mostrar la imagen de fondo. 
+*/
 .login-container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  /* Evita saltos bruscos al crecer la tarjeta de login */
-  justify-content: space-between;
-}
-
-/* Sección hero (imagen + logo + texto) */
-.hero-section {
   position: relative;
   width: 100%;
-  height: 40vh; /* Ajusta la altura según tu preferencia */
-  background-color: #000;
-  overflow: hidden;
+  height: 100vh;
+  overflow: hidden; /* evitar scroll si no es necesario */
 }
 
-/* Imagen de fondo en la sección hero */
-.hero-background {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center;
-}
-
-/* Capa para oscurecer la imagen y colocar el contenido */
-.hero-overlay {
+/* 
+  ===== Imagen de fondo =====
+  Ocupa todo el contenedor, en capa trasera. 
+*/
+.background {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  /* Filtro de oscurecimiento */
-  background: rgba(0, 0, 0, 0.4);
+  background: url('https://placehold.co/1920x1080?text=Fondo+Portal+TI')
+    center center / cover no-repeat;
+  z-index: 1;
+}
+
+/* 
+  ===== Contenido centrado =====
+  Caja flexible que centra vertical y horizontalmente.
+  Ponemos z-index superior para que quede "encima" de la imagen de fondo.
+*/
+.centered-content {
+  position: relative;
+  z-index: 2;
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem; /* espacio entre las dos cajas */
+  height: 100%; /* para ocupar todo el alto y centrar verticalmente */
+  padding: 0 2rem; /* margen lateral si deseas */
+}
+
+/* 
+  ===== Caja izquierda: solo el logo =====
+*/
+.left-box {
+  background: #fff;
+  border-radius: 8px;
+  padding: 2rem;
+  display: flex; /* para centrar el logo vertical y horizontal */
   align-items: center;
   justify-content: center;
 }
 
-/* Logo principal */
+/* Ajusta el tamaño del logo a tu gusto */
 .ubo-logo {
-  width: 200px;
-  max-width: 250px;
+  max-width: 220px;
 }
 
-/* Título “Nuestra Data TI” */
-.hero-title {
-  margin-top: 1rem;
-  text-align: center;
-}
-
-/* Contenedor de la tarjeta de login */
-.login-card-container {
-  display: flex;
-  justify-content: flex-end;
-  margin-top: -10vh; /* Para “solapar” la tarjeta sobre la sección hero */
-  margin-bottom: 2rem;
-  position: relative;
-  z-index: 1;
-}
-
-/* Tarjeta de login (derecha) */
-.login-card {
+/* 
+  ===== Caja derecha: formulario de login =====
+*/
+.right-box {
   background: #fff;
-  width: 90%;
-  max-width: 400px;
-  margin-right: 2rem;
-  /* ajusta si quieres más o menos sombra */
-  border-radius: 0.75rem;
+  border-radius: 8px;
+  padding: 2rem;
+  width: 360px; /* Ajusta el ancho preferido para el formulario */
 }
-
-
 </style>

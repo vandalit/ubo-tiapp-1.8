@@ -7,7 +7,7 @@
       class="col-md-4 mb-4"
     >
       <!-- Tarjeta personalizada -->
-      <div class="service-card shadow" @click="selectCard(index)">
+      <div class="service-card" @click="selectCard(index)">
         <!-- Imagen superior -->
         <div class="image-container">
           <img
@@ -49,27 +49,32 @@ function selectCard(index) {
 </script>
 
 <style scoped>
-/* 
-  Contenedor general de la tarjeta.
-  Redondeamos esquinas, aplicamos un fondo blanco y sombra (o la de Bootstrap).
-*/
 .service-card {
+  /* Forzamos un tamaño fijo de 305x305 */
+  width: 305px;
+  height: 305px;
   border-radius: 16px;
   overflow: hidden;
   background-color: #fff;
   cursor: pointer;
   position: relative;
   transition: transform 0.2s ease;
+  margin: 0 auto; /* Para centrar en su columna si gustas */
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Al hacer hover, se eleva un poco */
 .service-card:hover {
   transform: translateY(-4px);
 }
 
-/* 
-  Contenedor de la imagen arriba. 
-  Podemos añadir height fija o aspect-ratio si quieres un recorte más controlado.
-*/
+/* Contenedor de la imagen: ocupará el 70% superior (ajusta según tus gustos) */
+.image-container {
+  width: 100%;
+  height: 80%;
+}
+
+/* Imagen con object-fit cover para que rellene su contenedor sin deformarse */
 .image-container img {
   width: 100%;
   height: 100%;
@@ -77,11 +82,9 @@ function selectCard(index) {
   display: block;
 }
 
-/*
-  Área inferior donde va el nombre y el botón "+". 
-  Usamos flex para centrar el texto y posicionar el botón al costado.
-*/
+/* Zona inferior (30% restante) para el nombre y el botón "+" */
 .label-area {
+  height: 20%;
   position: relative;
   background: #fff;
   padding: 0.75rem 1rem;
@@ -92,17 +95,15 @@ function selectCard(index) {
   align-items: center;
 }
 
-/* Nombre del servicio */
+/* Estilo del nombre */
 .service-name {
   font-size: 1rem;
   font-weight: 500;
-  color: #0d2c5b; /* Ajusta al color corporativo si deseas */
+  color: #0d2c5b; /* Ajusta al color corporativo */
+  text-align: left;
 }
 
-/* 
-  El botón “+” en una cajita blanca, 
-  flotando a la derecha y levemente solapado con la tarjeta.
-*/
+/* Botón "+" flotante a la derecha */
 .plus-btn {
   position: absolute;
   right: 1rem;
@@ -111,8 +112,8 @@ function selectCard(index) {
   width: 32px;
   height: 32px;
   top: 50%;
-  transform: translateY(-50%);
-  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+  transform: translateY(-150%);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -120,7 +121,8 @@ function selectCard(index) {
 }
 
 .plus-btn i {
-  color: #0d2c5b;
+  color: #1ea3e1;
   font-size: 1.1rem;
 }
+
 </style>

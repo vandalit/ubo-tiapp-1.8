@@ -1,8 +1,10 @@
 <template>
 
   <div class="services container">
-    <h2>Servicios</h2>
-    <p> xxxxxxxx</p>
+    <div class="services-tittle">
+      <h2>Servicios</h2>
+      <p> xxxxxxxx</p>
+    </div>
     <!-- Banner de ancho completo -->
     <div class="banner">
       <img src="https://placehold.co/1500x500" alt="Banner" class="img-fluid" />
@@ -133,6 +135,10 @@ function closeCarousel() {
   border: none;
   text-decoration: underline;
   cursor: pointer;
+}
+
+.services-tittle {
+  text-align: left;
 }
 
 .fade-enter-active,

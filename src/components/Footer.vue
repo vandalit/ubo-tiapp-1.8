@@ -1,69 +1,105 @@
 <template>
-
-<footer class="bg-light py-5">
+  <footer class="page-footer bg-light pt-4 pb-3 position-relative">
     <div class="container">
       <div class="row">
-        <!-- Logo y descripción -->
-        <div class="col-md-4">
-          <h4 class="fw-bold">Logo UBO</h4>
-          <p class="text-muted">Our vision is to provide convenience and help increase your sales business.</p>
-          <div class="d-flex gap-3">
-            <a href="#" class="text-dark fs-4"><i class="fab fa-facebook"></i></a>
-            <a href="#" class="text-dark fs-4"><i class="fab fa-twitter"></i></a>
-            <a href="#" class="text-dark fs-4"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-
-        <!-- Secciones de navegación -->
-        <div class="col-md-2">
-          <h5 class="fw-bold">About</h5>
+        <!-- Columna: Equipo -->
+        <div class="col-6 col-md-2 mb-3">
+          <h6 class="fw-bold">Equipo</h6>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-muted text-decoration-none">How it works</a></li>
-            <li><a href="#" class="text-muted text-decoration-none">Featured</a></li>
-            <li><a href="#" class="text-muted text-decoration-none">Partnership</a></li>
-            <li><a href="#" class="text-muted text-decoration-none">Business Relation</a></li>
+            <li>Jefatura</li>
+            <li>Desarrolladores</li>
           </ul>
         </div>
-
-        <div class="col-md-2">
-          <h5 class="fw-bold">Community</h5>
+        <!-- Columna: Servicios -->
+        <div class="col-6 col-md-2 mb-3">
+          <h6 class="fw-bold">Servicios</h6>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-muted text-decoration-none">Events</a></li>
-            <li><a href="#" class="text-muted text-decoration-none">Blog</a></li>
-            <li><a href="#" class="text-muted text-decoration-none">Podcast</a></li>
-            <li><a href="#" class="text-muted text-decoration-none">Invite a friend</a></li>
+            <li>Registro</li>
+            <li>Consultoria</li>
+            <li>Seguridad</li>
           </ul>
         </div>
-
-        <div class="col-md-2">
-          <h5 class="fw-bold">Socials</h5>
+        <!-- Columna: Proyectos -->
+        <div class="col-6 col-md-2 mb-3">
+          <h6 class="fw-bold">Proyectos</h6>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-muted text-decoration-none">Discord</a></li>
-            <li><a href="#" class="text-muted text-decoration-none">Instagram</a></li>
-            <li><a href="#" class="text-muted text-decoration-none">Twitter</a></li>
-            <li><a href="#" class="text-muted text-decoration-none">Facebook</a></li>
+            <li>01 Proyecto TI</li>
+            <li>02 Proyecto Seguridad</li>
+            <li>03 Proyecto Laboratorio</li>
+            <li>04 Proyecto Auditorio</li>
           </ul>
+        </div>
+        <!-- Columna: Intranet -->
+        <div class="col-6 col-md-2 mb-3">
+          <h6 class="fw-bold">Intranet</h6>
+          <ul class="list-unstyled">
+            <li>Log In</li>
+          </ul>
+        </div>
+        <!-- Columna: Ticket de ayuda -->
+        <div class="col-6 col-md-2 mb-3">
+          <h6 class="fw-bold">Ticket de ayuda</h6>
         </div>
       </div>
 
-      <!-- Línea divisoria -->
-      <hr class="my-4">
-
-      <!-- Copyright y enlaces -->
-      <div class="d-flex justify-content-between text-muted">
-        <p class="mb-0">©2022 Company Name. All rights reserved</p>
-        <div>
-          <a href="#" class="text-muted text-decoration-none me-3">Privacy & Policy</a>
-          <a href="#" class="text-muted text-decoration-none">Terms & Conditions</a>
-        </div>
+      <!-- Copyright -->
+      <div class="text-center mt-3 small text-secondary">
+        © Universidad Bernardo O’Higgins
       </div>
     </div>
-  </footer>
 
+    <!-- Botón “scroll to top” en la esquina -->
+    <button class="scroll-to-top" @click="scrollToTop">
+      <i class="fa fa-arrow-up"></i>
+    </button>
+  </footer>
 </template>
 
 <script>
 export default {
-  name: "Footer",
-};
+  name: 'CustomFooter',
+  methods: {
+    scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      })
+    }
+  }
+}
 </script>
+
+<style scoped>
+.page-footer {
+  /* Color de fondo ligero; ya tenemos “bg-light” de Bootstrap */
+  box-shadow: 0 -1px 4px rgba(0,0,0,0.1);
+  /* Si quieres una pequeña sombra en el borde superior */
+}
+
+/* Botón flotante para subir al inicio */
+.scroll-to-top {
+  position: absolute;    /* o fixed si quieres que sea completamente flotante en la pantalla */
+  right: 1rem;
+  bottom: 1rem;
+  width: 40px;
+  height: 40px;
+  border: none;
+  border-radius: 50%;
+  background-color: #2f93f2; /* Ajusta al color que desees */
+  color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.scroll-to-top:hover {
+  background-color: #217dd0;
+}
+
+.scroll-to-top i {
+  font-size: 1rem;
+}
+</style>
