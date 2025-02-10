@@ -7,7 +7,9 @@ import Cybersecurity from "@/views/CybersecurityView.vue";
 import Services from "@/views/ServicesView.vue";
 import LoginView from '@/views/LoginView.vue';
 import DashboardView from '@/views/DashboardView.vue';
-import EditProject from '@/components/EditProject.vue';
+import EditProject from '@/components/EditProjectModal.vue';  // Ruta para la edición de proyectos
+import AddProjectModal from '@/components/AddProjectModal.vue';
+import AdministrarProyectos from '@/views/AdministrarProyectos.vue';
 
 
 const routes = [
@@ -19,7 +21,9 @@ const routes = [
   { path: "/cybersecurity", name: "Cybersecurity", component: Cybersecurity },
   { path: '/login', name: 'Login', component: LoginView },
   { path: '/dashboard', name: 'Dashboard', component: DashboardView },
-  { path: '/edit-project/:id', name: 'EditProject', component: EditProject }, 
+  { path: '/edit-project/:id', name: 'EditProject', component: EditProject },  // Ruta para la edición
+  { path: '/add-project', name: 'AddProject', component: AddProjectModal },
+  { path: '/admin-proyectos', name: 'AdministrarProyectos', component: AdministrarProyectos },
 ];
 
 const router = createRouter({
