@@ -28,15 +28,32 @@
         <a href="#" class="text-dark me-3">
           <i class="bi bi-search"></i>
         </a>
-        <a href="#" class="btn btn-primary">Mesa ayuda</a>
+        <a href="#" class="btn btn-primary" @click="showModal = true ">Mesa ayuda</a>
       </div>
     </div>
   </nav>
+
+        <!-- Modal “En construcción” -->
+        <UnderConstructionModal
+      :show="showModal"
+      @close="showModal = false"
+    />
+
 </template>
 
 <script>
+import UnderConstructionModal from '@/components/UnderConstructionModal.vue'
+
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  components: {
+    UnderConstructionModal
+  },
+  data() {
+    return {
+      showModal: false
+    }
+  }
 }
 </script>
 

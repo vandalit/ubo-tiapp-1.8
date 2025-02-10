@@ -5,7 +5,7 @@
       "description": "Académicos del Departamento de Tecnologías de la Información encabezaron un programa nacional de ciberseguridad en colaboración con el gobierno y empresas privadas. Este proyecto incluyó la creación de un centro de monitoreo de amenazas digitales.",
       "extendedDescription": "Aquí iría un texto más extenso con detalles del proyecto, fechas, instituciones participantes, planes a futuro, etc.",
       "image": "https://placehold.co/350x200?text=Ciberseguridad",
-      "orientation": "left",
+      "orientation": "right",
       "buttonText": "Ver noticia"
     },
     {
@@ -14,7 +14,7 @@
       "description": "Un grupo de investigadores desarrolló una plataforma de aprendizaje basada en tecnologías inmersivas, como realidad virtual y aumentada.",
       "extendedDescription": "Texto adicional: cómo se implementó la plataforma, qué instituciones la usan, resultados de las pruebas piloto, etc.",
       "image": "https://placehold.co/350x200?text=Educación",
-      "orientation": "right",
+      "orientation": "left",
       "buttonText": "Ver noticia"
     },
     {
@@ -22,6 +22,15 @@
       "title": "Nuevos avances en circuitos integrados para IA",
       "description": "Investigadores locales diseñan placas base más eficientes para procesar grandes modelos de inteligencia artificial.",
       "extendedDescription": "Detalles extra: benchmarks, colaboraciones con la industria, impacto esperado en futuros dispositivos, etc.",
+      "image": "https://placehold.co/350x200?text=Hardware+IA",
+      "orientation": "right",
+      "buttonText": "Ver noticia"
+    },
+    {
+      "id": 4,
+      "title": "-------------",
+      "description": "-----.",
+      "extendedDescription": "D----.",
       "image": "https://placehold.co/350x200?text=Hardware+IA",
       "orientation": "left",
       "buttonText": "Ver noticia"
