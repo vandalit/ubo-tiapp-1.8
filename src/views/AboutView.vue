@@ -31,19 +31,20 @@
         </transition>
 
         <!-- Separador + Botón toggle (+/-) -->
-        <hr />
+        
         <div class="toggle-container">
           <button class="toggle-button" @click="toggleText">
             <i :class="isExpanded ? 'fas fa-minus' : 'fas fa-plus'"></i>
-            {{ isExpanded ? 'Ver menos' : 'Ver más' }}
+            {{ isExpanded ? '' : '' }}
           </button>
+          <hr />
         </div>
       </div>
     </div>
 
     <!-- Sección equipo -->
     <div class="equipo">
-      <h2>Equipo</h2>
+      <!-- <h2>Equipo</h2> -->
       <div class="grillaEquipo">
         <CardTeam
           v-for="user in displayedUsers"
@@ -117,7 +118,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 /* Sección principal */
 .section {
   margin: 0;
@@ -126,7 +127,7 @@ export default {
 /* Encabezado */
 .about-header {
   text-align: left;
-  padding: 0 15px;
+  padding: 10px 0;
 }
 
 /* Banner */
@@ -163,20 +164,35 @@ export default {
 
 /* Botón de texto plegable */
 .toggle-container {
-  text-align: left; /* Para alinear el botón a la izquierda */
+  display: flex;
+  align-items: center;   /* Alinea verticalmente botón y hr */
   margin-top: 1rem;
 }
+
 .toggle-button {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  background-color: transparent;
-  border: 1px solid #ccc;
-  padding: 6px 10px;
+  background-color: $secondary-color;
+  padding: 10px;
   cursor: pointer;
   border-radius: 4px;
-  color: #333;
+  color: $light-color;
+  /* etc. */
 }
+
+hr {
+  /* Quita el borde default y define uno superior */
+  border: none;
+  border-top: 3px solid $secondary-color;
+  
+  /* Haz que el hr ocupe todo el espacio sobrante */
+  flex: 1;
+  
+  /* Separación a izquierda/derecha del botón, por ejemplo */
+  margin-left: 20px;
+  margin-right: 42vw;
+}
+
 
 /* Transición de fade para el texto */
 .fade-enter-active,
@@ -226,5 +242,13 @@ export default {
 /* Botón para "Ver equipo" / "Ver menos" */
 .show-more-button {
   margin-top: 20px;
+  background-color: $secondary-color;
+  color: $light-color;
+  border: none;
+}
+.show-more-button:hover {
+  background-color: $primary-color;
+  border: none;
+  transform: none;
 }
 </style>

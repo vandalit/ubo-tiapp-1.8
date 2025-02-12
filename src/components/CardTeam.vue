@@ -29,7 +29,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 /* Contenedor general de la tarjeta */
 .card-member {
   width: 220px;
@@ -60,7 +60,7 @@ export default {
 
 /* Parte inferior: datos y botón */
 .card-bottom {
-  background-color: #f8f9fa; /* tono gris muy claro */
+  background-color: $background-color; /* tono gris muy claro */
   padding: 15px;
   position: relative;  /* para ubicar el botón en la esquina */
   text-align: left;
@@ -89,8 +89,9 @@ export default {
   right: 15px;
   width: 28px;
   height: 28px;
-  border: 1px solid #ddd;
-  background-color: #fff;
+  /* border: 1px solid #ddd; */
+  background-color: $light-color;
+
   border-radius: 4px;
   cursor: pointer;
 
@@ -100,7 +101,7 @@ export default {
 }
 
 .expand-btn i {
-  color: #092C4C;
+  color: $secondary-color;
   font-size: 14px;
 }
 
