@@ -11,25 +11,27 @@
 
       <!-- Imagen principal con botón "Ver proyecto" en la esquina -->
       <div class="hero-image-container position-relative">
-        <img
-          src="https://placehold.co/1200x500?text=Proyecto+TI"
-          alt="Imagen de proyecto TI"
-          class="img-fluid hero-image"
-        />
+        <img src="../assets/img/pc-02.png" alt="Imagen de proyecto TI" class="img-fluid hero-image" />
         <!-- Botón en la esquina superior derecha -->
         <button class="btn btn-light btn-ver-proyecto">
           VER PROYECTO
         </button>
 
-        <!-- “Pestañas” en el pie de la imagen -->
-        <div class="hero-tabs d-flex">
-          <div class="tab-item bg-primary text-white">
+        <!-- Pestañas en el pie de la imagen -->
+        <div class="hero-tabs">
+          <!-- Primera pestaña (color primario) -->
+          <div class="tab-item tab-item-left">
             SOMOS UBO TI
           </div>
-          <div class="tab-item text-primary bg-light">
+
+          <!-- Segunda pestaña (color secundario o claro) -->
+          <div class="tab-item tab-item-right">
             Direccion De Tecnología De La Información
           </div>
         </div>
+
+
+
       </div>
     </section>
 
@@ -102,7 +104,8 @@ export default {
 .hero-title {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #0d2c5b; /* Ajusta al color corporativo */
+  color: #0d2c5b;
+  /* Ajusta al color corporativo */
   text-align: left;
 }
 
@@ -113,19 +116,24 @@ export default {
   text-align: left;
 }
 
-/* Contenedor de la imagen y elementos superpuestos */
 .hero-image-container {
   position: relative;
+  /* Mantiene una relación de aspecto 16:9 para la sección hero */
+  aspect-ratio: 22 / 9;
   border-radius: 12px;
-  overflow: hidden; /* Para redondear esquinas de la imagen */
+  overflow: hidden;
+  /* O un max-width: 100%; si quieres asegurar que no exceda el ancho del contenedor padre */
 }
 
-/* Imagen de hero con esquinas redondeadas */
 .hero-image {
   width: 100%;
-  border-radius: 12px;
+  height: 100%;
   object-fit: cover;
+  /* recorta la imagen para llenar el contenedor */
+  display: block;
+  border-radius: 12px;
 }
+
 
 /* Botón "VER PROYECTO" flotando en la esquina superior derecha */
 .btn-ver-proyecto {
@@ -137,32 +145,56 @@ export default {
   /* Usa tu color preferido, .btn-light es un ejemplo */
 }
 
+.hero-section.container {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+
 /* 
    ====== PESTAÑAS AL PIE DE LA IMAGEN ====== 
-   Simulan una barra con 2 “tab items”
-*/
+   */
+
 .hero-tabs {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 100%;
+  display: flex; 
 }
 
-/* Cada “pestaña” */
+/* Estilo genérico para ambas pestañas */
 .tab-item {
   padding: 0.8rem 1rem;
   font-size: 0.9rem;
   font-weight: 500;
+  text-align: center;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
-  /* Podrías usar outline: none; y border: none; si quieres un estilo más “pill” */
+  /* 
+    Puedes eliminar border-top si no lo deseas,
+    y usar outline: none; si quieres un estilo “pill”
+  */
 }
 
-/* 
-   El primer tab lo pintamos en azul (bg-primary text-white),
-   el segundo tab en un color claro (bg-light text-primary),
-   etc. Ajusta según tu diseño.
-*/
+/* Primera pestaña: color primario (fondo azul, texto blanco, ancho 30%) */
+.tab-item-left {
+  background-color: #0d2c5b;
+  /* Tu color primario */
+  color: #fff;
+  width: 30%;
+  /* Ajusta el % según quieras */
+}
+
+/* Segunda pestaña: color secundario (fondo claro, texto azul, ancho 70%) */
+.tab-item-right {
+  background-color: #f4f4f4;
+  /* Un gris claro, por ejemplo */
+  color: #0d2c5b;
+  /* Azul primario para el texto */
+  width: 70%;
+  /* Ajusta el % según quieras */
+}
+
 
 /*
    ====== SECCIÓN INDICADOR DE GESTIÓN SEMANAL ======
@@ -181,14 +213,17 @@ export default {
 
 /* Tarjeta de indicador (Ticket ingresados, etc.) */
 .indicator-card {
-  background-color: #f8f9fa; /* O #fff con sombra, ajusta a tu gusto */
+  background-color: #f8f9fa;
+  /* O #fff con sombra, ajusta a tu gusto */
   border-radius: 12px;
 }
+
 .indicator-number {
   font-size: 2rem;
   color: #0d2c5b;
   margin-bottom: 0.3rem;
 }
+
 .indicator-label {
   font-size: 0.8rem;
   color: #5a5a5a;

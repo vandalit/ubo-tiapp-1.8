@@ -91,6 +91,10 @@ function closeCarousel() {
 </script>
 
 <style scoped>
+.container {
+  background-color: rgb(255, 255, 255);
+}
+
 .services-view {
   /* Estilos que cnecesites */
   color: brown;

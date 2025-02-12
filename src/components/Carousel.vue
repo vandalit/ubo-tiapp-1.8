@@ -185,7 +185,7 @@ function prevSlide() {
 /* Footer con flechas y botón “Login” en la misma fila */
 .content-footer {
   display: flex;
-  align-items: center; 
+  align-items: flex-end; 
   justify-content: space-between; /* O space-between si quieres separarlos */
 }
 
@@ -218,4 +218,47 @@ function prevSlide() {
   background: #1ea3e1;
   align-self: flex-end;
 }
+
+@media (max-width: 768px) {
+  /* Contenedor principal: de fila a columna */
+  .carousel-card {
+    flex-direction: column;   /* Apila la imagen encima del texto */
+    max-width: 100%;         /* Ocupa todo el ancho del contenedor */
+    margin-bottom: 2rem;     /* Un extra de espacio al final si quieres */
+  }
+
+  /* Área de la imagen ahora ocupa 100% de ancho */
+  .image-area {
+    flex: 0 0 auto; 
+    width: 100%;
+    margin-bottom: 1rem; /* espaciado entre imagen y texto */
+  }
+
+  /* Ajusta el alto de la imagen si lo prefieres */
+  .service-img {
+    /* En móvil tal vez quieras las esquinas redondeadas solo arriba, etc.
+       Puedes mantener el actual border-radius o modificarlo, por ejemplo: */
+    border-radius: 16px 16px 0 0;
+  }
+
+  /* El área de contenido se posiciona debajo, con menos padding si deseas */
+  .content-area {
+    padding: 1rem;
+    min-height: auto; /* Quita la altura mínima si no la necesitas */
+  }
+
+  /* Footer de flechas + botón: puedes alinear en columna si gustas */
+  .content-footer {
+    flex-direction: column;
+    align-items: flex-start;  /* O 'center', según desees */
+    gap: 1rem;               /* Separación entre flechas y botón */
+  }
+
+  /* Flechas en un contenedor horizontal,
+     pero podrías hacerlas verticales si lo prefieres */
+  .carousel-nav {
+    margin-bottom: 0.5rem;
+  }
+}
+
 </style>
