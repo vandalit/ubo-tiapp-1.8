@@ -275,4 +275,62 @@ export default {
   letter-spacing: 0%;
 
 }
+
+@media (max-width: 768px) {
+  .hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .hero-subtitle {
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  .hero-image-container {
+    width: 100%;
+    height: 70vh;
+    aspect-ratio: unset;
+    position: relative;
+  }
+
+  .hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  /* 🔥 Asegurar que las pestañas estén por encima de la imagen */
+  .hero-tabs {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 20; /* Máxima prioridad */
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.9); /* Asegurar contraste */
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .tab-item {
+    font-size: 20px;
+    padding: 1rem;
+  }
+
+  .tab-item-left,
+  .tab-item-right {
+    width: 100%;
+    border-radius: 0;
+  }
+}
+
 </style>
