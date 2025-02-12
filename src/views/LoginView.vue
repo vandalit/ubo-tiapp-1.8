@@ -172,4 +172,24 @@ export default {
   padding: 2rem;
   width: 360px; /* Ajusta el ancho preferido para el formulario */
 }
+
+/* ==== Ajuste Responsivo ==== */
+@media (max-width: 767px) {
+  .centered-content {
+    flex-direction: column; /* Cambia de lado a lado a apilado */
+    gap: 1rem; /* Reduce el espacio entre el logo y el formulario */
+    padding: 1rem; /* Ajusta el padding para evitar bordes pegados */
+  }
+
+  .left-box {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    padding: 1.5rem; /* Ajuste del padding */
+  }
+
+  .right-box {
+    width: 100%; /* Ocupa todo el ancho */
+    max-width: 360px; /* No crece demasiado en pantallas grandes */
+  }
+}
+
 </style>
