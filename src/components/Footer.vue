@@ -179,5 +179,8 @@ export default {
   .footer-last {
     text-align: left;
   }
+  .scroll-up {
+    bottom: 500px; /* Lo posicionamos 100px sobre el footer */
+  }
 }
 </style>
