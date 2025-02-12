@@ -34,9 +34,8 @@
 
       </div>
     </section>
-
     <!-- ====================== INDICADOR DE GESTIÓN SEMANAL ====================== -->
-    <section class="container">
+    <section class="container titulo-gestion-semanal">
       <div class="row mb-3">
         <div class="col">
           <h2 class="section-title">Indicador de gestión semanal</h2>
@@ -44,31 +43,32 @@
         </div>
       </div>
 
-      <!-- Tarjetas de indicadores -->
-      <div class="row g-3">
+      <!-- Contenedor de tarjetas -->
+      <div class="row justify-content-center tarjetas-indicadores">
         <!-- Tarjeta 1 -->
-        <div class="col-12 col-sm-6 col-md-4">
-          <div class="indicator-card shadow-sm p-3 rounded text-center">
+        <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+          <div class="indicator-card">
             <h3 class="indicator-number">382</h3>
             <p class="indicator-label">TICKET INGRESADOS</p>
           </div>
         </div>
         <!-- Tarjeta 2 -->
-        <div class="col-12 col-sm-6 col-md-4">
-          <div class="indicator-card shadow-sm p-3 rounded text-center">
+        <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+          <div class="indicator-card">
             <h3 class="indicator-number">158</h3>
             <p class="indicator-label">TICKET EN ATENCIÓN</p>
           </div>
         </div>
         <!-- Tarjeta 3 -->
-        <div class="col-12 col-sm-6 col-md-4">
-          <div class="indicator-card shadow-sm p-3 rounded text-center">
+        <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
+          <div class="indicator-card">
             <h3 class="indicator-number">241</h3>
             <p class="indicator-label">TICKET RESUELTOS</p>
           </div>
         </div>
       </div>
     </section>
+
 
   </div>
 </template>
@@ -83,7 +83,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 /* 
    ====== CONTENEDOR GENERAL ====== 
    Ajusta márgenes / fondos globales aquí
@@ -119,7 +119,7 @@ export default {
 .hero-image-container {
   position: relative;
   /* Mantiene una relación de aspecto 16:9 para la sección hero */
-  aspect-ratio: 22 / 9;
+  aspect-ratio: 2.34 / 1;
   border-radius: 12px;
   overflow: hidden;
   /* O un max-width: 100%; si quieres asegurar que no exceda el ancho del contenedor padre */
@@ -159,17 +159,20 @@ export default {
   bottom: 0;
   left: 0;
   width: 100%;
-  display: flex; 
+  display: flex;
+  background-color: #f4f4f4;
 }
 
 /* Estilo genérico para ambas pestañas */
 .tab-item {
-  padding: 0.8rem 1rem;
-  font-size: 0.9rem;
-  font-weight: 500;
+  padding: 1.8rem 1rem;
   text-align: center;
-  border-top-left-radius: 12px;
-  border-top-right-radius: 12px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 37.5px;
+  align-self: flex-end;
+
   /* 
     Puedes eliminar border-top si no lo deseas,
     y usar outline: none; si quieres un estilo “pill”
@@ -182,7 +185,7 @@ export default {
   /* Tu color primario */
   color: #fff;
   width: 30%;
-  /* Ajusta el % según quieras */
+  border-top-right-radius: 12px;
 }
 
 /* Segunda pestaña: color secundario (fondo claro, texto azul, ancho 70%) */
@@ -195,38 +198,81 @@ export default {
   /* Ajusta el % según quieras */
 }
 
+/* indicadores*/
 
-/*
-   ====== SECCIÓN INDICADOR DE GESTIÓN SEMANAL ======
-*/
-.section-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #0d2c5b;
+.titulo-gestion-semanal {
+  text-align: left;
 }
 
-.section-subtitle {
-  font-size: 0.9rem;
-  color: #737373;
-  margin-bottom: 1rem;
+.tarjetas-indicadores {
+  display: flex;
+  justify-content: center;
+  /* Centra todas las tarjetas */
+  align-items: center;
+  flex-wrap: nowrap;
+  /* Evita que una tarjeta baje de línea en desktop */
+  gap: 2rem;
+  /* Ajusta el espacio entre las tarjetas */
+  max-width: 1000px;
+  /* Asegura que las tarjetas se distribuyan correctamente */
+  margin: 0 auto;
+  /* Centra el contenedor */
+  margin-bottom: 100px;
 }
 
-/* Tarjeta de indicador (Ticket ingresados, etc.) */
+/* Ajusta el tamaño y evita que las tarjetas sean demasiado pequeñas */
 .indicator-card {
-  background-color: #f8f9fa;
-  /* O #fff con sombra, ajusta a tu gusto */
-  border-radius: 12px;
+  background-color: $background-color;
+  color: $primary-color;
+  border-radius: 15px;
+  max-width: 320px;
+  /* Asegura que sean más grandes */
+  width: 100%;
+  min-height: 140px;
+  text-align: center;
+  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.102);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.5rem;
 }
+
+/* Corrección para pantallas medianas */
+@media (max-width: 1024px) {
+  .tarjetas-indicadores {
+    flex-wrap: wrap;
+    /* Permite que las tarjetas se acomoden correctamente */
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Responsividad para mobile */
+@media (max-width: 768px) {
+  .tarjetas-indicadores {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+
 
 .indicator-number {
-  font-size: 2rem;
-  color: #0d2c5b;
-  margin-bottom: 0.3rem;
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 75px;
+  letter-spacing: 0%;
+
 }
 
 .indicator-label {
-  font-size: 0.8rem;
-  color: #5a5a5a;
-  margin: 0;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28.13px;
+  letter-spacing: 0%;
+
 }
 </style>

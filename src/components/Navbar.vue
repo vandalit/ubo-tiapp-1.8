@@ -3,20 +3,11 @@
     <div class="container">
       <!-- Logo -->
       <router-link to="/" class="navbar-brand">
-        <img
-          src="../assets/img/Marca-UBO.png"
-          alt="Logo UBO"
-          style="height: 60px;"
-        />
+        <img src="../assets/img/Marca-UBO.png" alt="Logo UBO" style="height: 60px;" />
       </router-link>
 
       <!-- Botón hamburguesa en móvil -->
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarNav"
-      >
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
         <span class="navbar-toggler-icon"></span>
       </button>
 
@@ -40,34 +31,21 @@
         <!-- Sección derecha: lupa, barra de búsqueda inline y botón Mesa de Ayuda -->
         <div class="d-flex align-items-center">
           <!-- Icono lupa que togglea el input -->
-          <button
-            class="btn btn-link me-2"
-            @click="toggleSearch"
-            title="Buscar"
-          >
+          <button class="btn btn-link me-2" @click="toggleSearch" title="Buscar">
             <i class="fa fa-search"></i>
           </button>
 
           <!-- Barra de búsqueda inline (aparece si showSearch es true) -->
-          <div
-            class="search-inline d-flex align-items-center"
-            v-if="showSearch"
-          >
-            <input
-              ref="searchInput"
-              v-model="searchTerm"
-              type="text"
-              class="form-control form-control-sm me-2"
-              placeholder="Buscar..."
-              @keyup.enter="doSearch"
-            />
-            <button class="btn btn-sm btn-outline-primary me-3" @click="doSearch">
+          <div class="search-inline d-flex align-items-center" v-if="showSearch">
+            <input ref="searchInput" v-model="searchTerm" type="text" class="form-control form-control-sm me-2"
+              placeholder="Buscar..." @keyup.enter="doSearch" />
+            <!-- <button class="btn btn-sm btn-outline-primary me-3" @click="doSearch">
               Buscar
-            </button>
+            </button> -->
           </div>
 
           <!-- Botón Mesa de Ayuda TI -->
-          <button class="btn btn-primary" @click="showModal = true ">
+          <button class="btn btn-primary" @click="showModal = true">
             MESA DE AYUDA TI
           </button>
         </div>
@@ -114,21 +92,68 @@ export default {
 }
 </script>
 
-<style scoped>
-
+<style scoped lang="scss">
 nav {
-  background-color: #fff;
-  margin-top: 5px;
-  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.2);
+  background-color: $secondary-color;
+  margin-top: 15px;
+  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
 }
+
 /* Puedes personalizar la apariencia de la barra de búsqueda inline */
 .search-inline {
-  max-width: 250px; /* Ajusta el ancho si quieres */
+  max-width: 250px;
+  /* Ajusta el ancho si quieres */
 }
+
 .btn-primary {
-  background-color: rgb(0, 136, 241);
+  background-color: $primary-color;
+  border-radius: 25px;
+  padding: 15px;
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 18.75px;
+  letter-spacing: 0%;
+
+
 }
+
+.btn-primary:hover {
+  background-color: $secondary-color;
+  border-color: $secondary-color;
+
+}
+
 .navbar-brand {
-  margin: -1rem 3rem -1rem 0rem;
+  margin: -2rem 4rem -2rem 0rem;
+}
+
+/* Navegación */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 0.25rem;
+
+  .nav-link {
+    text-decoration: none;
+    color: $primary-color;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+      color: $secondary-color;
+    }
+  }
+}
+
+.fa-search {
+  color: $primary-color;
+}
+
+nav div.container {
+  padding: 5px 0px;
 }
 </style>
