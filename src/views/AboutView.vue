@@ -1,125 +1,138 @@
 <template>
+  <div>
+    <!-- Sección principal / Hero -->
+    <div class="section">
+      <div class="about-header container">
+        <h2>Nosotros</h2>
+        <p>nuestro equipo TI</p>
+      </div>
 
-  <div class="section">
-    <h2>Nosotros</h2>
-    <p> nuestro equipo TI</p>
-    <!-- Banner de ancho completo -->
-    <div class="banner">
-      <img src="https://placehold.co/1500x500" alt="Banner" class="img-fluid" />
-    </div>
+      <!-- Banner de ancho completo -->
+      <div class="banner">
+        <img src="https://placehold.co/1500x500" alt="Banner" class="img-fluid" />
+      </div>
 
-    <!-- Título y descripción -->
-    <div class="content">
-
-
-      <h3>Dirección de Tecnologías de la Información</h3>
-      <p>
-        La Dirección de Tecnologías de la Información de la Universidad Bernardo O’Higgins, se especializa en la
-        gestión y supervisión de los recursos tecnológicos, ofreciendo soporte esencial y promoviendo el desarrollo de
-        sistemas que sustentan tanto las operaciones académicas como financieras.
-      </p>
-
-      <!-- Descripción expandida -->
-      <transition name="fade">
-        <p v-if="isExpanded">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt placeat unde in quod tempora molestiae minima 
-          numquam, iste explicabo quia saepe. Laboriosam, officiis? Quisquam nulla ipsa soluta. Tempore, quo nobis!
+      <!-- Contenido: descripción y texto expandible -->
+      <div class="content container">
+        <h3>Dirección de Tecnologías de la Información</h3>
+        <p>
+          La Dirección de Tecnologías de la Información de la Universidad Bernardo O’Higgins, se especializa en la
+          gestión y supervisión de los recursos tecnológicos, ofreciendo soporte esencial y promoviendo el desarrollo
+          de sistemas que sustentan tanto las operaciones académicas como financieras.
         </p>
-      </transition>
 
-      <!-- Botón para expandir la descripción -->
-      <button @click="toggleText" class="btn btn-link">
-        <i class="fas fa-plus"></i> Ver más
+        <!-- Texto adicional con transición -->
+        <transition name="fade">
+          <p v-if="isExpanded">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt placeat unde in quod tempora molestiae
+            minima numquam, iste explicabo quia saepe. Laboriosam, officiis? Quisquam nulla ipsa soluta. Tempore, quo
+            nobis!
+          </p>
+        </transition>
+
+        <!-- Separador + Botón toggle (+/-) -->
+        <hr />
+        <div class="toggle-container">
+          <button class="toggle-button" @click="toggleText">
+            <i :class="isExpanded ? 'fas fa-minus' : 'fas fa-plus'"></i>
+            {{ isExpanded ? 'Ver menos' : 'Ver más' }}
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección equipo -->
+    <div class="equipo">
+      <h2>Equipo</h2>
+      <div class="grillaEquipo">
+        <CardTeam
+          v-for="user in displayedUsers"
+          :key="user.id"
+          :user="user"
+          @open-modal="openModal"
+        />
+      </div>
+      <button class="btn btn-primary show-more-button" @click="toggleView">
+        {{ showAll ? 'Ver menos' : 'Ver equipo' }}
       </button>
-
-      <br>
-      <br>
-      <br>
     </div>
-  </div>
 
-  <div class="equipo">
-    <h2>Equipo</h2>
-    <div class="row g-4 grillaEquipo"> <!-- g-4 para el espaciado entre las tarjetas -->
-      <!-- Mostrar las tarjetas -->
-      <Card v-for="user in displayedUsers" :key="user.id" :user="user" />
-    </div>
-    <button class="btn btn-primary" @click="toggleView">
-      {{ showAll ? 'Ver menos' : 'Ver equipo' }}
-    </button>
+    <!-- Modal FichaExpandida -->
+    <FichaExpandida
+      :user="selectedUser"
+      :visible="isModalVisible"
+      @close="isModalVisible = false"
+    />
   </div>
 </template>
 
 <script>
 import { ref } from 'vue';
-import Card from '@/components/CardTeam.vue';
-import teamData from '@/assets/equipo.json'; // Asegúrate de tener la ruta correcta al archivo JSON
+import CardTeam from '@/components/CardTeam.vue';
+import FichaExpandida from '@/components/FichaExpandida.vue';
+import teamData from '@/assets/equipo.json';
 
 export default {
-  name: 'About',
+  name: 'AboutView',
   components: {
-    Card
+    CardTeam,
+    FichaExpandida
   },
   setup() {
-    const isExpanded = ref(false); // Controla si el texto está expandido
+    // Texto expandible
+    const isExpanded = ref(false);
     const toggleText = () => {
-      isExpanded.value = !isExpanded.value; // Alterna el estado de expansión
+      isExpanded.value = !isExpanded.value;
     };
 
-
-    const showAll = ref(false); // Controla si se muestran todas las cards
-    // Mostrar las primeras 3 cards por defecto
+    // Mostramos 3 usuarios por defecto, luego expandimos
+    const showAll = ref(false);
     const displayedUsers = ref(teamData.slice(0, 3));
+
     const toggleView = () => {
       showAll.value = !showAll.value;
       displayedUsers.value = showAll.value ? teamData : teamData.slice(0, 3);
     };
 
+    // Modal: ficha expandida
+    const isModalVisible = ref(false);
+    const selectedUser = ref({});
+
+    const openModal = (user) => {
+      selectedUser.value = user;
+      isModalVisible.value = true;
+    };
+
     return {
+      isExpanded,
+      toggleText,
       showAll,
       displayedUsers,
       toggleView,
-      teamData,
-      isExpanded,
-      toggleText
+      isModalVisible,
+      selectedUser,
+      openModal
     };
   }
 };
 </script>
 
 <style scoped>
-button {
-  margin-top: 20px;
-}
-
-.grillaEquipo {
-  margin-left: 200px;
-  margin-right: 200px;
-}
-
-.equipo {
-  padding: 40px;
-}
-
-@media screen and (max-width: 768px) { 
-
-  .grillaEquipo {
-    margin-left: 0px;
-    margin-right: 0px;
-
-  }
-  
-}
-
-
+/* Sección principal */
 .section {
-  margin: 0px;
+  margin: 0;
 }
 
+/* Encabezado */
+.about-header {
+  text-align: left;
+  padding: 0 15px;
+}
+
+/* Banner */
 .banner {
   width: 100%;
-  height: 300px;
-  /* Ajusta la altura del banner */
+  height: 300px; /* Ajusta la altura del banner */
   background-color: #ccc;
 }
 
@@ -129,9 +142,11 @@ button {
   object-fit: cover;
 }
 
+/* Contenido */
 .content {
   margin-top: 20px;
-  padding: 40px;
+  padding: 10px 40px;
+  text-align: left; /* Alineación a la izquierda */
 }
 
 .content h2,
@@ -143,23 +158,73 @@ button {
 .content p {
   font-size: 1rem;
   line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
-.btn-link {
-  color: #007bff;
-  background: none;
-  border: none;
-  text-decoration: underline;
+/* Botón de texto plegable */
+.toggle-container {
+  text-align: left; /* Para alinear el botón a la izquierda */
+  margin-top: 1rem;
+}
+.toggle-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: transparent;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
   cursor: pointer;
+  border-radius: 4px;
+  color: #333;
 }
 
+/* Transición de fade para el texto */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.1s ease;
+  transition: opacity 0.2s ease;
 }
-
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+/* Sección equipo */
+.equipo {
+  padding: 40px 0;
+  text-align: center; /* Centra el encabezado "Equipo" */
+}
+
+.card-member {
+  margin: 0 auto;
+}
+
+/* Grilla de tarjetas */
+.grillaEquipo {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;           /* Espacio entre tarjetas */
+  max-width: 1140px;   /* Ancho máximo del contenedor */
+  margin: 0 auto;      /* Centra todo el grid */
+  padding: 0 40px;     /* Margen interno a izquierda/derecha para "aire" */
+  margin-bottom: 20px; /* Separación con el botón */
+}
+
+/* Ajuste a 2 columnas en pantallas medianas */
+@media (max-width: 992px) {
+  .grillaEquipo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Una sola columna en pantallas pequeñas */
+@media (max-width: 576px) {
+  .grillaEquipo {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Botón para "Ver equipo" / "Ver menos" */
+.show-more-button {
+  margin-top: 20px;
 }
 </style>

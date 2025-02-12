@@ -1,60 +1,115 @@
 <template>
-  <div class="col-12 col-md-4 ">
-    <!-- Añadir estas clases para asegurar que cada tarjeta ocupa 4 columnas en pantallas medianas -->
-    <div class="card">
-      <!-- Contenedor de imagen centrado -->
-      <div class="img-container">
-        <img :src="user.image" class="card-img-top" alt="Imagen de usuario" />
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">{{ user.name }}</h5>
-        <p class="card-text">{{ user.role }}</p>
-      </div>
+  <div class="card-member">
+    <!-- Parte superior (imagen) -->
+    <div class="card-top">
+      <img :src="user.image" alt="Foto de usuario" />
+    </div>
+
+    <!-- Parte inferior (datos + botón) -->
+    <div class="card-bottom">
+      <h4 class="user-name">{{ user.name }}</h4>
+      <p class="user-role">{{ user.role }}</p>
+      <!-- Botón para abrir el modal con más detalles -->
+      <button class="expand-btn" @click="$emit('open-modal', user)">
+        <i class="fas fa-plus"></i>
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Card',
+  name: 'CardTeam',
   props: {
-    user: Object
+    user: {
+      type: Object,
+      required: true
+    }
   }
 };
 </script>
 
 <style scoped>
-.card {
-  width: 18rem;
-  margin: 10px;
+/* Contenedor general de la tarjeta */
+.card-member {
+  width: 220px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
-.img-container {
+/* Parte superior: imagen centrada */
+.card-top {
+  background-color: #ffffff;
+  padding: 20px;
   display: flex;
   justify-content: center;
-  /* Centra horizontalmente */
   align-items: center;
-  /* Centra verticalmente */
-  height: 200px;
-  /* Establece una altura para el contenedor de la imagen */
 }
 
-.card-img-top {
-  width: 150px;
-  /* Ajusta el tamaño según tus necesidades */
-  height: 150px;
-  /* Asegúrate de que la imagen tenga la misma altura y anchura */
-  object-fit: cover;
-  /* Para asegurar que la imagen cubra todo el espacio sin distorsionarse */
+.card-top img {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  /* Hace que la imagen sea circular */
+  object-fit: cover;
 }
 
-@media screen and (max-width: 768px) {
-  .card {
+/* Parte inferior: datos y botón */
+.card-bottom {
+  background-color: #f8f9fa; /* tono gris muy claro */
+  padding: 15px;
+  position: relative;  /* para ubicar el botón en la esquina */
+  text-align: left;
+}
+
+/* Nombre del miembro */
+.user-name {
+  font-size: 1rem;
+  font-weight: 600; /* semi-bold */
+  color: #092C4C;    /* color aproximado al azul oscuro del mockup */
+  margin-bottom: 5px;
+}
+
+/* Rol o cargo del miembro */
+.user-role {
+  font-size: 0.85rem;
+  color: #666;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* Botón (+) en la esquina inferior derecha */
+.expand-btn {
+  position: absolute;
+  bottom: 15px;
+  right: 15px;
+  width: 28px;
+  height: 28px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.expand-btn i {
+  color: #092C4C;
+  font-size: 14px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 768px) {
+  .card-member {
     width: 100%;
-    margin: 10px auto; /* Centra la tarjeta */
+    max-width: 240px;
+    margin: 0 auto;
   }
-  
 }
 </style>
