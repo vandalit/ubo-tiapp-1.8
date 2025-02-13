@@ -1,45 +1,47 @@
 <template>
 
-  <div class="services container">
-    <div class="cyber-tittle">
-      <h2>Cyberseguridad</h2>
-      <p> xxxxxxxx</p>
-    </div>
-    
-    <!-- Banner de ancho completo -->
-    <div class="banner">
-      <img src="https://placehold.co/1500x500" alt="Banner" class="img-fluid" />
-    </div>
 
-    <!-- Título y descripción -->
-    <div class="content">
+    <!-- Sección principal / Hero -->
+    <div class="section">
+      <div class="about-header container">
+        <h2>CIBERSEGURIDAD</h2>
+        <p>nuestro equipo TI</p>
+      </div>
 
+      <!-- Banner de ancho completo -->
+      <div class="banner">
+        <img src="https://placehold.co/1500x500" alt="Banner" class="img-fluid" />
+      </div>
 
-      <h3>Dirección de Tecnologías de la Información</h3>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit voluptatem cum saepe quasi error animi
-        cupiditate, ab rerum magnam, rem, exercitationem eveniet ipsum laudantium autem fugiat ipsa quas amet quos?
-      </p>
-
-      <!-- Descripción expandida -->
-      <transition name="fade">
-        <p v-if="isExpanded">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. In quisquam hic, tenetur ullam fugiat a quae nostrum
-          quo inventore labore aliquid dolorem eos nihil. Harum, in qui. Quia, enim pariatur?
+      <!-- Contenido: descripción y texto expandible -->
+      <div class="content container">
+        <h3>Dirección de Tecnologías de la Información</h3>
+        <p>
+          La Dirección de Tecnologías de la Información de la Universidad Bernardo O’Higgins, se especializa en la
+          gestión y supervisión de los recursos tecnológicos, ofreciendo soporte esencial y promoviendo el desarrollo
+          de sistemas que sustentan tanto las operaciones académicas como financieras.
         </p>
-      </transition>
 
-      <!-- Botón para expandir la descripción -->
-      <button @click="toggleText" class="btn btn-link">
-        <i class="fas fa-plus"></i> Ver más
-      </button>
+        <!-- Texto adicional con transición -->
+        <transition name="fade">
+          <p v-if="isExpanded">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt placeat unde in quod tempora molestiae
+            minima numquam, iste explicabo quia saepe. Laboriosam, officiis? Quisquam nulla ipsa soluta. Tempore, quo
+            nobis!
+          </p>
+        </transition>
 
-      <br>
-      <br>
-      <br>
+        <!-- Separador + Botón toggle (+/-) -->
+        
+        <div class="toggle-container">
+          <button class="toggle-button" @click="toggleText">
+            <i :class="isExpanded ? 'fas fa-minus' : 'fas fa-plus'"></i>
+            {{ isExpanded ? '' : '' }}
+          </button>
+          <hr />
+        </div>
+      </div>
     </div>
-  </div>
-
 
 
 
@@ -60,25 +62,25 @@ import CardGrid from '@/components/CardGrid.vue'
 import Carousel from '@/components/Carousel.vue'
 
 // Importamos el JSON (o fetch si es remoto)
-import cyberData  from '@/assets/cybersecurity.json'
+import cyberData from '@/assets/cybersecurity.json'
 
 // Control de datos
 const services = ref([])
 const isCarouselView = ref(false)
 const selectedIndex = ref(0)
 
-// Estado adicional para controlar si está expandido
+// Texto expandible (nuevo toggle)
 const isExpanded = ref(false)
-function toggleText() {
+const toggleText = () => {
   isExpanded.value = !isExpanded.value
 }
 
 // Cargamos los datos al montar
 onMounted(() => {
-  services.value = cyberData 
+  services.value = cyberData
 })
 
-// Cuando se selecciona un servicio en la grilla, abrimos carrusel
+// Cuando se selecciona un servicio en la grilla, abrimos el carrusel
 function openCarousel(index) {
   selectedIndex.value = index
   isCarouselView.value = true
@@ -88,23 +90,25 @@ function openCarousel(index) {
 function closeCarousel() {
   isCarouselView.value = false
 }
-
 </script>
 
-<style scoped>
-.services-view {
-  /* Estilos que cnecesites */
-  color: brown;
-}
 
+<style scoped lang="scss">
+/* Sección principal */
 .section {
-  margin: 0px;
+  margin: 0;
 }
 
+/* Encabezado */
+.about-header {
+  text-align: left;
+  padding: 10px 0;
+}
+
+/* Banner */
 .banner {
   width: 100%;
-  height: 300px;
-  /* Ajusta la altura del banner */
+  height: 300px; /* Ajusta la altura del banner */
   background-color: #ccc;
 }
 
@@ -114,9 +118,11 @@ function closeCarousel() {
   object-fit: cover;
 }
 
+/* Contenido */
 .content {
   margin-top: 20px;
-  padding: 40px;
+  padding: 10px 40px;
+  text-align: left; /* Alineación a la izquierda */
 }
 
 .content h2,
@@ -128,27 +134,49 @@ function closeCarousel() {
 .content p {
   font-size: 1rem;
   line-height: 1.5;
+  margin-bottom: 1rem;
 }
 
-.cyber-tittle {
-  text-align: left;
+/* Botón de texto plegable */
+.toggle-container {
+  display: flex;
+  align-items: center;   /* Alinea verticalmente botón y hr */
+  margin-top: 1rem;
 }
 
-.btn-link {
-  color: #007bff;
-  background: none;
-  border: none;
-  text-decoration: underline;
+.toggle-button {
+  display: inline-flex;
+  align-items: center;
+  background-color: $secondary-color;
+  padding: 10px;
   cursor: pointer;
+  border-radius: 4px;
+  color: $light-color;
+  /* etc. */
 }
 
+hr {
+  /* Quita el borde default y define uno superior */
+  border: none;
+  border-top: 3px solid $secondary-color;
+  
+  /* Haz que el hr ocupe todo el espacio sobrante */
+  flex: 1;
+  
+  /* Separación a izquierda/derecha del botón, por ejemplo */
+  margin-left: 20px;
+  margin-right: 42vw;
+}
+
+
+/* Transición de fade para el texto */
 .fade-enter-active,
 .fade-leave-active {
-  transition: opacity 0.1s ease;
+  transition: opacity 0.2s ease;
 }
-
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
 }
+
 </style>
