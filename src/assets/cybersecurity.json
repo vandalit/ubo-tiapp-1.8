@@ -3,7 +3,7 @@
       "name": "Registrar Incidente",
       "image": "https://placehold.co/200x100?text=Registrar+Incidente",
       "description": "Permite reportar cualquier incidente de ciberseguridad a través de un formulario centralizado, asegurando la trazabilidad y una respuesta rápida.",
-      "button_active": true,
+      "button_active": false,
       "button_text": "Ir a Formulario",
       "button_route": "/registro-incidente"
     },
@@ -19,7 +19,7 @@
       "name": "Phishing",
       "image": "https://placehold.co/200x100?text=Phishing",
       "description": "Entrenamiento para identificar y reportar correos electrónicos maliciosos que buscan robar información sensible.",
-      "button_active": true,
+      "button_active": false,
       "button_text": "Aprender más",
       "button_route": "/phishing-info"
     },
