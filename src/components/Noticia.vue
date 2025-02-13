@@ -57,6 +57,7 @@ function openModal() {
   margin-bottom: 40px;
   /* text-align: right; */
   text-align: left; /*si no iteran*/
+  margin: 0 40px;
 
 }
 
@@ -65,6 +66,7 @@ function openModal() {
   flex-direction: row-reverse;
   padding: 10px 0px 10px 10px;
   /* text-align: left; */
+  margin: 0 40px;
 }
 
 /* Imagen */
@@ -100,5 +102,30 @@ function openModal() {
   width: 60%;
   padding: 40px;
   margin: auto;
+}
+
+
+/* MEDIA QUERY PARA RESPONSIVE */
+@media (max-width: 768px) {
+  .noticia-container, .noticia-container.reverse {
+    flex-direction: column !important; /* Cambia a columna en pantallas pequeñas */
+    text-align: center;
+    padding: 15px;
+  }
+
+  .noticia-img {
+    width: 100%; /* Imagen ocupa todo el ancho */
+    margin-top: 0; /* Eliminar el efecto de sobresalir */
+  }
+
+  .noticia-content {
+    width: 100%; /* Texto también ocupa todo el ancho */
+  }
+
+  /* Corrección de bordes redondeados en móvil */
+  .img-left img,
+  .img-right img {
+    border-radius: 15px 15px 0 0; /* Solo redondeamos arriba */
+  }
 }
 </style>
