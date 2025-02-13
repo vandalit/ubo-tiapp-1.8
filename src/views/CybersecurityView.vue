@@ -4,8 +4,8 @@
     <!-- Sección principal / Hero -->
     <div class="section">
       <div class="about-header container">
-        <h2>CIBERSEGURIDAD</h2>
-        <p>nuestro equipo TI</p>
+        <h2>Ciberseguridad</h2>
+        <p>en sistemas TI</p>
       </div>
 
       <!-- Banner de ancho completo -->
@@ -14,39 +14,42 @@
       </div>
 
       <!-- Contenido: descripción y texto expandible -->
-      <div class="content container">
+      <!-- <div class="content container">
         <h3>Dirección de Tecnologías de la Información</h3>
         <p>
           La Dirección de Tecnologías de la Información de la Universidad Bernardo O’Higgins, se especializa en la
           gestión y supervisión de los recursos tecnológicos, ofreciendo soporte esencial y promoviendo el desarrollo
           de sistemas que sustentan tanto las operaciones académicas como financieras.
-        </p>
+        </p> -->
 
         <!-- Texto adicional con transición -->
-        <transition name="fade">
+        <!-- <transition name="fade">
           <p v-if="isExpanded">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt placeat unde in quod tempora molestiae
             minima numquam, iste explicabo quia saepe. Laboriosam, officiis? Quisquam nulla ipsa soluta. Tempore, quo
             nobis!
           </p>
-        </transition>
+        </transition> -->
 
         <!-- Separador + Botón toggle (+/-) -->
         
-        <div class="toggle-container">
+        <!-- <div class="toggle-container">
           <button class="toggle-button" @click="toggleText">
             <i :class="isExpanded ? 'fas fa-minus' : 'fas fa-plus'"></i>
             {{ isExpanded ? '' : '' }}
           </button>
           <hr />
         </div>
-      </div>
+      </div> -->
     </div>
 
+    <br>
+    <br>
+    <br>
 
 
   <div class="services-view container">
-    <h1>Servicios</h1>
+    <!-- <h1>Servicios</h1> -->
 
     <!-- Condicional: si NO estamos en carrusel, muestra la grilla -->
     <CardGrid v-if="!isCarouselView" :services="services" @selectService="openCarousel" />

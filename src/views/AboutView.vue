@@ -24,9 +24,11 @@
         <!-- Texto adicional con transición -->
         <transition name="fade">
           <p v-if="isExpanded">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt placeat unde in quod tempora molestiae
-            minima numquam, iste explicabo quia saepe. Laboriosam, officiis? Quisquam nulla ipsa soluta. Tempore, quo
-            nobis!
+            Esta dirección asume la responsabilidad integral de la administración de infraestructuras de 
+<strong>servidores y red, bases de datos, aplicaciones de software y la seguridad informática</strong>, además de impulsar 
+iniciativas innovadoras. Se compromete firmemente con la actualización tecnológica continua y la capacitación 
+efectiva de los usuarios, garantizando así que las soluciones de TI se encuentren sincronizadas con los objetivos 
+estratégicos y las demandas específicas de la Universidad.
           </p>
         </transition>
 
