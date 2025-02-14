@@ -44,11 +44,11 @@ function openModal() {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .noticia-container {
   display: flex;
   /* align-items: center; */
-  background-color: #f8f8f8;
+  background-color: $background-color;
   /* Fondo gris */
   padding: 10px 10px 10px 0;
   border-radius: 15px;

@@ -7,35 +7,21 @@
   </div>
 
   <!-- "Banner gris" a lo ancho. -->
-  <div v-if="heroNews" class="hero-banner mb-5">
-    <div class="container">
-      <div class="row align-items-center">
 
-        <!-- Columna de texto -->
-        <div class="col-md-6 mb-4 mb-md-0">
-          <h1 class="hero-title">
-            {{ heroNews.title }}
-          </h1>
-          <p class="hero-subtitle">
-            <!-- Ejemplo con <strong> para resaltar palabras -->
-            Un equipo de estudiantes de ingeniería informática creó un
-            <strong>modelo de IA</strong> capaz de optimizar procesos industriales,
-            <strong>reduciendo costos</strong> hasta en un 30%.
-          </p>
 
-          <!-- Botón -->
-          <button class="btn btn-hero" @click="showConstructionModal()">
-            {{ heroNews.buttonText }}
-          </button>
-        </div>
-
-        <!-- Columna de imagen -->
-        <div class="col-md-6 text-center">
-          <img :src="heroNews.image" :alt="heroNews.title" class="hero-image" />
-        </div>
-
-      </div>
+  <div v-if="heroNews" class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">{{ heroNews.title }}</h1>
+      <p class="hero-description">
+        Un equipo de estudiantes de ingeniería informática creó un
+        <strong>modelo de IA</strong> capaz de optimizar procesos industriales,
+        <strong>reduciendo costos</strong> hasta en un 30%.
+      </p>
+      <a href="#" class="hero-link" @click.prevent="showConstructionModal">
+        {{ heroNews.buttonText }}
+      </a>
     </div>
+    <img :src="heroNews.image" :alt="heroNews.title" class="hero-image" />
   </div>
 
 
@@ -97,57 +83,76 @@ export default {
   flex-direction: row-reverse !important;
 }
 
-.hero-banner {
+/* Contenedor general del Hero */
+.hero {
   width: 100%;
-  background-color: #f8f8f8;
-  /* Gris claro del banner */
-  padding: 60px 0;
-  /* Espaciado vertical */
+  background-color: #f3f3f3;
+  position: relative;       /* para posicionar la imagen */
+  padding: 2rem;            /* espacio alrededor del texto */
+  overflow: visible;        /* para que la imagen pueda "salir" */
+  padding-bottom: 5rem;     /* ajusta según el alto de la imagen */
 }
 
-/* Título principal */
+/* Contenido textual del Hero */
+.hero-content {
+  max-width: 1200px;        /* ancho máximo para el texto */
+  // margin: 0 auto;           /* centra el bloque textual */
+  width: 50%;
+  text-align: left;
+  padding: 20px;
+}
+
 .hero-title {
   font-size: 2rem;
-  /* Ajusta según tu mockup */
-  font-weight: 700;
-  color: #2e3d55;
-  /* Un tono oscuro para buen contraste */
+  font-weight: bold;
   margin-bottom: 1rem;
 }
 
-/* Subtítulo / descripción */
-.hero-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.6;
-  color: #53607e;
-  margin-bottom: 1.5rem;
-}
-
-.hero-subtitle strong {
-  font-weight: 700;
-}
-
-/* Botón con color y estilo personalizado */
-.btn-hero {
-  background-color: #3b82f6;
-  border-color: #3b82f6;
-  color: #fff;
-  padding: 0.75rem 1.5rem;
+.hero-description {
   font-size: 1rem;
-  border-radius: 0.25rem;
-  /* Ajusta para suavizar esquinas */
-  cursor: pointer;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
 }
 
-/* Imagen del hero: borde redondeado y ajuste */
-.hero-image {
-  max-height: 300px;
-  /* Ajusta la altura máximo según mockup */
-  width: 100%;
-  /* Que se adapte al ancho de la columna */
-  object-fit: cover;
-  border-radius: 0.5rem;
+.hero-link {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background-color: #007BFF;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
 }
+
+/* Imagen que “sale” del banner */
+.hero-image {
+  position: absolute;   /* permite sacarla del flujo y colocarla arriba/derecha */
+  top: -40px;           /* la “empuja” hacia arriba para sobresalir */
+  right: 0;             /* alinea el borde derecho con el extremo de la página */
+  border-radius: 20px 0px 0px 20px;  /* esquinas redondeadas */
+  width: 50%;
+  object-fit: cover;
+  height: 350px;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 1rem;
+    padding-bottom: 3rem;
+  }
+  .hero-content {
+    text-align: center;
+    width: 100%;
+  }
+  .hero-image {
+    position: static; /* La imagen vuelve al flujo normal */
+    display: block;
+    width: 100%;
+    max-width: 90%;
+    margin: 1rem auto 0;
+    border-radius: 20px;
+  }
+}
+
 
 .news-container {
   display: flex;
