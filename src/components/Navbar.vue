@@ -169,5 +169,8 @@ nav div.container {
     padding: 5px;
     margin-bottom: 10px;
   }
+  .navbar-brand {
+  margin: 1rem;
+  }
 }
 </style>
