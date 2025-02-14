@@ -29,7 +29,7 @@
         </ul>
 
         <!-- Sección derecha: lupa, barra de búsqueda inline y botón Mesa de Ayuda -->
-        <div class="d-flex align-items-center">
+        <div class="align-items-center extras">
           <!-- Icono lupa que togglea el input -->
           <button class="btn btn-link me-2" @click="toggleSearch" title="Buscar">
             <i class="fa fa-search"></i>
@@ -155,5 +155,19 @@ nav {
 
 nav div.container {
   padding: 5px 0px;
+}
+
+@media (max-width: 950px) {
+  .extras {
+    display: flex;
+    flex-direction: column;
+  }
+  .search-inline {
+    padding: 5px;
+  }
+  .search-inline input {
+    padding: 5px;
+    margin-bottom: 10px;
+  }
 }
 </style>
