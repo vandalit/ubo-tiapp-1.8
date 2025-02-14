@@ -10,7 +10,7 @@
 
       <!-- Banner de ancho completo -->
       <div class="banner">
-        <img src="https://placehold.co/1500x500" alt="Banner" class="img-fluid" />
+        <img src="../assets/img/img04.png" alt="Banner" class="img-fluid" />
       </div>
 
       <!-- Contenido: descripción y texto expandible -->

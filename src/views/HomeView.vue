@@ -11,7 +11,7 @@
 
       <!-- Imagen principal con botón "Ver proyecto" en la esquina -->
       <div class="hero-image-container position-relative">
-        <img src="../assets/img/pc-02.png" alt="Imagen de proyecto TI" class="img-fluid hero-image" />
+        <img src="../assets/img/img01.png" alt="Imagen de proyecto TI" class="img-fluid hero-image" />
         <!-- Botón en la esquina superior derecha -->
         <button class="btn btn-light btn-ver-proyecto">
           VER PROYECTO
