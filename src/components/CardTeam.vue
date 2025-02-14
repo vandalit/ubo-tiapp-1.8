@@ -7,7 +7,10 @@
 
     <!-- Parte inferior (datos + botón) -->
     <div class="card-bottom">
-      <h4 class="user-name">{{ user.name }}</h4>
+      <h4 class="user-name">
+        {{ formattedName.firstName }}<br />
+        {{ formattedName.lastName }}
+      </h4>
       <p class="user-role">{{ user.role }}</p>
       <!-- Botón para abrir el modal con más detalles -->
       <button class="expand-btn" @click="$emit('open-modal', user)">
@@ -25,6 +28,15 @@ export default {
       type: Object,
       required: true
     }
+  },
+  computed: {
+    formattedName() {
+      const parts = this.user.name.split(' ');
+      return {
+        firstName: parts[0] || '',
+        lastName: parts.slice(1).join(' ') || ''
+      };
+    }
   }
 };
 </script>
@@ -32,7 +44,7 @@ export default {
 <style scoped lang="scss">
 /* Contenedor general de la tarjeta */
 .card-member {
-  width: 220px;
+  width: 305px;
   background-color: #fff;
   border-radius: 8px;
   overflow: hidden;
@@ -52,8 +64,8 @@ export default {
 }
 
 .card-top img {
-  width: 120px;
-  height: 120px;
+  width: 230px;
+  height: 230px;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -89,12 +101,9 @@ export default {
   right: 15px;
   width: 28px;
   height: 28px;
-  /* border: 1px solid #ddd; */
   background-color: $light-color;
-
   border-radius: 4px;
   cursor: pointer;
-
   display: flex;
   align-items: center;
   justify-content: center;
