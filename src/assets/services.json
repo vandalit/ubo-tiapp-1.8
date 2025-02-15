@@ -1,7 +1,7 @@
 [
   {
     "name": "Seguimiento Proyectos TI",
-    "image": "/img/img04.png",
+    "image": "/img/img04.webp",
     "description": "El seguimiento de proyectos TI consiste en monitorear y evaluar el progreso de los proyectos levantados, para asegurar que se cumplan los objetivos, plazos y presupuestos establecidos.",
     "button_active": true,
     "button_text": "Log In",
@@ -9,7 +9,7 @@
   },
   {
     "name": "Mesa de Ayuda TI",
-    "image": "/img/img05.png",
+    "image": "/img/img05.webp",
     "description": "La Mesa de Ayuda TI brinda soporte técnico a los usuarios en cuanto a la resolución de problemas tecnológicos.",
     "button_active": false,
     "button_text": "Generar Ticket",
@@ -17,7 +17,7 @@
   },
   {
     "name": "Consultoría TI",
-    "image": "/img/img06.png",
+    "image": "/img/img06.webp",
     "description": "Consultoría especializada para optimizar el uso de los recursos tecnológicos en la organización.",
     "button_active": false,
     "button_text": "Learn More",
@@ -25,7 +25,7 @@
   },
   {
     "name": "Accesos Inalámbricos",
-    "image": "/img/img07.png",
+    "image": "/img/img07.webp",
     "description": "Soluciones para el establecimiento de redes inalámbricas seguras y de alto rendimiento.",
     "button_active": false,
     "button_text": "",
@@ -33,7 +33,7 @@
   },
   {
     "name": "Licencias Softwares",
-    "image": "/img/img08.png",
+    "image": "/img/img08.webp",
     "description": "Venta y gestión de licencias para una amplia variedad de programas y plataformas tecnológicas.",
     "button_active": false,
     "button_text": "Leer más",
@@ -41,7 +41,7 @@
   },
   {
     "name": "Capacitaciones",
-    "image": "/img/img09.png",
+    "image": "/img/img09.webp",
     "description": "Programas de capacitación para actualizar y mejorar las habilidades de los equipos de trabajo en TI.",
     "button_active": false,
     "button_text": "Log In",

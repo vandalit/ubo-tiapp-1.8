@@ -11,7 +11,7 @@
 
       <!-- Imagen principal con botón "Ver proyecto" en la esquina -->
       <div class="hero-image-container position-relative">
-        <img src="../assets/img/img01.png" alt="Imagen de proyecto TI" class="img-fluid hero-image" />
+        <img src="../assets/img/img01.webp" alt="Imagen de proyecto TI" class="img-fluid hero-image" />
         <!-- Botón en la esquina superior derecha -->
         <button class="btn btn-light btn-ver-proyecto">
           VER PROYECTO
@@ -230,7 +230,8 @@ export default {
   width: 100%;
   min-height: 140px;
   text-align: center;
-  box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.102);
+  // box-shadow: 0 4px 10px 0 rgba(0, 0, 0, 0.102);
+  box-shadow: 0px 4px 20px 0px #0000001A;
   display: flex;
   flex-direction: column;
   justify-content: center;

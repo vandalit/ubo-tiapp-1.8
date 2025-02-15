@@ -10,7 +10,7 @@
 
       <!-- Banner de ancho completo -->
       <div class="banner">
-        <img src="../assets/img/img10.png" alt="Banner" class="img-fluid" />
+        <img src="../assets/img/img10.webp" alt="Banner" class="img-fluid" />
       </div>
 
       <!-- Contenido: descripción y texto expandible -->
