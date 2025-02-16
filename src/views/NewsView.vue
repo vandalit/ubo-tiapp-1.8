@@ -9,8 +9,8 @@
   <!-- "Banner gris" a lo ancho. -->
 
 
-  <div v-if="heroNews" class="hero">
-    <div class="hero-content">
+  <div v-if="heroNews" class="hero ">
+    <div class="hero-content ">
       <h1 class="hero-title">{{ heroNews.title }}</h1>
       <p class="hero-description">
         Un equipo de estudiantes de ingeniería informática creó un
@@ -87,31 +87,50 @@ export default {
 .hero {
   width: 100%;
   background-color: #f3f3f3;
-  position: relative;       /* para posicionar la imagen */
-  padding: 2rem;            /* espacio alrededor del texto */
-  overflow: visible;        /* para que la imagen pueda "salir" */
-  padding-bottom: 5rem;     /* ajusta según el alto de la imagen */
+  position: relative;
+  /* para posicionar la imagen */
+  padding: 2rem;
+  /* espacio alrededor del texto */
+  overflow: visible;
+  /* para que la imagen pueda "salir" */
+  // padding-bottom: 5rem;
+  /* ajusta según el alto de la imagen */
 }
 
 /* Contenido textual del Hero */
 .hero-content {
-  max-width: 1200px;        /* ancho máximo para el texto */
+  max-width: 1200px;
+  /* ancho máximo para el texto */
   // margin: 0 auto;           /* centra el bloque textual */
   width: 50%;
   text-align: left;
-  padding: 20px;
+  padding: 20px 20px 0px 60px;
 }
 
 .hero-title {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 1rem;
+
+  font-family: DM Sans;
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 69px;
+  letter-spacing: 0.5px;
+
 }
 
 .hero-description {
   font-size: 1rem;
   margin-bottom: 1.5rem;
   line-height: 1.5;
+
+  font-family: DM Sans;
+  font-weight: 400;
+  font-size: 31px;
+  line-height: 40px;
+  letter-spacing: 0.5px;
+
 }
 
 .hero-link {
@@ -125,13 +144,17 @@ export default {
 
 /* Imagen que “sale” del banner */
 .hero-image {
-  position: absolute;   /* permite sacarla del flujo y colocarla arriba/derecha */
-  top: -40px;           /* la “empuja” hacia arriba para sobresalir */
-  right: 0;             /* alinea el borde derecho con el extremo de la página */
-  border-radius: 20px 0px 0px 20px;  /* esquinas redondeadas */
+  position: absolute;
+  /* permite sacarla del flujo y colocarla arriba/derecha */
+  top: -5%;
+  /* la “empuja” hacia arriba para sobresalir */
+  right: 0;
+  /* alinea el borde derecho con el extremo de la página */
+  border-radius: 20px 0px 0px 20px;
+  /* esquinas redondeadas */
   width: 50%;
   object-fit: cover;
-  height: 350px;
+  height: 85%;
 }
 
 @media (max-width: 768px) {
@@ -139,12 +162,15 @@ export default {
     padding: 1rem;
     padding-bottom: 3rem;
   }
+
   .hero-content {
     text-align: center;
     width: 100%;
   }
+
   .hero-image {
-    position: static; /* La imagen vuelve al flujo normal */
+    position: static;
+    /* La imagen vuelve al flujo normal */
     display: block;
     width: 100%;
     max-width: 90%;
@@ -157,9 +183,10 @@ export default {
 .news-container {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 90px;
   /* Espaciado entre noticias */
-  padding: 40px 0;
+  padding: 100px 10px;
   /* Espaciado vertical */
+
 }
 </style>

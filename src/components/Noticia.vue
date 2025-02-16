@@ -50,23 +50,22 @@ function openModal() {
   /* align-items: center; */
   background-color: $background-color;
   /* Fondo gris */
-  padding: 10px 10px 10px 0;
+  padding: 10px 10px 20px 0;
   border-radius: 15px;
   /* Bordes redondeados */
   /* overflow: hidden; */
   margin-bottom: 40px;
   /* text-align: right; */
   text-align: left; /*si no iteran*/
-  margin: 0 40px;
 
 }
 
 /* Invertir dirección cuando es 'right' */
 .noticia-container.reverse {
   flex-direction: row-reverse;
-  padding: 10px 0px 10px 10px;
+  padding: 10px 0px 20px 10px;
   /* text-align: left; */
-  margin: 0 40px;
+
 }
 
 /* Imagen */
@@ -74,13 +73,13 @@ function openModal() {
   flex-shrink: 0;
   width: 40%;
   position: relative;
-  margin-top: -2%;
+  margin-top: -4%;
   /* Hace el efecto de "sobresalir" del banner */
 }
 
 .noticia-img img {
   width: 100%;
-  height: 95%;
+  height:384px;
   object-fit: cover;
   border-radius: 15px;
   /* Esquinas redondeadas por defecto */
