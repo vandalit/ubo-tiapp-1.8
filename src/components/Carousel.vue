@@ -127,7 +127,7 @@ function prevSlide() {
 }
 
 .service-img {
-  width: 100%;
+  width: 305px;
   height: 305px;
   object-fit: cover;
   display: block;
@@ -239,6 +239,8 @@ function prevSlide() {
     /* En móvil tal vez quieras las esquinas redondeadas solo arriba, etc.
        Puedes mantener el actual border-radius o modificarlo, por ejemplo: */
     border-radius: 16px 16px 0 0;
+    width: 100%;
+    height: 305px;
   }
 
   /* El área de contenido se posiciona debajo, con menos padding si deseas */

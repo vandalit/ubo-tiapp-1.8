@@ -182,4 +182,10 @@ hr {
   opacity: 0;
 }
 
+@media screen and (max-width: 768px) {
+  .about-header {
+  text-align: center;
+}
+  
+}
 </style>
