@@ -29,7 +29,7 @@
         </ul>
 
         <!-- Sección derecha: lupa, barra de búsqueda inline y botón Mesa de Ayuda -->
-        <div class="align-items-center extras">
+        <div class="d-flex align-items-center extras">
           <!-- Icono lupa que togglea el input -->
           <button class="btn btn-link me-2" @click="toggleSearch" title="Buscar">
             <i class="fa fa-search"></i>
@@ -121,6 +121,7 @@ nav {
 .btn-primary:hover {
   background-color: $secondary-color;
   border-color: $secondary-color;
+  transform: none;
 
 }
 
