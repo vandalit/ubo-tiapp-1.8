@@ -46,7 +46,7 @@
     <br>
     <br>
 
-  <div class="services-view container">
+  <div class="services-view container mb-5">
 
     <!-- <h1>Servicios</h1> -->
     <!-- Condicional: si NO estamos en carrusel, muestra la grilla -->
@@ -110,7 +110,7 @@ function closeCarousel() {
 /* Banner */
 .banner {
   width: 100%;
-  height: 300px; /* Ajusta la altura del banner */
+  height: 448px; /* Ajusta la altura del banner */
   background-color: #ccc;
 }
 
@@ -179,6 +179,13 @@ hr {
 .fade-enter,
 .fade-leave-to {
   opacity: 0;
+}
+
+@media screen and (max-width: 768px) {
+  .about-header {
+  text-align: center;
+}
+  
 }
 
 </style>

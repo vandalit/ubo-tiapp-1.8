@@ -256,7 +256,7 @@ hr {
   align-items: center;
   flex-wrap: nowrap;
   /* Evita que una tarjeta baje de línea en desktop */
-  gap: 2rem;
+  gap: 3rem;
   /* Ajusta el espacio entre las tarjetas */
   max-width: 1000px;
   /* Asegura que las tarjetas se distribuyan correctamente */
@@ -292,6 +292,7 @@ hr {
     justify-content: center;
     align-items: center;
   }
+
 }
 
 /* Responsividad para mobile */
@@ -299,6 +300,9 @@ hr {
   .tarjetas-indicadores {
     flex-direction: column;
     align-items: center;
+  }
+  .titulo-gestion-semanal {
+  text-align: center;
   }
 }
 

@@ -166,6 +166,7 @@ nav div.container {
   }
   .search-inline {
     padding: 5px;
+    margin-right: 0px
   }
   .search-inline input {
     padding: 5px;

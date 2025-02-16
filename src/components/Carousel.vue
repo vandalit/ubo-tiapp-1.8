@@ -128,7 +128,7 @@ function prevSlide() {
 
 .service-img {
   width: 100%;
-  height: 100%;
+  height: 305px;
   object-fit: cover;
   display: block;
   border-radius: 16px;
@@ -244,21 +244,21 @@ function prevSlide() {
   /* El área de contenido se posiciona debajo, con menos padding si deseas */
   .content-area {
     padding: 1rem;
-    min-height: auto; /* Quita la altura mínima si no la necesitas */
+    min-height: 220px; /* Quita la altura mínima si no la necesitas */
   }
 
   /* Footer de flechas + botón: puedes alinear en columna si gustas */
   .content-footer {
-    flex-direction: column;
-    align-items: flex-start;  /* O 'center', según desees */
-    gap: 1rem;               /* Separación entre flechas y botón */
+    /* flex-direction: column; */
+    align-items: flex-end;  /* O 'center', según desees */
+    /* gap: 1rem;               */
   }
 
   /* Flechas en un contenedor horizontal,
      pero podrías hacerlas verticales si lo prefieres */
-  .carousel-nav {
+  /* .carousel-nav {
     margin-bottom: 0.5rem;
-  }
+  } */
 }
 
 </style>

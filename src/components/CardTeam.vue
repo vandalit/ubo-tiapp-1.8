@@ -46,9 +46,9 @@ export default {
 .card-member {
   width: 305px;
   background-color: #fff;
-  border-radius: 8px;
+  border-radius: 25px;
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0px 4px 20px 0px #0000001A;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -57,7 +57,7 @@ export default {
 /* Parte superior: imagen centrada */
 .card-top {
   background-color: #ffffff;
-  padding: 20px;
+  padding: 40px 20px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,27 +82,28 @@ export default {
 .user-name {
   font-size: 1rem;
   font-weight: 600; /* semi-bold */
-  color: #092C4C;    /* color aproximado al azul oscuro del mockup */
-  margin-bottom: 5px;
+  color: $text-color;    /* color aproximado al azul oscuro del mockup */
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 
 /* Rol o cargo del miembro */
 .user-role {
   font-size: 0.85rem;
-  color: #666;
+  color: $text-color;
   text-transform: uppercase;
-  margin: 0;
+  margin: 15px 0;
 }
 
 /* Botón (+) en la esquina inferior derecha */
 .expand-btn {
   position: absolute;
-  bottom: 15px;
-  right: 15px;
-  width: 28px;
-  height: 28px;
+  bottom: 25px;
+  right: 25px;
+  width: 50px;
+  height: 50px;
   background-color: $light-color;
-  border-radius: 4px;
+  border-radius: 10px;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -118,7 +119,7 @@ export default {
 @media (max-width: 768px) {
   .card-member {
     width: 100%;
-    max-width: 240px;
+    max-width: 300px;
     margin: 0 auto;
   }
 }

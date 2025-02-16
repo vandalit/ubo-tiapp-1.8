@@ -135,7 +135,7 @@ export default {
 /* Banner */
 .banner {
   width: 100%;
-  height: 300px; /* Ajusta la altura del banner */
+  height: 448px; /* Ajusta la altura del banner */
   background-color: #ccc;
 }
 
@@ -220,7 +220,7 @@ hr {
 .grillaEquipo {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;           /* Espacio entre tarjetas */
+  gap: 50px;           /* Espacio entre tarjetas */
   max-width: 1140px;   /* Ancho máximo del contenedor */
   margin: 0 auto;      /* Centra todo el grid */
   padding: 0 40px;     /* Margen interno a izquierda/derecha para "aire" */
@@ -232,6 +232,9 @@ hr {
   .grillaEquipo {
     grid-template-columns: repeat(2, 1fr);
   }
+  .about-header {
+    text-align: center;
+  }
 }
 
 /* Una sola columna en pantallas pequeñas */
@@ -239,6 +242,7 @@ hr {
   .grillaEquipo {
     grid-template-columns: 1fr;
   }
+
 }
 
 /* Botón para "Ver equipo" / "Ver menos" */
@@ -253,4 +257,7 @@ hr {
   border: none;
   transform: none;
 }
+
+
+
 </style>

@@ -111,7 +111,7 @@ function closeCarousel() {
 /* Banner */
 .banner {
   width: 100%;
-  height: 300px; /* Ajusta la altura del banner */
+  height: 448px; /* Ajusta la altura del banner */
   background-color: #ccc;
 }
 
