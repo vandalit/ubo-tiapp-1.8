@@ -126,7 +126,7 @@ export default {
 /* ==== Distribución de columnas con Grid ==== */
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 3fr 2fr 1fr 1fr;
+  grid-template-columns: 2fr 2fr 2fr 2fr 2fr;
   gap: 1rem;
   max-width: 1100px;
   margin: 0 auto;

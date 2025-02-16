@@ -2,7 +2,7 @@
   <div class="home-container">
 
     <!-- ====================== HERO / PROYECTOS TI ====================== -->
-    <section class="hero-section container mb-5">
+    <section class="hero-section container mb-3">
       <!-- Encabezado -->
       <div class="hero-header">
         <h1 class="hero-title">Nuestros proyectos TI</h1>
@@ -34,10 +34,14 @@
 
       </div>
     </section>
+
+
+
     <!-- ====================== INDICADOR DE GESTIÓN SEMANAL ====================== -->
     <section class="container titulo-gestion-semanal">
-      <div class="row mb-3">
+      <div class="row mb-5">
         <div class="col">
+          <hr />
           <h2 class="section-title">Indicador de gestión semanal</h2>
           <p class="section-subtitle">destacados este semestre</p>
         </div>
@@ -104,16 +108,28 @@ export default {
 .hero-title {
   font-size: 1.75rem;
   font-weight: 700;
-  color: #0d2c5b;
+  color: $text-color;
   /* Ajusta al color corporativo */
   text-align: left;
+
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 37.5px;
+
 }
 
 .hero-subtitle {
   font-size: 1rem;
-  color: #737373;
+  color: $text-color;
   margin-bottom: 1rem;
   text-align: left;
+
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28.13px;
+
 }
 
 .hero-image-container {
@@ -172,11 +188,6 @@ export default {
   font-size: 32px;
   line-height: 37.5px;
   align-self: flex-end;
-
-  /* 
-    Puedes eliminar border-top si no lo deseas,
-    y usar outline: none; si quieres un estilo “pill”
-  */
 }
 
 /* Primera pestaña: color primario (fondo azul, texto blanco, ancho 30%) */
@@ -198,10 +209,41 @@ export default {
   /* Ajusta el % según quieras */
 }
 
+
+hr {
+  /* Quita el borde default y define uno superior */
+  border: none;
+  border-top: 3px solid $secondary-color;
+  /* Haz que el hr ocupe todo el espacio sobrante */
+  // flex: 1;
+  /* Separación a izquierda/derecha del botón, por ejemplo */
+  // margin-left: 70px;
+  margin-right: 70vw;
+  margin-bottom: 3rem;
+
+}
+
+
 /* indicadores*/
 
 .titulo-gestion-semanal {
   text-align: left;
+  color: $text-color;
+
+}
+
+.titulo-gestion-semanal .section-title {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 37.5px;
+}
+
+.titulo-gestion-semanal .section-subtitle {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28.13px;
 }
 
 .tarjetas-indicadores {
@@ -314,10 +356,12 @@ export default {
     bottom: 0;
     left: 0;
     width: 100%;
-    z-index: 20; /* Máxima prioridad */
+    z-index: 20;
+    /* Máxima prioridad */
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.9); /* Asegurar contraste */
+    background-color: rgba(255, 255, 255, 0.9);
+    /* Asegurar contraste */
     padding: 1rem;
     text-align: center;
   }
@@ -333,5 +377,4 @@ export default {
     border-radius: 0;
   }
 }
-
 </style>

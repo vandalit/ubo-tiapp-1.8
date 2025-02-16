@@ -103,6 +103,7 @@ nav {
 .search-inline {
   max-width: 250px;
   /* Ajusta el ancho si quieres */
+  margin-right: 30px;
 }
 
 .btn-primary {
@@ -155,7 +156,7 @@ nav {
 }
 
 nav div.container {
-  padding: 5px 0px;
+  padding: 5px 5px;
 }
 
 @media (max-width: 950px) {
@@ -169,9 +170,15 @@ nav div.container {
   .search-inline input {
     padding: 5px;
     margin-bottom: 10px;
+    margin-right: 0px
   }
   .navbar-brand {
   margin: 1rem;
   }
+  nav div.container {
+  padding: 5px 15px;
+  }
 }
+
+
 </style>
