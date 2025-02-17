@@ -120,17 +120,18 @@ export default {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 2rem;
+    padding: 1rem;
 }
 button {
   margin-top: 20px;
   padding: 10px 20px;
   cursor: pointer;
-  background-color: #007bff;
+  background-color: #8f8f8f;
   color: white;
   border: none;
   border-radius: 5px;
 }
 button:hover {
-  background-color: #0056b3;
+  background-color: #9a9a9a;
 }
 </style>

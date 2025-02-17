@@ -62,7 +62,7 @@
 
     <!-- Botón para gestionar proyectos -->
     <button @click="goToProjectManagement" v-if="isAdmin">Administrar Proyectos</button>
-
+<br>
     <!-- Botón para Log Out -->
     <button @click="logout">Log Out</button>
   </div>
@@ -125,7 +125,7 @@ export default {
           datasets: [
             {
               data: activeProjectsData,
-              backgroundColor: ["#4caf50", "#ffc107", "#f44336"]
+              backgroundColor: ["#949494", "#757575", "#898989"]
             }
           ]
         }
@@ -141,7 +141,7 @@ export default {
             {
               label: "Usuarios Activos",
               data: [200, 250, 300],
-              backgroundColor: ["#007bff"]
+              backgroundColor: ["#949494"]
             }
           ]
         }
@@ -174,10 +174,11 @@ export default {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     margin-top: 2rem;
+    padding: 1rem;
   }
 
   .metric-card {
-    background-color: white;
+    background-color: rgb(176, 176, 176);
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -190,7 +191,7 @@ export default {
 
   .notifications-list {
     list-style: none;
-    padding: 0;
+    padding: 1rem;
     margin-top: 1rem;
 
     li {
@@ -200,7 +201,7 @@ export default {
       margin-bottom: 10px;
 
       i {
-        color: #007bff;  // Color para los iconos de notificación
+        color: #b3b3b3;  // Color para los iconos de notificación
       }
     }
   }
@@ -210,6 +211,7 @@ export default {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 2rem;
+    padding: 1rem;
   }
   
   .resources-grid {
@@ -217,6 +219,7 @@ export default {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 20px;
     margin-top: 2rem;
+    padding: 1rem;
   }
 
 
@@ -224,9 +227,13 @@ export default {
     margin-top: 20px;
     padding: 10px 20px;
     cursor: pointer;
-    background-color: #007bff;
-    color: white;
+    background-color: #898989;
+    color: rgb(255, 255, 255);
     border: none;
   }
+}
+
+h2 {
+  padding: 1rem;
 }
 </style>

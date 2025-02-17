@@ -56,7 +56,8 @@ function openModal() {
   /* overflow: hidden; */
   margin-bottom: 40px;
   /* text-align: right; */
-  text-align: left; /*si no iteran*/
+  text-align: left;
+  /*si no iteran*/
 
 }
 
@@ -79,7 +80,7 @@ function openModal() {
 
 .noticia-img img {
   width: 100%;
-  height:384px;
+  height: 384px;
   object-fit: cover;
   border-radius: 15px;
   /* Esquinas redondeadas por defecto */
@@ -101,30 +102,67 @@ function openModal() {
   width: 60%;
   padding: 40px;
   margin: auto;
+  color: $primary-color;
 }
 
+.noticia-content h3 {
+  font-family: DM Sans;
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 32px;
+  letter-spacing: 0%;
+
+}
+
+.noticia-content p {
+  font-family: DM Sans;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 32px;
+  letter-spacing: 0.5px;
+
+}
 
 /* MEDIA QUERY PARA RESPONSIVE */
 @media (max-width: 768px) {
-  .noticia-container, .noticia-container.reverse {
-    flex-direction: column !important; /* Cambia a columna en pantallas pequeñas */
+
+  .noticia-container,
+  .noticia-container.reverse {
+    flex-direction: column !important;
+    /* Cambia a columna en pantallas pequeñas */
     text-align: center;
     padding: 15px;
   }
 
   .noticia-img {
-    width: 100%; /* Imagen ocupa todo el ancho */
-    margin-top: 0; /* Eliminar el efecto de sobresalir */
+    width: 100%;
+    /* Imagen ocupa todo el ancho */
+    margin-top: 0;
+    /* Eliminar el efecto de sobresalir */
   }
 
   .noticia-content {
-    width: 100%; /* Texto también ocupa todo el ancho */
+    width: 100%;
+    /* Texto también ocupa todo el ancho */
   }
 
   /* Corrección de bordes redondeados en móvil */
   .img-left img,
   .img-right img {
-    border-radius: 15px 15px 0 0; /* Solo redondeamos arriba */
+    border-radius: 15px 15px 0 0;
+    /* Solo redondeamos arriba */
   }
+}
+
+button {
+  background-color: $secondary-color;
+  color: $light-color;
+  border-color: $secondary-color;
+}
+
+button:hover {
+  background-color: $primary-color;
+  color: $light-color;
+  border-color: $primary-color;
 }
 </style>

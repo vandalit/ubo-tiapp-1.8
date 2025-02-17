@@ -130,6 +130,7 @@ export default {
 .about-header {
   text-align: left;
   padding: 10px 0;
+
 }
 
 /* Banner */
@@ -231,9 +232,6 @@ hr {
 @media (max-width: 992px) {
   .grillaEquipo {
     grid-template-columns: repeat(2, 1fr);
-  }
-  .about-header {
-    text-align: center;
   }
 }
 

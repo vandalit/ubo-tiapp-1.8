@@ -97,7 +97,7 @@ function prevSlide() {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 /* Contenedor general para centrar o ajustar espaciado */
 .carousel-wrapper {
   padding: 1rem;
@@ -215,9 +215,16 @@ function prevSlide() {
 
 /* Botón Login (usa Bootstrap .btn .btn-primary, ajusta si quieres un color distinto) */
 .boton-oculto {
-  background: #1ea3e1;
+  background-color: $secondary-color;
   align-self: flex-end;
+  border-color: $secondary-color;
+
 }
+
+.boton-oculto:hover {
+  background-color: $primary-color;
+  border-color: $primary-color;
+} 
 
 @media (max-width: 768px) {
   /* Contenedor principal: de fila a columna */

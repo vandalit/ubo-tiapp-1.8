@@ -117,6 +117,7 @@ export default {
   font-size: 60px;
   line-height: 69px;
   letter-spacing: 0.5px;
+  color: $primary-color;
 
 }
 
@@ -130,16 +131,20 @@ export default {
   font-size: 31px;
   line-height: 40px;
   letter-spacing: 0.5px;
+  color: $primary-color;
 
 }
 
 .hero-link {
   display: inline-block;
   padding: 0.75rem 1.5rem;
-  background-color: #007BFF;
+  background-color: $secondary-color;
   color: #ffffff;
   text-decoration: none;
   border-radius: 4px;
+}
+.hero-link:hover {
+  background-color: $primary-color;
 }
 
 /* Imagen que “sale” del banner */

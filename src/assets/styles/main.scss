@@ -72,3 +72,29 @@ body {
 .modal-dialog-centered {
   max-width: 90%;
 }
+
+.about-header {
+  color: $primary-color;
+}
+.about-header h2 {
+  font-family: Roboto;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 37.5px;
+  letter-spacing: 0%;
+  
+}
+.about-header p {
+  font-family: Roboto;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28.13px;
+  letter-spacing: 0%;
+  
+}
+
+@media (max-width: 992px) {
+  .about-header {
+    text-align: center;
+  }
+}
