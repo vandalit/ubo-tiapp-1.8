@@ -16,9 +16,9 @@
       "button_route": ""
     },
     {
-      "name": "Phishing",
+      "name": "Programa de Concientización",
       "image": "/img/img13.webp",
-      "description": "Entrenamiento para identificar y reportar correos electrónicos maliciosos que buscan robar información sensible.",
+      "description": "La Universidad Bernardo O'Higgins implementa la plataforma KnowBe4 como herramienta clave para fortalecer la cultura de ciberseguridad en la comunidad universitaria. Esta solución permite capacitar a estudiantes, académicos y colaboradores a través de simulaciones de phishing, entrenamientos interactivos y campañas de concientización, con el objetivo de reducir riesgos humanos frente a amenazas digitales.",
       "button_active": false,
       "button_text": "Aprender más",
       "button_route": "/phishing-info"
