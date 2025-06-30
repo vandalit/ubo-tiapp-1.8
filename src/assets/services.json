@@ -2,7 +2,7 @@
   {
     "name": "Seguimiento Proyectos TI",
     "image": "/img/img04.webp",
-    "description": "El seguimiento de proyectos TI consiste en monitorear y evaluar el progreso de los proyectos levantados, para asegurar que se cumplan los objetivos, plazos y presupuestos establecidos.",
+    "description": "Esta herramienta permite monitorear el avance, estado y cumplimiento de los proyectos TI en desarrollo, facilitando una gestión clara y colaborativa. Para acceder, ingrese con sus credenciales institucionales.",
     "button_active": true,
     "button_text": "Log In",
     "button_route": "/login"
@@ -10,7 +10,7 @@
   {
     "name": "Mesa de Ayuda TI",
     "image": "/img/img05.webp",
-    "description": "La Mesa de Ayuda TI brinda soporte técnico a los usuarios en cuanto a la resolución de problemas tecnológicos.",
+    "description": "La Mesa de Ayuda TI es el canal oficial para proporcionar soporte técnico a los usuarios de la Universidad. Para solicitar asistencia, ingresa a: https://serviciosti.ubo.cl.",
     "button_active": false,
     "button_text": "Generar Ticket",
     "button_route": "/ticket"
@@ -18,33 +18,33 @@
   {
     "name": "Consultoría TI",
     "image": "/img/img06.webp",
-    "description": "Consultoría especializada para optimizar el uso de los recursos tecnológicos en la organización.",
-    "button_active": false,
-    "button_text": "Learn More",
-    "button_route": "/consultoria"
+    "description": "Solicita asesoría técnica o cotizaciones de insumos tecnológicos",
+    "button_active": true,
+    "button_text": "Generar Ticket",
+    "button_route": "/ticket"
   },
   {
-    "name": "Accesos Inalámbricos",
+    "name": "Conectividad WI-FI UBO",
     "image": "/img/img07.webp",
-    "description": "Soluciones para el establecimiento de redes inalámbricas seguras y de alto rendimiento.",
+    "description": "La Universidad Bernardo O'Higgins pone a disposición de su comunidad universitaria acceso a la red Wi-Fi, reafirmando su compromiso con la educación de calidad y el desarrollo de la investigación. Este servicio tiene como propósito facilitar la conexión a plataformas académicas, recursos digitales y herramientas de comunicación para estudiantes, académicos y colaboradores. [Accesos a Red WI-FI] [Red de Invitados] SSDI  : Invitado | Clave: invitado  [Red Administrativa] SSDI  : su usuario de correo sin @ubo.cl | Clave: misma de su correo corporativo. ",
     "button_active": false,
     "button_text": "",
     "button_route": ""
   },
   {
-    "name": "Licencias Softwares",
+    "name": "Software y Aplicaciones",
     "image": "/img/img08.webp",
-    "description": "Venta y gestión de licencias para una amplia variedad de programas y plataformas tecnológicas.",
-    "button_active": false,
-    "button_text": "Leer más",
-    "button_route": "/licencias"
+    "description": "La Universidad Bernardo O'Higgins pone a disposición de su comunidad universitaria un canal de acceso seguro para la descarga de las distintas aplicaciones utilizadas en los ámbitos académico y administrativo. Este servicio tiene como objetivo facilitar la instalación de herramientas esenciales para estudiantes, docentes y personal institucional, asegurando su correcto funcionamiento y compatibilidad.",
+    "button_active": true,
+    "button_text": "Softwares",
+    "button_route": "/#"
   },
   {
-    "name": "Capacitaciones",
+    "name": "Base de Conocimiento",
     "image": "/img/img09.webp",
-    "description": "Programas de capacitación para actualizar y mejorar las habilidades de los equipos de trabajo en TI.",
-    "button_active": false,
-    "button_text": "Log In",
-    "button_route": "/login"
+    "description": "La Universidad Bernardo O'Higgins dispone de una Base de Conocimiento diseñada para centralizar y facilitar el acceso a información útil sobre servicios, sistemas y procesos tecnológicos. Este recurso está orientado a apoyar a estudiantes, académicos y colaboradores en la resolución de dudas frecuentes, promoviendo la autogestión y el uso eficiente de las plataformas institucionales.",
+    "button_active": true,
+    "button_text": "Manuales y Procedimientos",
+    "button_route": "/#"
   }
 ]

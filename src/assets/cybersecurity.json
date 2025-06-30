@@ -3,14 +3,14 @@
       "name": "Registrar Incidente",
       "image": "/img/img11.webp",
       "description": "Permite reportar cualquier incidente de ciberseguridad a través de un formulario centralizado, asegurando la trazabilidad y una respuesta rápida.",
-      "button_active": false,
+      "button_active": true,
       "button_text": "Ir a Formulario",
       "button_route": "/registro-incidente"
     },
     {
       "name": "Políticas de contraseñas",
       "image": "/img/img12.webp",
-      "description": "Un conjunto de normas para forzar contraseñas seguras en la organización y reducir los riesgos de accesos no autorizados.",
+      "description": "Este documento detalla el procedimiento que deben seguir los usuarios para cumplir con los requisitos mínimos de complejidad, periodicidad de cambio y buenas prácticas asociadas al manejo de credenciales, fortaleciendo así la protección de los sistemas y servicios tecnológicos.",
       "button_active": false,
       "button_text": "",
       "button_route": ""
@@ -26,7 +26,7 @@
     {
       "name": "Antivirus Corporativo",
       "image": "/img/img14.webp",
-      "description": "Solución de antivirus para todos los equipos corporativos, asegurando protección frente a amenazas comunes y avanzadas.",
+      "description": "La Universidad Bernardo O'Higgins cuenta con Sophos como solución antivirus institucional, orientada a proteger los equipos y datos frente a amenazas digitales como virus, malware, ransomware y accesos no autorizados. Esta herramienta de seguridad está disponible para su instalación en los dispositivos institucionales, garantizando una defensa activa y en tiempo real que contribuye a la integridad de los sistemas y la continuidad operativa.",
       "button_active": false,
       "button_text": "",
       "button_route": ""
@@ -34,10 +34,10 @@
     {
       "name": "Reportes",
       "image": "/img/img15.webp",
-      "description": "Tableros y paneles para visualizar las principales métricas e incidentes de ciberseguridad, facilitando la toma de decisiones.",
-      "button_active": false,
-      "button_text": "",
-      "button_route": ""
+      "description": "Esta herramienta permite visualizar reportes estratégicos sobre el estado de la ciberseguridad institucional. Favor ingrese sus credenciales institucionales:”",
+      "button_active": true,
+      "button_text": "Login",
+      "button_route": "/login"
     }
   ]
   
