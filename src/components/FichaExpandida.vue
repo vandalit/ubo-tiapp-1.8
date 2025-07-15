@@ -106,7 +106,7 @@ export default {
 .modal-header-banner {
   width: 100%;
   height: 120px;
-  background: url('https://placehold.co/800x120') center/cover no-repeat; /* Cambia la imagen según tu gusto */
+  background: grey; /* Cambia la imagen según tu gusto, cambiar a una url */
   position: relative;
 }
 

@@ -10,7 +10,7 @@
   {
     "name": "Mesa de Ayuda TI",
     "image": "/img/img05.webp",
-    "description": "La Mesa de Ayuda TI es el canal oficial para proporcionar soporte técnico a los usuarios de la Universidad. Para solicitar asistencia, ingresa a: https://serviciosti.ubo.cl.",
+    "description": "La Mesa de Ayuda TI es el canal oficial para proporcionar soporte técnico a los usuarios de la Universidad. Para solicitar asistencia, ingresa a: <a href='https://serviciosti.ubo.cl' target='_blank'>serviciosti.ubo.cl</a>",
     "button_active": false,
     "button_text": "Generar Ticket",
     "button_route": "/ticket"
@@ -20,13 +20,13 @@
     "image": "/img/img06.webp",
     "description": "Solicita asesoría técnica o cotizaciones de insumos tecnológicos",
     "button_active": true,
-    "button_text": "Generar Ticket",
-    "button_route": "/ticket"
+    "button_text": "Formulario de Solicitud",
+    "button_route": "https://forms.office.com/r/BVXuAkBDZF?origin=lprLink"
   },
   {
     "name": "Conectividad WI-FI UBO",
     "image": "/img/img07.webp",
-    "description": "La Universidad Bernardo O'Higgins pone a disposición de su comunidad universitaria acceso a la red Wi-Fi, reafirmando su compromiso con la educación de calidad y el desarrollo de la investigación. Este servicio tiene como propósito facilitar la conexión a plataformas académicas, recursos digitales y herramientas de comunicación para estudiantes, académicos y colaboradores. [Accesos a Red WI-FI] [Red de Invitados] SSDI  : Invitado | Clave: invitado  [Red Administrativa] SSDI  : su usuario de correo sin @ubo.cl | Clave: misma de su correo corporativo. ",
+    "description": "<div style=\"font-size: 1rem;\">La Universidad Bernardo O'Higgins pone a disposición de su comunidad universitaria acceso a la red Wi-Fi, reafirmando su compromiso con la educación de calidad y el desarrollo de la investigación. Este servicio tiene como propósito facilitar la conexión a plataformas académicas, recursos digitales y herramientas de comunicación para estudiantes, académicos y colaboradores.</div><br><div style=\"display: flex; gap: 18px; font-size: 0.9rem;\"> <div style=\"flex: 1; background-color: #f5f9fc; padding: 8px; border-radius: 8px; border: 1px solid #cce4f6;\"> <strong style=\"color: #0d2c5b;\">Red de Invitados</strong><br /> <span><strong>SSID:</strong> Invitado</span><br /> <span><strong>Clave:</strong> invitado</span> </div> <div style=\"flex: 1; background-color: #f5f9fc; padding: 8px; border-radius: 8px; border: 1px solid #cce4f6;\"> <strong style=\"color: #0d2c5b;\">Red Administrativa</strong><br /> <span><strong>SSID:</strong> su usuario de correo sin @ubo.cl</span><br /> <span><strong>Clave:</strong> misma de su correo corporativo</span> </div> </div>",
     "button_active": false,
     "button_text": "",
     "button_route": ""

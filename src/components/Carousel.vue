@@ -17,9 +17,8 @@
       <!-- Sección de contenido textual -->
       <div class="content-area">
         <h3 class="title">{{ currentService.name }}</h3>
-        <p class="description">
-          {{ currentService.description }}
-        </p>
+        <div class="description" v-html="currentService.description">
+        </div>
 
        
         <!-- Parte inferior: flechas + botón en la misma fila -->
@@ -113,9 +112,9 @@ function prevSlide() {
   overflow: hidden;
   /* box-shadow: 0 2px 8px rgba(0,0,0,0.1); */
   position: relative;
-  max-width: 900px;  /* Ajusta según tu diseño */
+  max-width: 1200px;  /* Ajusta según tu diseño */
   margin: 0 auto;    /* Centrar horizontalmente */
-  margin-bottom: 100px;
+  margin-bottom: 80px;
 }
 
 /* Área de la imagen (aprox 1/3 del ancho) */
@@ -127,8 +126,8 @@ function prevSlide() {
 }
 
 .service-img {
-  width: 305px;
-  height: 305px;
+  width: 405px;
+  height: 405px;
   object-fit: cover;
   display: block;
   border-radius: 16px;
@@ -163,7 +162,7 @@ function prevSlide() {
   display: flex;
   flex-direction: column; /* Para acomodar flechas y botón login abajo */
   justify-content: space-between;
-  min-height: 300px;
+  min-height: 400px;
 
 }
 
