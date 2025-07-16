@@ -17,10 +17,8 @@
       <!-- Sección de contenido textual -->
       <div class="content-area">
         <h3 class="title">{{ currentService.name }}</h3>
-        <div class="description" v-html="currentService.description">
-        </div>
+        <div class="description" v-html="currentService.description"></div>
 
-       
         <!-- Parte inferior: flechas + botón en la misma fila -->
         <div class="content-footer">
           <!-- Flechas de navegación -->
@@ -34,19 +32,30 @@
           </div>
 
           <!-- Botón de Login (si button_active == true) -->
-          <router-link
-            v-if="currentService.button_active"
-            :to="currentService.button_route"
-            class="btn btn-primary ms-3 boton-oculto"
-          >
-            {{ currentService.button_text }}
-          </router-link>
+          <div v-if="currentService.button_active" class="ms-3">
+            <!-- Enlace externo -->
+            <a
+              v-if="isExternalLink(currentService.button_route)"
+              :href="currentService.button_route"
+              class="btn btn-primary boton-oculto"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {{ currentService.button_text }}
+            </a>
+
+            <!-- Ruta interna -->
+            <router-link
+              v-else
+              :to="currentService.button_route"
+              class="btn btn-primary boton-oculto"
+            >
+              {{ currentService.button_text }}
+            </router-link>
+          </div>
         </div>
-
       </div>
-
     </div>
-
   </div>
 </template>
 
@@ -66,10 +75,8 @@ const props = defineProps({
 
 const emits = defineEmits(['closeCarousel'])
 
-// Índice actual del carrusel
 const currentIndex = ref(props.selectedIndex)
 
-// Si cambia `selectedIndex` en el padre, se sincroniza
 watch(
   () => props.selectedIndex,
   (newVal) => {
@@ -85,14 +92,16 @@ const currentService = computed(() => {
   return props.services[currentIndex.value]
 })
 
-// Navegación “cíclica”
+// Función para detectar si el link es externo
+function isExternalLink(url) {
+  return /^https?:\/\//.test(url)
+}
+
 function nextSlide() {
-  currentIndex.value =
-    (currentIndex.value + 1) % props.services.length
+  currentIndex.value = (currentIndex.value + 1) % props.services.length
 }
 function prevSlide() {
-  currentIndex.value =
-    (currentIndex.value - 1 + props.services.length) % props.services.length
+  currentIndex.value = (currentIndex.value - 1 + props.services.length) % props.services.length
 }
 </script>
 

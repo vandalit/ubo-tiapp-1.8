@@ -5,7 +5,7 @@
       "description": "Permite reportar cualquier incidente de ciberseguridad a través de un formulario centralizado, asegurando la trazabilidad y una respuesta rápida.",
       "button_active": true,
       "button_text": "Ir a Formulario",
-      "button_route": "/registro-incidente"
+      "button_route": "https://forms.office.com/Pages/ResponsePage.aspx?id=mYxR2TU8Sk-kOWV9gchmebBuGA5pJ39KsHr0AI-Ep4pUQkxSVjVWUTNGUTQySjEwUjU5REsyQjY0My4u"
     },
     {
       "name": "Políticas de contraseñas",

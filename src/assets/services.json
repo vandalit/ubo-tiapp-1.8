@@ -35,7 +35,7 @@
     "name": "Software y Aplicaciones",
     "image": "/img/img08.webp",
     "description": "La Universidad Bernardo O'Higgins pone a disposición de su comunidad universitaria un canal de acceso seguro para la descarga de las distintas aplicaciones utilizadas en los ámbitos académico y administrativo. Este servicio tiene como objetivo facilitar la instalación de herramientas esenciales para estudiantes, docentes y personal institucional, asegurando su correcto funcionamiento y compatibilidad.",
-    "button_active": true,
+    "button_active": false,
     "button_text": "Softwares",
     "button_route": "/#"
   },
@@ -43,7 +43,7 @@
     "name": "Base de Conocimiento",
     "image": "/img/img09.webp",
     "description": "La Universidad Bernardo O'Higgins dispone de una Base de Conocimiento diseñada para centralizar y facilitar el acceso a información útil sobre servicios, sistemas y procesos tecnológicos. Este recurso está orientado a apoyar a estudiantes, académicos y colaboradores en la resolución de dudas frecuentes, promoviendo la autogestión y el uso eficiente de las plataformas institucionales.",
-    "button_active": true,
+    "button_active": false,
     "button_text": "Manuales y Procedimientos",
     "button_route": "/#"
   }
