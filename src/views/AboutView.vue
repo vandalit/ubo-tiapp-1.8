@@ -44,28 +44,34 @@ estratégicos y las demandas específicas de la Universidad.
       </div>
     </div>
 
-    <!-- Sección equipo -->
-    <div class="equipo">
-      <!-- <h2>Equipo</h2> -->
-      <div class="grillaEquipo">
-        <CardTeam
-          v-for="user in displayedUsers"
-          :key="user.id"
-          :user="user"
-          @open-modal="openModal"
+    <!-- Sección equipo 
+     
+    
+        <div class="equipo">
+           <h2>Equipo</h2> 
+          <div class="grillaEquipo">
+            <CardTeam
+              v-for="user in displayedUsers"
+              :key="user.id"
+              :user="user"
+              @open-modal="openModal"
+            />
+          </div>
+          <button class="btn btn-primary show-more-button" @click="toggleView">
+            {{ showAll ? 'Ver menos' : 'Ver equipo' }}
+          </button>
+        </div>
+      
+         Modal FichaExpandida 
+        
+        <FichaExpandida
+          :user="selectedUser"
+          :visible="isModalVisible"
+          @close="isModalVisible = false"
         />
-      </div>
-      <button class="btn btn-primary show-more-button" @click="toggleView">
-        {{ showAll ? 'Ver menos' : 'Ver equipo' }}
-      </button>
-    </div>
-
-    <!-- Modal FichaExpandida -->
-    <FichaExpandida
-      :user="selectedUser"
-      :visible="isModalVisible"
-      @close="isModalVisible = false"
-    />
+        
+       -->
+        <br><br><br><br></br>
   </div>
 </template>
 

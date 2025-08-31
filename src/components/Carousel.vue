@@ -223,15 +223,15 @@ function prevSlide() {
 
 /* Botón Login (usa Bootstrap .btn .btn-primary, ajusta si quieres un color distinto) */
 .boton-oculto {
-  background-color: $secondary-color;
+  background-color: $primary-color;
   align-self: flex-end;
-  border-color: $secondary-color;
+  border-color: $primary-color;
 
 }
 
 .boton-oculto:hover {
-  background-color: $primary-color;
-  border-color: $primary-color;
+  background-color: $secondary-color;
+  border-color: $secondary-color;
 } 
 
 @media (max-width: 768px) {

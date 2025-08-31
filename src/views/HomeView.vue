@@ -13,9 +13,11 @@
       <div class="hero-image-container position-relative">
         <img src="../assets/img/img01.webp" alt="Imagen de proyecto TI" class="img-fluid hero-image" />
         <!-- Botón en la esquina superior derecha -->
-        <button class="btn btn-light btn-ver-proyecto">
-          VER PROYECTO
-        </button>
+        <!--
+          <button class="btn btn-light btn-ver-proyecto">
+            VER PROYECTO
+          </button>
+        -->
 
         <!-- Pestañas en el pie de la imagen -->
         <div class="hero-tabs">
@@ -52,21 +54,21 @@
         <!-- Tarjeta 1 -->
         <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
           <div class="indicator-card">
-            <h3 class="indicator-number">382</h3>
+            <h3 class="indicator-number">000</h3>
             <p class="indicator-label">TICKET INGRESADOS</p>
           </div>
         </div>
         <!-- Tarjeta 2 -->
         <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
           <div class="indicator-card">
-            <h3 class="indicator-number">158</h3>
+            <h3 class="indicator-number">000</h3>
             <p class="indicator-label">TICKET EN ATENCIÓN</p>
           </div>
         </div>
         <!-- Tarjeta 3 -->
         <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
           <div class="indicator-card">
-            <h3 class="indicator-number">241</h3>
+            <h3 class="indicator-number">000</h3>
             <p class="indicator-label">TICKET RESUELTOS</p>
           </div>
         </div>

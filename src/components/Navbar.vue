@@ -31,10 +31,12 @@
         <!-- Sección derecha: lupa, barra de búsqueda inline y botón Mesa de Ayuda -->
         <div class="d-flex align-items-center extras">
           <!-- Icono lupa que togglea el input -->
+          <!--
           <button class="btn btn-link me-2" @click="toggleSearch" title="Buscar">
             <i class="fa fa-search"></i>
           </button>
-
+          -->
+          
           <!-- Barra de búsqueda inline (aparece si showSearch es true) -->
           <div class="search-inline d-flex align-items-center" v-if="showSearch">
             <input ref="searchInput" v-model="searchTerm" type="text" class="form-control form-control-sm me-2"
@@ -109,7 +111,7 @@ nav {
 .btn-primary {
   background-color: $primary-color;
   border-radius: 25px;
-  padding: 15px;
+  padding: 10px 22px;
   font-family: Roboto;
   font-weight: 400;
   font-size: 16px;
@@ -139,14 +141,16 @@ nav {
 
   .nav-link {
     text-decoration: none;
+    font-family: roboto;
     color: $primary-color;
-    font-weight: bold;
+    font-weight: 500;
     padding: 0.5rem 1rem;
     border-radius: 5px;
     transition: background-color 0.3s ease, color 0.3s ease;
 
     &:hover {
       color: $secondary-color;
+      font-weight: 900;
     }
   }
 }
