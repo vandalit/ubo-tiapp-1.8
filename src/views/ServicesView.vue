@@ -1,54 +1,47 @@
 <template>
-
-    <!-- Sección principal / Hero -->
-    <div class="section">
-      <div class="about-header container">
-        <h2>Nuestros Servicios</h2>
-        <p>en sistemas TI</p>
-      </div>
-
-      <!-- Banner de ancho completo -->
-      <div class="banner">
-        <img src="../assets/img/img03.webp" alt="Banner" class="img-fluid" />
-      </div>
-
-      <!-- Contenido: descripción y texto expandible -->
-      <!-- <div class="content container">
-        <h3>Dirección de Tecnologías de la Información</h3>
-        <p>
-          La Dirección de Tecnologías de la Información de la Universidad Bernardo O’Higgins, se especializa en la
-          gestión y supervisión de los recursos tecnológicos, ofreciendo soporte esencial y promoviendo el desarrollo
-          de sistemas que sustentan tanto las operaciones académicas como financieras.
-        </p> -->
-
-        <!-- Texto adicional con transición -->
-        <!-- <transition name="fade">
-          <p v-if="isExpanded">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt placeat unde in quod tempora molestiae
-            minima numquam, iste explicabo quia saepe. Laboriosam, officiis? Quisquam nulla ipsa soluta. Tempore, quo
-            nobis!
-          </p>
-        </transition> -->
-
-        <!-- Separador + Botón toggle (+/-) -->
-        
-        <!-- <div class="toggle-container">
-          <button class="toggle-button" @click="toggleText">
-            <i :class="isExpanded ? 'fas fa-minus' : 'fas fa-plus'"></i>
-            {{ isExpanded ? '' : '' }}
-          </button>
-          <hr />
-        </div>
-      </div> -->
+  <!-- Sección principal / Hero -->
+  <div class="section">
+    <div class="about-header container">
+      <h2>Nuestros Servicios</h2>
+      <p>en sistemas TI</p>
     </div>
 
-    <br>
-    <br>
-    <br>
+    <!-- Banner de ancho completo -->
+    <div class="banner">
+      <img src="../assets/img/img03.webp" alt="Banner" class="img-fluid" />
+    </div>
+
+    <!-- Contenido: descripción y texto expandible (comentado según tu código) -->
+    <!--
+    <div class="content container">
+      <h3>Dirección de Tecnologías de la Información</h3>
+      <p>
+        La Dirección de Tecnologías de la Información de la Universidad Bernardo O’Higgins, se especializa en la
+        gestión y supervisión de los recursos tecnológicos, ofreciendo soporte esencial y promoviendo el desarrollo
+        de sistemas que sustentan tanto las operaciones académicas como financieras.
+      </p>
+
+      <transition name="fade">
+        <p v-if="isExpanded">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt placeat unde in quod tempora molestiae
+          minima numquam, iste explicabo quia saepe. Laboriosam, officiis? Quisquam nulla ipsa soluta. Tempore, quo
+          nobis!
+        </p>
+      </transition>
+
+      <div class="toggle-container">
+        <button class="toggle-button" @click="toggleText">
+          <i :class="isExpanded ? 'fas fa-minus' : 'fas fa-plus'"></i>
+        </button>
+        <hr />
+      </div>
+    </div>
+    -->
+  </div>
+
+  <br><br><br>
 
   <div class="services-view container mb-5">
-
-    <!-- <h1>Servicios</h1> -->
     <!-- Condicional: si NO estamos en carrusel, muestra la grilla -->
     <CardGrid v-if="!isCarouselView" :services="services" @selectService="openCarousel" />
 
@@ -65,12 +58,13 @@ import Carousel from '@/components/Carousel.vue'
 // Importamos el JSON (o fetch si es remoto)
 import servicesData from '@/assets/services.json'
 
+
 // Control de datos
 const services = ref([])
 const isCarouselView = ref(false)
 const selectedIndex = ref(0)
 
-// Agregamos el toggle para texto expandible
+// Toggle para texto expandible
 const isExpanded = ref(false)
 function toggleText() {
   isExpanded.value = !isExpanded.value
@@ -91,9 +85,9 @@ function openCarousel(index) {
 function closeCarousel() {
   isCarouselView.value = false
 }
+
+
 </script>
-
-
 
 <style scoped lang="scss">
 /* Sección principal */
@@ -110,7 +104,7 @@ function closeCarousel() {
 /* Banner */
 .banner {
   width: 100%;
-  height: 448px; /* Ajusta la altura del banner */
+  height: 448px;
   background-color: #ccc;
 }
 
@@ -124,7 +118,7 @@ function closeCarousel() {
 .content {
   margin-top: 20px;
   padding: 10px 40px;
-  text-align: left; /* Alineación a la izquierda */
+  text-align: left;
 }
 
 .content h2,
@@ -142,7 +136,7 @@ function closeCarousel() {
 /* Botón de texto plegable */
 .toggle-container {
   display: flex;
-  align-items: center;   /* Alinea verticalmente botón y hr */
+  align-items: center;
   margin-top: 1rem;
 }
 
@@ -154,22 +148,15 @@ function closeCarousel() {
   cursor: pointer;
   border-radius: 4px;
   color: $light-color;
-  /* etc. */
 }
 
 hr {
-  /* Quita el borde default y define uno superior */
   border: none;
   border-top: 3px solid $secondary-color;
-  
-  /* Haz que el hr ocupe todo el espacio sobrante */
   flex: 1;
-  
-  /* Separación a izquierda/derecha del botón, por ejemplo */
   margin-left: 20px;
   margin-right: 42vw;
 }
-
 
 /* Transición de fade para el texto */
 .fade-enter-active,
@@ -183,9 +170,7 @@ hr {
 
 @media screen and (max-width: 768px) {
   .about-header {
-  text-align: center;
+    text-align: center;
+  }
 }
-  
-}
-
 </style>

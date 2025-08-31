@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-white ">
+  <nav class="navbar navbar-expand-lg navbar-light bg-white">
     <div class="container">
       <!-- Logo -->
       <router-link to="/" class="navbar-brand">
@@ -18,10 +18,20 @@
             <router-link to="/about" class="nav-link">Nosotros</router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/services" class="nav-link">Servicios</router-link>
+            <router-link 
+              to="/services" 
+              class="nav-link"
+              @click.prevent="handleClick('/services')">
+              Servicios
+            </router-link>
           </li>
           <li class="nav-item">
-            <router-link to="/cybersecurity" class="nav-link">Ciberseguridad</router-link>
+            <router-link 
+              to="/cybersecurity" 
+              class="nav-link"
+              @click.prevent="handleClick('/cybersecurity')">
+              Ciberseguridad
+            </router-link>
           </li>
           <li class="nav-item">
             <router-link to="/news" class="nav-link">Noticias</router-link>
@@ -30,20 +40,10 @@
 
         <!-- Sección derecha: lupa, barra de búsqueda inline y botón Mesa de Ayuda -->
         <div class="d-flex align-items-center extras">
-          <!-- Icono lupa que togglea el input -->
-          <!--
-          <button class="btn btn-link me-2" @click="toggleSearch" title="Buscar">
-            <i class="fa fa-search"></i>
-          </button>
-          -->
-          
-          <!-- Barra de búsqueda inline (aparece si showSearch es true) -->
+          <!-- Barra de búsqueda inline -->
           <div class="search-inline d-flex align-items-center" v-if="showSearch">
             <input ref="searchInput" v-model="searchTerm" type="text" class="form-control form-control-sm me-2"
               placeholder="Buscar..." @keyup.enter="doSearch" />
-            <!-- <button class="btn btn-sm btn-outline-primary me-3" @click="doSearch">
-              Buscar
-            </button> -->
           </div>
 
           <!-- Botón Mesa de Ayuda TI -->
@@ -58,8 +58,7 @@
 
 <script>
 import UnderConstructionModal from '@/components/UnderConstructionModal.vue'
-import { ref, onUpdated } from 'vue'
-
+import { ref } from 'vue'
 
 export default {
   name: 'Navbar',
@@ -69,12 +68,10 @@ export default {
   data() {
     return {
       showSearch: false,
-      searchTerm: ''
+      searchTerm: '',
+      searchInput: null,
+      showModal: false
     }
-  },
-  setup() {
-    const searchInput = ref(null)
-    return { searchInput }
   },
   methods: {
     toggleSearch() {
@@ -82,13 +79,21 @@ export default {
     },
     doSearch() {
       console.log('Buscando:', this.searchTerm)
-      // Lógica de búsqueda: redirigir a una ruta, filtrar lista, etc.
     },
+    handleClick(path) {
+      if (this.$route.path === path) {
+        // Si ya estamos en la ruta activa, refresca la página
+        window.location.reload()
+      } else {
+        // Navega normalmente
+        this.$router.push(path)
+      }
+    }
   },
-  onUpdated() {
-    // Al actualizar, si showSearch es true, forzamos focus en el input
-    if (this.showSearch && this.searchInput) {
-      this.searchInput.focus()
+  updated() {
+    // Focus en input si showSearch
+    if (this.showSearch && this.$refs.searchInput) {
+      this.$refs.searchInput.focus()
     }
   }
 }
@@ -98,13 +103,11 @@ export default {
 nav {
   background-color: $secondary-color;
   margin-top: 15px;
-  box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 30px rgba(0,0,0,0.1);
 }
 
-/* Puedes personalizar la apariencia de la barra de búsqueda inline */
 .search-inline {
   max-width: 250px;
-  /* Ajusta el ancho si quieres */
   margin-right: 30px;
 }
 
@@ -116,23 +119,17 @@ nav {
   font-weight: 400;
   font-size: 16px;
   line-height: 18.75px;
-  letter-spacing: 0%;
-
-
 }
 
 .btn-primary:hover {
   background-color: $secondary-color;
   border-color: $secondary-color;
-  transform: none;
-
 }
 
 .navbar-brand {
   margin: -2rem 4rem -2rem 0rem;
 }
 
-/* Navegación */
 nav {
   display: flex;
   justify-content: center;
@@ -155,14 +152,6 @@ nav {
   }
 }
 
-.fa-search {
-  color: $primary-color;
-}
-
-nav div.container {
-  padding: 5px 5px;
-}
-
 @media (max-width: 950px) {
   .extras {
     display: flex;
@@ -170,20 +159,15 @@ nav div.container {
   }
   .search-inline {
     padding: 5px;
-    margin-right: 0px
+    margin-right: 0;
   }
   .search-inline input {
     padding: 5px;
     margin-bottom: 10px;
-    margin-right: 0px
+    margin-right: 0;
   }
   .navbar-brand {
-  margin: 1rem;
-  }
-  nav div.container {
-  padding: 5px 15px;
+    margin: 1rem;
   }
 }
-
-
 </style>

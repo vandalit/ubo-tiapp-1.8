@@ -1,28 +1,30 @@
-<template>
-  <div id="app">
-    <!-- Navegación -->
-    <Navbar />
+  <template>
+    <div id="app">
+      <!-- Navegación -->
+       <Navbar  />
     <router-view />
-    <Footer />
-  </div>
-</template>
+
+      <Footer />
+    </div>
+  </template>
 
 
-<script>
-import Navbar from './components/Navbar.vue';
-import Footer from './components/Footer.vue';
+  <script>
+  import Navbar from './components/Navbar.vue';
+  import Footer from './components/Footer.vue';
 
-export default {
-  name: "App",
-  components: { Navbar, Footer }
-};
-</script>
+  export default {
+    name: "App",
+    components: { Navbar, Footer }
+  };
+
+  </script>
 
 
-<style lang="scss">
-@import "./assets/styles/main.scss";
-/* Estilos del contenedor */
-#app {
-  text-align: center;
-}
-</style>
+  <style lang="scss">
+  @import "./assets/styles/main.scss";
+  /* Estilos del contenedor */
+  #app {
+    text-align: center;
+  }
+  </style>
