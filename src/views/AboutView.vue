@@ -154,6 +154,13 @@ export default {
   text-align: left; /* Alineación a la izquierda */
 }
 
+/* Responsive para mobile - más padding */
+@media (max-width: 768px) {
+  .content {
+    padding: 30px 30px;
+  }
+}
+
 .content h2,
 .content h3 {
   font-size: 1.5rem;

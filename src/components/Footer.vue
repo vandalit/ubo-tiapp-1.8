@@ -184,15 +184,32 @@ export default {
 /* ==== Responsividad para mobile ==== */
 @media (max-width: 768px) {
   .footer-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .footer-column {
+    text-align: center;
+  }
+
+  .footer-last {
+    text-align: center;
+  }
+  
+  .scroll-up {
+    bottom: 500px; /* Lo posicionamos 500px sobre el footer */
+  }
+}
+
+/* ==== Responsividad para tablets ==== */
+@media (min-width: 769px) and (max-width: 992px) {
+  .footer-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.2rem;
   }
 
   .footer-last {
     text-align: left;
-  }
-  .scroll-up {
-    bottom: 500px; /* Lo posicionamos 100px sobre el footer */
   }
 }
 </style>

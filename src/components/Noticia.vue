@@ -13,9 +13,9 @@
       <h3>{{ item.title }}</h3>
       <p>{{ item.description }}</p>
 
-      <button v-if="item.buttonText" class="btn btn-primary" @click="emits('openModal', item)">
+      <router-link v-if="item.buttonText" :to="`/news/${item.id}`" class="btn btn-primary">
         {{ item.buttonText }}
-      </button>
+      </router-link>
     </div>
   </div>
 </template>

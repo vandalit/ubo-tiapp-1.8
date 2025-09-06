@@ -84,6 +84,6 @@ export default {
 
 /* Override del padding local para usar el global */
 .about-header {
-  padding: 20px 10px !important;
+  padding: 20px 20px !important;
 }
 </style>
