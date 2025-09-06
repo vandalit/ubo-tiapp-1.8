@@ -91,10 +91,27 @@ function closeCarousel() {
 // Resetear estado cuando se navega a esta ruta
 watch(() => route.path, (newPath) => {
   if (newPath === '/services') {
-    isCarouselView.value = false
-    selectedIndex.value = 0
+    // Verificar si hay un parámetro de card en la query
+    const cardIndex = route.query.card
+    if (cardIndex !== undefined) {
+      // Abrir directamente la card especificada
+      selectedIndex.value = parseInt(cardIndex)
+      isCarouselView.value = true
+    } else {
+      // Comportamiento normal: mostrar grid
+      isCarouselView.value = false
+      selectedIndex.value = 0
+    }
   }
 }, { immediate: true })
+
+// También observar cambios en la query para manejar navegación desde footer
+watch(() => route.query.card, (newCard) => {
+  if (newCard !== undefined && route.path === '/services') {
+    selectedIndex.value = parseInt(newCard)
+    isCarouselView.value = true
+  }
+})
 
 
 </script>

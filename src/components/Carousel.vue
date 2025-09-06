@@ -4,7 +4,7 @@
       <!-- Sección imagen a la izquierda -->
       <div class="image-area">
         <img
-          :src="currentService.image"
+          :src="currentService?.image || ''"
           alt="Imagen del servicio"
           class="service-img"
         />
@@ -16,8 +16,8 @@
 
       <!-- Sección de contenido textual -->
       <div class="content-area">
-        <h3 class="title">{{ currentService.name }}</h3>
-        <div class="description" v-html="currentService.description"></div>
+        <h3 class="title">{{ currentService?.name || '' }}</h3>
+        <div class="description" v-html="currentService?.description || ''"></div>
 
         <!-- Parte inferior: flechas + botón en la misma fila -->
         <div class="content-footer">
@@ -32,25 +32,25 @@
           </div>
 
           <!-- Botón de Login (si button_active == true) -->
-          <div v-if="currentService.button_active" class="ms-3">
+          <div v-if="currentService?.button_active" class="ms-3">
             <!-- Enlace externo -->
             <a
-              v-if="isExternalLink(currentService.button_route)"
-              :href="currentService.button_route"
+              v-if="isExternalLink(currentService?.button_route)"
+              :href="currentService?.button_route"
               class="btn btn-primary boton-oculto"
               target="_blank"
               rel="noopener noreferrer"
             >
-              {{ currentService.button_text }}
+              {{ currentService?.button_text }}
             </a>
 
             <!-- Ruta interna -->
             <router-link
               v-else
-              :to="currentService.button_route"
+              :to="currentService?.button_route"
               class="btn btn-primary boton-oculto"
             >
-              {{ currentService.button_text }}
+              {{ currentService?.button_text }}
             </router-link>
           </div>
         </div>

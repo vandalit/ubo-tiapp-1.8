@@ -13,22 +13,22 @@
         <div class="footer-column">
           <h5>Servicios</h5>
           <ul>
-            <li><a href="#">Seguimiento Proyectos</a></li>
-            <li><a href="#">Mesa de Ayuda TI</a></li>
-            <li><a href="#">Consultoría TI</a></li>
-            <li><a href="#">Accesos Inalámbricos</a></li>
-            <li><a href="#">Licencias de Softwares</a></li>
-            <li><a href="#">Capacitaciones</a></li>
+            <li><a @click="navigateToService(0)" href="#">Seguimiento Proyectos</a></li>
+            <li><a @click="navigateToService(1)" href="#">Mesa de Ayuda TI</a></li>
+            <li><a @click="navigateToService(2)" href="#">Consultoría TI</a></li>
+            <li><a @click="navigateToService(3)" href="#">Accesos Inalámbricos</a></li>
+            <li><a @click="navigateToService(4)" href="#">Licencias de Softwares</a></li>
+            <li><a @click="navigateToService(5)" href="#">Capacitaciones</a></li>
           </ul>
         </div>
 
         <div class="footer-column">
           <h5>Ciberseguridad</h5>
           <ul>
-            <li><a href="#">Registrar Incidente</a></li>
-            <li><a href="#">Políticas de contraseñas</a></li>
-            <li><a href="#">Phishing</a></li>
-            <li><a href="#">Antivirus Corporativo</a></li>
+            <li><a @click="navigateToCyber(0)" href="#">Registrar Incidente</a></li>
+            <li><a @click="navigateToCyber(1)" href="#">Políticas de contraseñas</a></li>
+            <li><a @click="navigateToCyber(2)" href="#">Phishing</a></li>
+            <li><a @click="navigateToCyber(3)" href="#">Antivirus Corporativo</a></li>
           </ul>
         </div>
 
@@ -82,6 +82,18 @@ export default {
 
       // El botón solo aparece cuando el usuario entra en el footer
       this.isInFooter = scrollPosition >= footerStart;
+    },
+    navigateToService(cardIndex) {
+      this.$router.push({
+        path: '/services',
+        query: { card: cardIndex }
+      });
+    },
+    navigateToCyber(cardIndex) {
+      this.$router.push({
+        path: '/cybersecurity',
+        query: { card: cardIndex }
+      });
     },
   },
 };
