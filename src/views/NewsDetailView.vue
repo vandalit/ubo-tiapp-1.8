@@ -84,15 +84,26 @@
 </template>
 
 <script>
-import { ref, computed, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { ref, computed, onMounted, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import noticiasData from '@/assets/noticias.json'
 
 export default {
   name: 'NewsDetailView',
   setup() {
     const route = useRoute()
+    const router = useRouter()
     const news = ref(null)
+
+    const loadNews = () => {
+      const newsId = parseInt(route.params.id)
+      news.value = noticiasData.find(item => item.id === newsId)
+      
+      if (!news.value) {
+        // Redirigir a página de noticias si no se encuentra
+        router.push('/news')
+      }
+    }
 
     const formattedContent = computed(() => {
       if (!news.value?.fullContent) return ''
@@ -128,13 +139,17 @@ export default {
       }
     }
 
+    // Cargar noticia inicial
     onMounted(() => {
-      const newsId = parseInt(route.params.id)
-      news.value = noticiasData.find(item => item.id === newsId)
-      
-      if (!news.value) {
-        // Redirigir a 404 o página de noticias si no se encuentra
-        router.push('/news')
+      loadNews()
+    })
+
+    // Watcher para detectar cambios en el parámetro de ruta
+    watch(() => route.params.id, (newId, oldId) => {
+      if (newId !== oldId) {
+        loadNews()
+        // Scroll al top cuando cambie la noticia
+        window.scrollTo({ top: 0, behavior: 'smooth' })
       }
     })
 
