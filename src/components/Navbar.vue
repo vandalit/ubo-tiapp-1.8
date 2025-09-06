@@ -18,20 +18,14 @@
             <router-link to="/about" class="nav-link">Nosotros</router-link>
           </li>
           <li class="nav-item">
-            <router-link 
-              to="/services" 
-              class="nav-link"
-              @click.prevent="handleClick('/services')">
-              Servicios
-            </router-link>
+            <router-link to="/services" class="nav-link">Servicios</router-link>
+
+
           </li>
           <li class="nav-item">
-            <router-link 
-              to="/cybersecurity" 
-              class="nav-link"
-              @click.prevent="handleClick('/cybersecurity')">
-              Ciberseguridad
-            </router-link>
+            <router-link to="/cybersecurity" class="nav-link">Ciberseguridad</router-link>
+
+
           </li>
           <li class="nav-item">
             <router-link to="/news" class="nav-link">Noticias</router-link>
@@ -80,15 +74,7 @@ export default {
     doSearch() {
       console.log('Buscando:', this.searchTerm)
     },
-    handleClick(path) {
-      if (this.$route.path === path) {
-        // Si ya estamos en la ruta activa, refresca la página
-        window.location.reload()
-      } else {
-        // Navega normalmente
-        this.$router.push(path)
-      }
-    }
+
   },
   updated() {
     // Focus en input si showSearch
