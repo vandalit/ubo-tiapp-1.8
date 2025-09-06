@@ -37,11 +37,13 @@
 
           <!-- Botones de acción -->
           <div class="action-buttons">
-            <button class="btn btn-primary" @click="shareNews">
-              <i class="fas fa-share-alt"></i> Compartir
+            <button class="custom-btn share-btn" @click="shareNews">
+              <i class="fas fa-share-alt"></i>
+              <span>Compartir</span>
             </button>
-            <router-link to="/news" class="btn btn-outline-secondary">
-              <i class="fas fa-list"></i> Ver más noticias
+            <router-link to="/news" class="custom-btn more-news-btn">
+              <i class="fas fa-list"></i>
+              <span>Ver más noticias</span>
             </router-link>
           </div>
         </div>
@@ -70,8 +72,9 @@
           <div class="contact-card">
             <h4>Contacto DTI</h4>
             <p>¿Tienes preguntas sobre este proyecto?</p>
-            <button class="btn btn-secondary btn-sm">
-              <i class="fas fa-envelope"></i> Contactar
+            <button class="custom-btn contact-btn">
+              <i class="fas fa-envelope"></i>
+              <span>Contactar</span>
             </button>
           </div>
         </div>
@@ -295,11 +298,90 @@ export default {
   }
 }
 
+/* Botones personalizados UBO */
+.custom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+  }
+  
+  &:hover::before {
+    left: 100%;
+  }
+  
+  i {
+    font-size: 1rem;
+  }
+}
+
+.share-btn {
+  background: linear-gradient(135deg, $secondary-color 0%, #4fa8c5 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(92, 189, 224, 0.3);
+  
+  &:hover {
+    background: linear-gradient(135deg, #4fa8c5 0%, $secondary-color 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(92, 189, 224, 0.4);
+    color: white;
+  }
+}
+
+.more-news-btn {
+  background: linear-gradient(135deg, $primary-color 0%, #0a1f42 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(13, 44, 91, 0.3);
+  
+  &:hover {
+    background: linear-gradient(135deg, #0a1f42 0%, $primary-color 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(13, 44, 91, 0.4);
+    color: white;
+    text-decoration: none;
+  }
+}
+
+.contact-btn {
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  color: white;
+  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+  font-size: 0.85rem;
+  padding: 10px 20px;
+  
+  &:hover {
+    background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+  }
+}
+
 .action-buttons {
   display: flex;
+  justify-content: center;
   gap: 15px;
   margin-top: 40px;
   padding-top: 30px;
+  padding-bottom: 60px;
   border-top: 1px solid #eee;
 }
 

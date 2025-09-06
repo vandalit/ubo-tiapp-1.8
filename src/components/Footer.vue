@@ -34,6 +34,14 @@
 
         <div class="footer-column">
           <h5>Noticias</h5>
+          <ul>
+            <li v-for="news in recentNews" :key="news.id">
+              <router-link :to="`/news/${news.id}`">
+                {{ truncateTitle(news.title) }}
+              </router-link>
+              <small class="news-date">{{ news.date }}</small>
+            </li>
+          </ul>
         </div>
 
         <div class="footer-column footer-last">
@@ -54,15 +62,19 @@
 </template>
 
 <script>
+import { getRecentNews, truncateText } from '@/utils/newsUtils'
+
 export default {
   name: "CustomFooter",
   data() {
     return {
       isInFooter: false, // Indica si el usuario está en el footer
+      recentNews: [], // Noticias más recientes
     };
   },
   mounted() {
     window.addEventListener("scroll", this.checkScroll);
+    this.loadRecentNews();
   },
   beforeUnmount() {
     window.removeEventListener("scroll", this.checkScroll);
@@ -95,6 +107,14 @@ export default {
         query: { card: cardIndex }
       });
     },
+    loadRecentNews() {
+      // Obtener las 3 noticias más recientes
+      this.recentNews = getRecentNews(3);
+    },
+    truncateTitle(title) {
+      // Truncar títulos largos para el footer
+      return truncateText(title, 45);
+    }
   },
 };
 </script>
@@ -133,6 +153,22 @@ export default {
 
 .footer ul li a:hover {
   color: #0d2c5b;
+}
+
+/* Estilos específicos para noticias en footer */
+.footer ul li .news-date {
+  display: block;
+  color: #999;
+  font-size: 0.75rem;
+  margin-top: 2px;
+  font-style: italic;
+}
+
+.footer ul li a[href*="/news/"] {
+  display: block;
+  font-weight: 500;
+  line-height: 1.3;
+  margin-bottom: 2px;
 }
 
 /* ==== Distribución de columnas con Grid ==== */
