@@ -60,8 +60,8 @@ body {
         
         // Para pantallas grandes (> 1240px): la imagen se extiende hasta el borde
         @media (min-width: 1241px) {
-          width: calc(50vw + ((100vw - 1200px) / 2));
-          margin-right: calc(-1 * ((100vw - 1200px) / 2) - 20px);
+          width: calc(50vw + ((100vw - 1320px) / 2));
+          margin-right: calc(-1 * ((100vw - 1320px) / 2) - 20px);
         }
         
         // Para pantallas medianas (992px - 1240px): imagen contenida

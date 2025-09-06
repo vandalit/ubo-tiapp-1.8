@@ -192,7 +192,7 @@ export default {
 .scroll-up {
   position: absolute;
   right: 15px;
-  bottom: 300px; /* Lo posicionamos 300px sobre el footer */
+  bottom: 320px; /* Lo posicionamos 300px sobre el footer */
   width: 40px;
   height: 40px;
   background-color: #5cbde0;
