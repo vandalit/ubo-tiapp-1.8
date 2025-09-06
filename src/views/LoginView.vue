@@ -7,8 +7,8 @@
     <div class="background"></div>
 
   <!-- Encabezado -->
-  <div class="about-header">
-    <h2>Nuestra data TI</h2>
+  <div class="about-header container">
+    <h2>Dirección de Tecnologías de la Información</h2>
     <p>Accede con tu cuenta</p>
   </div>
 
@@ -133,16 +133,23 @@ export default {
   z-index: 1;
 }
 
-/* Encabezado */
-.about-header {
+/* Encabezado - Override estilos globales */
+.login-container .about-header {
   text-align: left;
-  padding: 20px 10px;
   position: relative;
   z-index: 2;
   margin-bottom: -10rem;
 }
+
+.about-header h2 {
+  color: $primary-color;
+}
+
+.about-header p {
+  color: $primary-color;
+}
 @media (max-width: 992px) {
-  .about-header {
+  .login-container .about-header {
     text-align: center;
     margin-bottom: -6rem;
   }
