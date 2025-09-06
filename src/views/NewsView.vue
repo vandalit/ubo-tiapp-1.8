@@ -18,9 +18,9 @@
           <strong>modelo de IA</strong> capaz de optimizar procesos industriales,
           <strong>reduciendo costos</strong> hasta en un 30%.
         </p>
-        <a href="#" class="hero-link" @click.prevent="showConstructionModal">
+        <router-link :to="`/news/${heroNews.id}`" class="hero-link">
           {{ heroNews.buttonText }}
-        </a>
+        </router-link>
       </div>
       <div class="hero-image-container">
         <img :src="heroNews.image" :alt="heroNews.title" class="hero-image" />
