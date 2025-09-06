@@ -132,12 +132,7 @@ export default {
   margin: 0;
 }
 
-/* Encabezado */
-.about-header {
-  text-align: left;
-  padding: 10px 0;
-
-}
+/* Encabezado - usar estilos globales */
 
 /* Banner */
 .banner {
@@ -155,7 +150,7 @@ export default {
 /* Contenido */
 .content {
   margin-top: 20px;
-  padding: 10px 40px;
+  padding: 10px 10px;
   text-align: left; /* Alineación a la izquierda */
 }
 

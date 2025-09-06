@@ -102,11 +102,7 @@ function closeCarousel() {
   margin: 0;
 }
 
-/* Encabezado */
-.about-header {
-  text-align: left;
-  padding: 10px 0;
-}
+/* Encabezado - usar estilos globales */
 
 /* Banner */
 .banner {

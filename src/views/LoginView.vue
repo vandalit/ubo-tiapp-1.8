@@ -136,7 +136,7 @@ export default {
 /* Encabezado */
 .about-header {
   text-align: left;
-  padding: 20px;
+  padding: 20px 10px;
   position: relative;
   z-index: 2;
   margin-bottom: -10rem;

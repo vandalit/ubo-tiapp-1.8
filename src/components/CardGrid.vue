@@ -4,7 +4,7 @@
     <div
       v-for="(service, index) in services"
       :key="index"
-      class="col-md-4 mb-4"
+      class="col-lg-4 col-md-6 col-sm-12 mb-4"
     >
       <!-- Tarjeta personalizada -->
       <div class="service-card" @click="selectCard(index)">
