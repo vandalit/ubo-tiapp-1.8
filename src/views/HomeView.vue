@@ -9,31 +9,35 @@
         <p class="hero-subtitle">destacados este año 2024</p>
       </div>
 
-      <!-- Imagen principal con botón "Ver proyecto" en la esquina -->
+      <!-- Imagen principal con slider -->
       <div class="hero-image-container position-relative">
         <img src="../assets/img/img01.webp" alt="Imagen de proyecto TI" class="img-fluid hero-image" />
-        <!-- Botón en la esquina superior derecha -->
-        <!--
-          <button class="btn btn-light btn-ver-proyecto">
-            VER PROYECTO
-          </button>
-        -->
 
-        <!-- Pestañas en el pie de la imagen -->
+        <!-- Pestañas en el pie de la imagen con contenido dinámico -->
         <div class="hero-tabs">
           <!-- Primera pestaña (color primario) -->
           <div class="tab-item tab-item-left">
-            SOMOS UBO TI
+            {{ heroSlides[currentSlideIndex].title }}
           </div>
 
           <!-- Segunda pestaña (color secundario o claro) -->
           <div class="tab-item tab-item-right">
-            Direccion De Tecnología De La Información
+            {{ heroSlides[currentSlideIndex].subtitle }}
           </div>
         </div>
+      </div>
 
-
-
+      <!-- Dots de navegación fuera del contenedor de imagen -->
+      <div class="slider-dots-container">
+        <div class="slider-dots">
+          <span 
+            v-for="(slide, index) in heroSlides" 
+            :key="index"
+            class="dot"
+            :class="{ active: currentSlideIndex === index }"
+            @click="goToSlide(index)"
+          ></span>
+        </div>
       </div>
     </section>
 
@@ -54,21 +58,30 @@
         <!-- Tarjeta 1 -->
         <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
           <div class="indicator-card">
-            <h3 class="indicator-number">000</h3>
+            <h3 class="indicator-number">
+              <span v-if="isLoadingIndicadores">...</span>
+              <span v-else>{{ indicadores.ticketsIngresados }}</span>
+            </h3>
             <p class="indicator-label">TICKET INGRESADOS</p>
           </div>
         </div>
         <!-- Tarjeta 2 -->
         <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
           <div class="indicator-card">
-            <h3 class="indicator-number">000</h3>
+            <h3 class="indicator-number">
+              <span v-if="isLoadingIndicadores">...</span>
+              <span v-else>{{ indicadores.ticketsEnAtencion }}</span>
+            </h3>
             <p class="indicator-label">TICKET EN ATENCIÓN</p>
           </div>
         </div>
         <!-- Tarjeta 3 -->
         <div class="col-12 col-sm-6 col-md-4 d-flex justify-content-center">
           <div class="indicator-card">
-            <h3 class="indicator-number">000</h3>
+            <h3 class="indicator-number">
+              <span v-if="isLoadingIndicadores">...</span>
+              <span v-else>{{ indicadores.ticketsResueltos }}</span>
+            </h3>
             <p class="indicator-label">TICKET RESUELTOS</p>
           </div>
         </div>
@@ -80,12 +93,65 @@
 </template>
 
 <script>
+import heroSlidesData from '@/assets/heroSlides.json'
+import indicadoresService from '@/services/indicadoresService.js'
+
 export default {
   name: 'HomeView',
   data() {
-    return {}
+    return {
+      heroSlides: heroSlidesData,
+      currentSlideIndex: 0,
+      autoSlideInterval: null,
+      indicadores: {
+        ticketsIngresados: 0,
+        ticketsEnAtencion: 0,
+        ticketsResueltos: 0,
+        fechaActualizacion: ''
+      },
+      isLoadingIndicadores: true
+    }
   },
-  methods: {}
+  mounted() {
+    this.startAutoSlide()
+    this.loadIndicadores()
+  },
+  beforeUnmount() {
+    this.stopAutoSlide()
+  },
+  methods: {
+    goToSlide(index) {
+      this.currentSlideIndex = index
+      this.resetAutoSlide()
+    },
+    nextSlide() {
+      this.currentSlideIndex = (this.currentSlideIndex + 1) % this.heroSlides.length
+    },
+    startAutoSlide() {
+      this.autoSlideInterval = setInterval(() => {
+        this.nextSlide()
+      }, 5000) // Cambio automático cada 5 segundos
+    },
+    stopAutoSlide() {
+      if (this.autoSlideInterval) {
+        clearInterval(this.autoSlideInterval)
+      }
+    },
+    resetAutoSlide() {
+      this.stopAutoSlide()
+      this.startAutoSlide()
+    },
+    async loadIndicadores() {
+      try {
+        this.isLoadingIndicadores = true
+        this.indicadores = await indicadoresService.getIndicadores()
+      } catch (error) {
+        console.error('Error cargando indicadores:', error)
+      } finally {
+        this.isLoadingIndicadores = false
+      }
+    }
+  }
 }
 </script>
 
@@ -141,6 +207,36 @@ export default {
   border-radius: 12px;
   overflow: hidden;
   /* O un max-width: 100%; si quieres asegurar que no exceda el ancho del contenedor padre */
+}
+
+/* Estilos del slider - dots de navegación */
+.slider-dots-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+  padding-right: 20px;
+}
+
+.slider-dots {
+  display: flex;
+  gap: 10px;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: $primary-color;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.dot.active {
+  background-color: $secondary-color;
+}
+
+.dot:hover {
+  background-color: $secondary-color;
 }
 
 .hero-image {
@@ -357,6 +453,12 @@ hr {
     width: 100%;
     height: 100%;
     object-fit: cover;
+  }
+
+  /* Ajustes para dots en mobile */
+  .slider-dots-container {
+    padding-right: 15px;
+    margin-top: 10px;
   }
 
   /* 🔥 Asegurar que las pestañas estén por encima de la imagen */
