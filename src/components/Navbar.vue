@@ -47,9 +47,9 @@
           </div>
 
           <!-- Botón Mesa de Ayuda TI -->
-          <button class="btn btn-primary" @click="showModal = true">
+          <a href="https://serviciosti.ubo.cl/portal/es/home" target="_blank" class="btn btn-primary">
             MESA DE AYUDA TI
-          </button>
+          </a>
         </div>
       </div>
     </div>
@@ -69,8 +69,7 @@ export default {
     return {
       showSearch: false,
       searchTerm: '',
-      searchInput: null,
-      showModal: false
+      searchInput: null
     }
   },
   methods: {
