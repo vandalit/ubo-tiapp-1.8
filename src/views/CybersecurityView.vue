@@ -60,12 +60,15 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, watch } from 'vue'
+import { useRoute } from 'vue-router'
 import CardGrid from '@/components/CardGrid.vue'
 import Carousel from '@/components/Carousel.vue'
 
 // Importamos el JSON (o fetch si es remoto)
 import cyberData from '@/assets/cybersecurity.json'
+
+const route = useRoute()
 
 // Control de datos
 const services = ref([])
@@ -93,6 +96,14 @@ function openCarousel(index) {
 function closeCarousel() {
   isCarouselView.value = false
 }
+
+// Resetear estado cuando se navega a esta ruta
+watch(() => route.path, (newPath) => {
+  if (newPath === '/cybersecurity') {
+    isCarouselView.value = false
+    selectedIndex.value = 0
+  }
+}, { immediate: true })
 </script>
 
 
