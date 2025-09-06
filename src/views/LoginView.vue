@@ -66,11 +66,58 @@
         <p v-if="loginError" class="text-danger mb-0">
           Credenciales incorrectas.
         </p>
+        <p v-if="domainError" class="text-warning mb-0">
+          Solo se permiten cuentas con dominio @ubo.cl
+        </p>
       </div>
     </div>
 
+    <!-- Modal de advertencia para dominio no @ubo.cl -->
+    <div v-if="showDomainWarning" class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-warning">
+              <i class="fa-solid fa-exclamation-triangle me-2"></i>
+              Acceso Restringido
+            </h5>
+          </div>
+          <div class="modal-body">
+            <p>Solo se permite el acceso con cuentas del dominio <strong>@ubo.cl</strong></p>
+            <p>Por favor, utiliza tu cuenta institucional de la Universidad Bernardo O'Higgins.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" @click="showDomainWarning = false">
+              Entendido
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
-
+    <!-- Modal de desarrollo UBO Insight -->
+    <div v-if="showDevelopmentModal" class="modal fade show d-block" tabindex="-1" style="background-color: rgba(0,0,0,0.5);">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title text-info">
+              <i class="fa-solid fa-info-circle me-2"></i>
+              UBO Insight - En Desarrollo
+            </h5>
+          </div>
+          <div class="modal-body">
+            <p>La aplicación <strong>UBO Insight</strong> se encuentra actualmente en desarrollo.</p>
+            <p>Las funcionalidades de autenticación y verificación están siendo implementadas.</p>
+            <p>Pronto estará disponible con todas sus características completas.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" @click="showDevelopmentModal = false">
+              Continuar
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 </template>
@@ -85,20 +132,43 @@ export default {
     return {
       username: '',
       password: '',
-      loginError: false
+      loginError: false,
+      domainError: false,
+      showDomainWarning: false,
+      showDevelopmentModal: false
     }
   },
   methods: {
     login() {
+      // Limpiar errores previos
+      this.loginError = false
+      this.domainError = false
+      
+      // Verificar si el usuario está en la lista de excepciones (usuarios.json)
       const user = usuarios.find(
         u => u.username === this.username && u.password === this.password
       )
+      
       if (user) {
-        localStorage.setItem('user', JSON.stringify(user))
-        this.$router.push('/dashboard')
-      } else {
-        this.loginError = true
+        // Usuario válido de la lista de excepciones
+        this.showDevelopmentModal = true
+        setTimeout(() => {
+          localStorage.setItem('user', JSON.stringify(user))
+          this.$router.push('/dashboard')
+        }, 2000) // Esperar 2 segundos después de cerrar el modal
+        return
       }
+      
+      // Verificar dominio @ubo.cl para otros usuarios
+      if (!this.username.includes('@ubo.cl')) {
+        this.domainError = true
+        this.showDomainWarning = true
+        return
+      }
+      
+      // Si llega aquí, es dominio @ubo.cl pero no está en usuarios.json
+      // Mostrar modal de desarrollo
+      this.showDevelopmentModal = true
     }
   }
 }
