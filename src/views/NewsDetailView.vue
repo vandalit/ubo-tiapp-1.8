@@ -14,9 +14,6 @@
           <span class="author">{{ news?.author }}</span>
           <span class="date">{{ news?.date }}</span>
         </div>
-        <div class="tags">
-          <span v-for="tag in news?.tags" :key="tag" class="tag">{{ tag }}</span>
-        </div>
       </div>
 
       <!-- Banner de imagen -->
@@ -35,16 +32,9 @@
           <!-- Contenido completo -->
           <div class="full-content" v-html="formattedContent"></div>
 
-          <!-- Botones de acción -->
-          <div class="action-buttons">
-            <button class="custom-btn share-btn" @click="shareNews">
-              <i class="fas fa-share-alt"></i>
-              <span>Compartir</span>
-            </button>
-            <router-link to="/news" class="custom-btn more-news-btn">
-              <i class="fas fa-list"></i>
-              <span>Ver más noticias</span>
-            </router-link>
+          <!-- Imagen adicional simulada -->
+          <div class="additional-image">
+            <img src="/img/img18.webp" alt="Imagen adicional" class="img-fluid" />
           </div>
         </div>
 
@@ -61,22 +51,20 @@
             <div class="info-item">
               <strong>Fecha:</strong> {{ news?.date }}
             </div>
-            <div class="info-item">
-              <strong>Etiquetas:</strong>
-              <div class="tags-list">
-                <span v-for="tag in news?.tags" :key="tag" class="tag-small">{{ tag }}</span>
-              </div>
+            
+            <!-- Botones en sidebar -->
+            <div class="sidebar-actions">
+              <button class="custom-btn share-btn" @click="shareNews">
+                <i class="fas fa-share-alt"></i>
+                <span>Compartir</span>
+              </button>
+              <router-link to="/news" class="custom-btn more-news-btn">
+                <i class="fas fa-list"></i>
+                <span>Ver más noticias</span>
+              </router-link>
             </div>
           </div>
 
-          <div class="contact-card">
-            <h4>Contacto DTI</h4>
-            <p>¿Tienes preguntas sobre este proyecto?</p>
-            <button class="custom-btn contact-btn">
-              <i class="fas fa-envelope"></i>
-              <span>Contactar</span>
-            </button>
-          </div>
         </div>
       </div>
     </div>
@@ -223,20 +211,6 @@ export default {
   font-style: italic;
 }
 
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.tag {
-  background-color: #f0f0f0;
-  color: $primary-color;
-  padding: 4px 10px;
-  border-radius: 15px;
-  font-size: 0.8rem;
-  font-weight: 500;
-}
 
 /* Banner */
 .banner {
@@ -264,6 +238,18 @@ export default {
 
 .content-wrapper {
   background: white;
+}
+
+.additional-image {
+  margin: 40px 0;
+  text-align: left;
+  
+  img {
+    max-width: 80%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
 }
 
 .lead-paragraph {
@@ -363,105 +349,84 @@ export default {
 }
 
 .more-news-btn {
-  background: linear-gradient(135deg, $primary-color 0%, #0a1f42 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(13, 44, 91, 0.3);
+  background: transparent;
+  color: $primary-color;
+  border: 2px solid $primary-color;
+  box-shadow: none;
   
   &:hover {
-    background: linear-gradient(135deg, #0a1f42 0%, $primary-color 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(13, 44, 91, 0.4);
+    background: $primary-color;
     color: white;
+    transform: none;
+    box-shadow: none;
     text-decoration: none;
   }
 }
 
-.contact-btn {
-  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-  color: white;
-  box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
-  font-size: 0.85rem;
-  padding: 10px 20px;
-  
-  &:hover {
-    background: linear-gradient(135deg, #20c997 0%, #28a745 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
-  }
-}
 
-.action-buttons {
-  display: flex;
-  justify-content: center;
-  gap: 15px;
-  margin-top: 40px;
-  padding-top: 30px;
-  padding-bottom: 60px;
-  border-top: 1px solid #eee;
-}
 
 /* Sidebar */
 .sidebar {
   display: flex;
   flex-direction: column;
   gap: 25px;
+  margin-top: 200px; /* Empuja el sidebar hacia abajo para alinearlo con el contenido */
 }
 
-.info-card, .contact-card {
+.info-card {
   background: white;
   border: 1px solid #e0e0e0;
-  border-radius: 12px;
-  padding: 25px;
+  border-radius: 8px;
+  padding: 20px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
-.info-card h4, .contact-card h4 {
+.info-card h4 {
   color: $primary-color;
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   border-bottom: 2px solid $secondary-color;
-  padding-bottom: 10px;
+  padding-bottom: 8px;
 }
 
 .info-item {
-  margin-bottom: 15px;
-  font-size: 0.9rem;
+  margin-bottom: 12px;
+  font-size: 0.85rem;
   
   strong {
     color: $primary-color;
-    display: block;
-    margin-bottom: 5px;
+    display: inline;
+    margin-right: 8px;
   }
 }
 
-.tags-list {
+.sidebar-actions {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
   display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-top: 8px;
+  flex-direction: column;
+  gap: 12px;
+  
+  .share-btn, .more-news-btn {
+    width: 100%;
+    justify-content: center;
+    font-size: 0.9rem;
+    padding: 12px 20px;
+  }
 }
 
-.tag-small {
-  background-color: #f0f0f0;
-  color: $primary-color;
-  padding: 3px 8px;
-  border-radius: 12px;
-  font-size: 0.75rem;
-  font-weight: 500;
-}
-
-.contact-card p {
-  color: #666;
-  font-size: 0.9rem;
-  margin-bottom: 15px;
-}
 
 /* Responsive */
 @media (max-width: 992px) {
   .content {
     grid-template-columns: 1fr;
     gap: 30px;
+  }
+  
+  .sidebar {
+    margin-top: 0; /* En móvil no necesita el margen superior */
   }
   
   .news-header h1 {
@@ -475,7 +440,7 @@ export default {
 
 @media (max-width: 768px) {
   .news-header {
-    padding: 20px 30px;
+    padding: 20px 15px;
   }
   
   .news-header h1 {
@@ -483,7 +448,7 @@ export default {
   }
   
   .content {
-    padding: 0 30px;
+    padding: 0 15px;
   }
   
   .news-meta {
@@ -491,12 +456,23 @@ export default {
     gap: 10px;
   }
   
-  .action-buttons {
-    flex-direction: column;
+  .additional-image {
+    margin: 20px 0;
+    text-align: center;
+    
+    img {
+      max-width: 100%;
+    }
   }
   
   .banner {
     height: 250px;
+  }
+  
+  .sidebar-actions .share-btn,
+  .sidebar-actions .more-news-btn {
+    font-size: 0.85rem;
+    padding: 10px 16px;
   }
 }
 </style>
