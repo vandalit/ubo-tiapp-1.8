@@ -349,14 +349,15 @@ export default {
 }
 
 .more-news-btn {
-  background: transparent;
-  color: $primary-color;
-  border: 2px solid $primary-color;
+  background: $secondary-color;
+  color: white;
+  border: 2px solid $secondary-color;
   box-shadow: none;
   
   &:hover {
     background: $primary-color;
     color: white;
+    border-color: $primary-color;
     transform: none;
     box-shadow: none;
     text-decoration: none;

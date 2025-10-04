@@ -11,6 +11,7 @@ import DashboardView from '@/views/DashboardView.vue';
 import EditProject from '@/components/EditProjectModal.vue';  // Ruta para la edición de proyectos
 import AddProjectModal from '@/components/AddProjectModal.vue';
 import AdministrarProyectos from '@/views/AdministrarProyectos.vue';
+import ConsejosView from '@/views/ConsejosView.vue';
 
 
 const routes = [
@@ -21,6 +22,7 @@ const routes = [
   { path: "/dashboard", name: "Dashboard", component: Dashboard },
   { path: "/services", name: "Services", component: Services },
   { path: "/cybersecurity", name: "Cybersecurity", component: Cybersecurity },
+  { path: "/consejos", name: "Consejos", component: ConsejosView },
   { path: '/login', name: 'Login', component: LoginView },
   { path: '/dashboard', name: 'Dashboard', component: DashboardView },
   { path: '/edit-project/:id', name: 'EditProject', component: EditProject },  // Ruta para la edición
