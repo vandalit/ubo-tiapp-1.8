@@ -196,7 +196,7 @@ export default {
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('/img/general/background-login.webp') center center / cover no-repeat;
+  background: url('../assets/img/img20.webp') center center / cover no-repeat;
   z-index: 1;
 }
 

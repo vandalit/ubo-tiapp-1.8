@@ -11,7 +11,7 @@ Se ha completado exitosamente la reorganización completa del sistema multimedia
 | Métrica | Cantidad |
 |---------|----------|
 | **Directorios creados** | 8 |
-| **Imágenes reorganizadas** | 33 |
+| **Imágenes reorganizadas** | 32 |
 | **Archivos JSON actualizados** | 6 |
 | **Componentes Vue actualizados** | 8 |
 | **Rutas modificadas** | 31 |
@@ -48,7 +48,9 @@ public/img/
 ├── 📁 consejos/       → 5 imágenes de consejos
 ├── 📁 usuarios/       → 4 imágenes de usuarios
 ├── 📁 logos/          → 2 logos institucionales
-└── 📁 general/        → 3 imágenes de uso general
+└── 📁 general/        → 2 imágenes de uso general (pc-01, pc-02)
+
+**Excepción:** `img20.webp` (background login) permanece en `src/assets/img/` debido a limitaciones de webpack con CSS.
 ```
 
 ---
@@ -135,29 +137,10 @@ Consulta **VERIFICACION_MULTIMEDIA.md** para el checklist completo.
 ---
 
 ## 🗑️ Limpieza Pendiente
-
 **⚠️ IMPORTANTE:** Los archivos antiguos fueron COPIADOS, no movidos.
 
 ### Después de verificar que todo funciona:
 
-```bash
-# Eliminar archivos antiguos de public/img (raíz)
-Remove-Item public\img\img*.webp
-Remove-Item public\img\user*.webp
-
-# Eliminar archivos antiguos de src/assets/img
-Remove-Item src\assets\img\img*.webp
-Remove-Item src\assets\img\Marca-UBO.*
-Remove-Item src\assets\img\pc-*.png
-```
-
-**Esto liberará ~13 MB de espacio.**
-
----
-
-## 🔍 Comandos de Verificación Rápida
-
-### Verificar estructura de directorios
 ```powershell
 Get-ChildItem public\img -Directory
 ```

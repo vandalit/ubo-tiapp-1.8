@@ -119,7 +119,9 @@ public/img/
 
 #### 2. LoginView.vue ✅
 - `../assets/img/Marca-UBO.webp` → `/img/logos/logo-ubo-color.webp`
-- `../assets/img/img20.webp` (CSS) → `/img/general/background-login.webp`
+- `../assets/img/img20.webp` (CSS) → **Mantiene ruta relativa** (CSS requiere assets)
+  
+**Nota:** La imagen de background del login permanece en `src/assets/img/` porque las rutas en CSS de componentes Vue requieren referencias relativas para que webpack las procese correctamente.
 
 #### 3. HomeView.vue ✅
 - `../assets/img/img01.webp` → `/img/banners/banner-home-proyectos.webp`
@@ -223,16 +225,12 @@ public/img/img04.webp hasta img20.webp
 public/img/user01.webp, user02.webp, user03.webp
 public/img/user-placeholder.webp
 
-# Imágenes antiguas en src/assets/img
-src/assets/img/img01.webp, img02.webp, img03.webp, img10.webp, img20.webp
+# Eliminar imágenes antiguas de src/assets/img
+src/assets/img/img01.webp, img02.webp, img03.webp, img10.webp
 src/assets/img/Marca-UBO.png, Marca-UBO.webp
 src/assets/img/pc-01.png, pc-02.png
-```
 
-**⚠️ IMPORTANTE:** Solo eliminar después de confirmar que la aplicación funciona perfectamente.
-
----
-
+# NO eliminar: img20.webp (usado en CSS de LoginView)
 ## 📊 Verificación de Integridad
 
 | Item | Estado | Archivos |

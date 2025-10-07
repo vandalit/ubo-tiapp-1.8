@@ -161,10 +161,11 @@ Abre DevTools (F12) → Pestaña Network → Filtra por "Img"
 
 ### General
 ```
-/img/general/background-login.webp
 /img/general/pc-01.png
 /img/general/pc-02.png
 ```
+
+**Excepción:** El background de login (`img20.webp`) permanece en `src/assets/img/` porque se usa en CSS.
 
 ---
 
