@@ -109,13 +109,33 @@ const consejos = ref(consejosData)
     height: 100%;
     object-fit: cover;
   }
+  
+  @media (max-width: 768px) {
+    height: 250px;
+    margin-bottom: 30px;
+  }
+  
+  @media (max-width: 480px) {
+    height: 200px;
+    margin-bottom: 20px;
+  }
 }
 
 // Sección del carrusel
 .consejos-section {
-  padding: 6rem 0 3rem;
+  padding: 4rem 0 3rem; // Aumentado para dar espacio a la card destacada
   background: #f8f9fa;
   margin-top: -3rem;
+  
+  @media (max-width: 768px) {
+    padding: 5rem 0 2rem; // Ajustado para mobile
+    margin-top: -2rem;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 4rem 0 1.5rem; // Ajustado para mobile pequeño
+    margin-top: -1.5rem;
+  }
 }
 
 // Sección de banderas rojas

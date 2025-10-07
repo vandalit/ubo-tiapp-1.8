@@ -58,7 +58,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const props = defineProps({
   consejos: {
@@ -68,6 +68,8 @@ const props = defineProps({
 })
 
 const currentIndex = ref(0)
+const touchStartX = ref(0)
+const touchEndX = ref(0)
 
 const nextSlide = () => {
   if (currentIndex.value < props.consejos.length - 1) {
@@ -107,6 +109,49 @@ const isVisible = (index, current) => {
   const next = getNextIndex(current)
   return index === current || index === prev || index === next
 }
+
+// Touch gestures para mobile
+const handleTouchStart = (e) => {
+  touchStartX.value = e.touches[0].clientX
+}
+
+const handleTouchMove = (e) => {
+  touchEndX.value = e.touches[0].clientX
+}
+
+const handleTouchEnd = () => {
+  const swipeThreshold = 50
+  const diff = touchStartX.value - touchEndX.value
+  
+  if (Math.abs(diff) > swipeThreshold) {
+    if (diff > 0) {
+      nextSlide()
+    } else {
+      prevSlide()
+    }
+  }
+  
+  touchStartX.value = 0
+  touchEndX.value = 0
+}
+
+onMounted(() => {
+  const carruselContent = document.querySelector('.carrusel-content')
+  if (carruselContent) {
+    carruselContent.addEventListener('touchstart', handleTouchStart, { passive: true })
+    carruselContent.addEventListener('touchmove', handleTouchMove, { passive: true })
+    carruselContent.addEventListener('touchend', handleTouchEnd)
+  }
+})
+
+onUnmounted(() => {
+  const carruselContent = document.querySelector('.carrusel-content')
+  if (carruselContent) {
+    carruselContent.removeEventListener('touchstart', handleTouchStart)
+    carruselContent.removeEventListener('touchmove', handleTouchMove)
+    carruselContent.removeEventListener('touchend', handleTouchEnd)
+  }
+})
 </script>
 
 <style scoped lang="scss">
@@ -114,7 +159,8 @@ const isVisible = (index, current) => {
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem 0;
+  padding: 6rem 0;
+  overflow: hidden; // Prevenir scroll horizontal
 }
 
 .carrusel-wrapper {
@@ -123,7 +169,7 @@ const isVisible = (index, current) => {
   justify-content: center;
   position: relative;
   min-height: 400px;
-  margin-bottom: 120px
+  margin-bottom: 120px;
 }
 
 .nav-btn {
@@ -166,6 +212,7 @@ const isVisible = (index, current) => {
   width: 100%;
   height: 400px;
   overflow: visible;
+  touch-action: pan-y; // Permitir scroll vertical pero capturar swipe horizontal
 }
 
 .card-consejo {
@@ -286,11 +333,49 @@ const isVisible = (index, current) => {
 }
 
 
-// Responsive
+// Responsive - Tablets
+@media (max-width: 1024px) and (min-width: 769px) {
+  .nav-prev {
+    margin-right: 3rem;
+  }
+  
+  .nav-next {
+    margin-left: 3rem;
+  }
+  
+  .card-consejo {
+    width: 350px;
+    height: 400px;
+    
+    &.active {
+      width: 380px;
+      height: 480px;
+    }
+    
+    &.prev {
+      left: -120px;
+    }
+    
+    &.next {
+      right: -120px;
+    }
+  }
+}
+
+// Responsive - Mobile
 @media (max-width: 768px) {
+  .carrusel-container {
+    padding: 1rem 0;
+  }
+  
   .carrusel-wrapper {
     flex-direction: column;
-    min-height: 350px;
+    min-height: 380px;
+    margin-bottom: 60px;
+  }
+  
+  .carrusel-content {
+    height: 380px;
   }
   
   .nav-btn {
@@ -299,49 +384,107 @@ const isVisible = (index, current) => {
     transform: translateY(-50%);
     width: 40px;
     height: 40px;
+    z-index: 20;
+    background: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    
+    i {
+      font-size: 1rem;
+    }
   }
   
   .nav-prev {
-    left: 10px;
+    left: 5px;
     margin-right: 0;
   }
   
   .nav-next {
-    right: 10px;
+    right: 5px;
     margin-left: 0;
   }
   
   .card-consejo {
-    width: 250px;
-    height: 280px;
+    width: 280px;
+    height: 320px;
     
     &.active {
-      width: 300px;
-      height: 350px;
+      width: 320px;
+      height: 380px;
+    }
+    
+    // Ocultar completamente las cards laterales en mobile
+    &.prev,
+    &.next {
+      opacity: 0;
+      transform: scale(0.7);
+      pointer-events: none;
     }
     
     &.prev {
-      left: -100px;
+      left: -200px;
     }
     
     &.next {
-      right: -100px;
+      right: -200px;
     }
   }
   
   .card-text-box {
-    bottom: 15px;
-    left: 15px;
-    right: 15px;
-    padding: 1rem;
+    bottom: 12px;
+    left: 12px;
+    right: 12px;
+    padding: 0.9rem;
   }
   
   .card-title {
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
   }
   
   .card-description p {
-    font-size: 0.85rem;
+    font-size: 0.8rem;
+    line-height: 1.4;
+  }
+  
+  .carrusel-indicators {
+    margin-top: 1.5rem;
+  }
+}
+
+// Responsive - Mobile pequeño
+@media (max-width: 480px) {
+  .carrusel-wrapper {
+    min-height: 350px;
+    margin-bottom: 50px;
+  }
+  
+  .carrusel-content {
+    height: 350px;
+  }
+  
+  .card-consejo {
+    width: 260px;
+    height: 300px;
+    
+    &.active {
+      width: 280px;
+      height: 340px;
+    }
+  }
+  
+  .card-text-box {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+    padding: 0.8rem;
+  }
+  
+  .card-title {
+    font-size: 0.9rem;
+  }
+  
+  .card-description p {
+    font-size: 0.75rem;
   }
 }
 </style>
