@@ -2,8 +2,8 @@
   {
     "id": 1,
     "image": "/img/banners/banner-home-proyectos.webp",
-    "title": "Innovación en Tecnología",
-    "subtitle": "Soluciones TI Avanzadas",
+    "title": "Innovación TI",
+    "subtitle": "Soluciones Tecnológicas Avanzadas para el Futuro",
     "description": "Un equipo de estudiantes de ingeniería informática creó un modelo de IA capaz de optimizar procesos industriales, reduciendo costos hasta en un 30%.",
     "buttonText": "Conoce más"
   },
@@ -11,16 +11,24 @@
     "id": 2,
     "image": "/img/banners/banner-nosotros.webp",
     "title": "Transformación Digital",
-    "subtitle": "Modernización Empresarial",
+    "subtitle": "Modernización Empresarial Integral",
     "description": "Implementamos sistemas de gestión inteligente que automatizan procesos críticos y mejoran la eficiencia operacional de tu organización.",
     "buttonText": "Descubre cómo"
   },
   {
     "id": 3,
-    "image": "/img/banners/banner-servicios.webp",
-    "title": "Ciberseguridad Integral",
-    "subtitle": "Protección Avanzada",
-    "description": "Nuestras soluciones de seguridad protegen tu infraestructura digital con tecnologías de última generación y monitoreo 24/7.",
+    "image": "/img/banners/banner-ciberseguridad.webp",
+    "title": "Ciberseguridad",
+    "subtitle": "Protección Avanzada 24/7",
+    "description": "Nuestras soluciones de seguridad protegen tu infraestructura digital con tecnologías de última generación y monitoreo continuo.",
     "buttonText": "Más información"
+  },
+  {
+    "id": 4,
+    "image": "/img/banners/banner-servicios.webp",
+    "title": "Servicios TI",
+    "subtitle": "Soporte Técnico Especializado",
+    "description": "Ofrecemos servicios integrales de tecnología de la información con un enfoque personalizado para cada cliente.",
+    "buttonText": "Ver servicios"
   }
 ]

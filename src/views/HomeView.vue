@@ -11,7 +11,7 @@
 
       <!-- Imagen principal con slider -->
       <div class="hero-image-container position-relative">
-        <img src="/img/banners/banner-home-proyectos.webp" alt="Imagen de proyecto TI" class="img-fluid hero-image" />
+        <img :src="heroSlides[currentSlideIndex].image" :alt="heroSlides[currentSlideIndex].title" class="img-fluid hero-image" />
 
         <!-- Pestañas en el pie de la imagen con contenido dinámico -->
         <div class="hero-tabs">
@@ -282,32 +282,37 @@ export default {
 
 /* Estilo genérico para ambas pestañas */
 .tab-item {
-  padding: 1.8rem 1rem;
+  padding: 1.2rem 1rem;
   text-align: center;
   font-family: Roboto;
   font-weight: 400;
-  font-size: 32px;
-  line-height: 37.5px;
+  font-size: clamp(18px, 2.5vw, 28px);
+  line-height: 1.2;
   align-self: flex-end;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
-/* Primera pestaña: color primario (fondo azul, texto blanco, ancho 30%) */
+/* Primera pestaña: color primario (fondo azul, texto blanco, flexible) */
 .tab-item-left {
   background-color: #0d2c5b;
-  /* Tu color primario */
   color: #fff;
-  width: 30%;
+  flex: 0 1 auto;
+  min-width: 25%;
+  max-width: 45%;
   border-top-right-radius: 12px;
 }
 
-/* Segunda pestaña: color secundario (fondo claro, texto azul, ancho 70%) */
+/* Segunda pestaña: color secundario (fondo claro, texto azul, flexible) */
 .tab-item-right {
   background-color: #f4f4f4;
-  /* Un gris claro, por ejemplo */
   color: #0d2c5b;
-  /* Azul primario para el texto */
-  width: 70%;
-  /* Ajusta el % según quieras */
+  flex: 1 1 auto;
+  min-width: 55%;
 }
 
 
@@ -468,24 +473,32 @@ hr {
     left: 0;
     width: 100%;
     z-index: 20;
-    /* Máxima prioridad */
     display: flex;
     flex-direction: column;
-    background-color: rgba(255, 255, 255, 0.9);
-    /* Asegurar contraste */
-    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 0.8rem;
     text-align: center;
   }
 
   .tab-item {
-    font-size: 20px;
-    padding: 1rem;
+    font-size: clamp(16px, 4vw, 20px);
+    padding: 0.8rem 0.5rem;
+    min-height: 60px;
+    line-height: 1.1;
   }
 
   .tab-item-left,
   .tab-item-right {
     width: 100%;
-    border-radius: 0;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+    min-width: unset;
+    max-width: unset;
+    flex: none;
+  }
+
+  .tab-item-left {
+    border-top-right-radius: 8px;
   }
 }
 </style>
