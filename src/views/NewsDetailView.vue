@@ -42,7 +42,7 @@
         <div class="sidebar">
           <!-- Imagen adicional simulada -->
           <div class="additional-image">
-            <img src="/img/img18.webp" alt="Imagen adicional" class="img-fluid" />
+            <img src="/img/noticias/noticia-estrategia-nacional.webp" alt="Imagen adicional" class="img-fluid" />
           </div>
           <div class="info-card">
             <h4>Información del artículo</h4>

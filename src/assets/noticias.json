@@ -8,7 +8,7 @@
       "date": "15 de Marzo, 2024",
       "category": "Ciberseguridad",
       "tags": ["Phishing", "Ciberseguridad", "Correo Electrónico", "Prevención"],
-      "image": "/img/img16.webp",
+      "image": "/img/noticias/noticia-phishing-global.webp",
       "orientation": "right",
       "buttonText": "Ver noticia"
     },
@@ -21,7 +21,7 @@
       "date": "28 de Septiembre, 2023",
       "category": "Ciberseguridad",
       "tags": ["Phishing", "Suplantación", "Fraude", "Prevención"],
-      "image": "/img/img17.webp",
+      "image": "/img/noticias/noticia-suplantacion.webp",
       "orientation": "left",
       "buttonText": "Ver noticia"
     },
@@ -34,7 +34,7 @@
       "date": "25 de Septiembre de 2023",
       "category": "Ciberseguridad",
       "tags": ["Estrategia Nacional", "Colaboración", "Defensa", "Educación"],
-      "image": "/img/img18.webp",
+      "image": "/img/noticias/noticia-estrategia-nacional.webp",
       "orientation": "right",
       "buttonText": "Ver noticia"
     },
@@ -47,7 +47,7 @@
       "date": "26 de Septiembre de 2023",
       "category": "Ciberseguridad",
       "tags": ["Asesoría", "Servicio Gratuito", "Consultoría", "Prevención"],
-      "image": "/img/img19.webp",
+      "image": "/img/noticias/noticia-asesoria-gratuita.webp",
       "orientation": "left",
       "buttonText": "Ver noticia"
     }

@@ -3,35 +3,35 @@
     "id": 1,
     "title": "Cuidado con las ofertas demasiado buenas",
     "description": "Las ofertas que parecen demasiado buenas para ser verdad generalmente lo son. Desconfía de descuentos extremos, productos gratuitos o promociones que requieren información personal inmediata.",
-    "image": "/img/img16.webp",
+    "image": "/img/consejos/consejo-ofertas-buenas.webp",
     "category": "Compras Online"
   },
   {
     "id": 2,
     "title": "Desconfía de mensajes urgentes o amenazantes",
     "description": "Las instituciones legítimas no piden acciones inmediatas ni envían amenazas por correo. Si recibes un mensaje urgente, verifica directamente con la organización a través de canales oficiales.",
-    "image": "/img/img17.webp",
+    "image": "/img/consejos/consejo-mensajes-urgentes.webp",
     "category": "Comunicaciones"
   },
   {
     "id": 3,
     "title": "No compartas información sensible",
     "description": "Nunca proporciones contraseñas, números de tarjetas de crédito, códigos de seguridad o información personal a través de correos electrónicos, mensajes de texto o llamadas no solicitadas.",
-    "image": "/img/img18.webp",
+    "image": "/img/consejos/consejo-info-sensible.webp",
     "category": "Datos Personales"
   },
   {
     "id": 4,
     "title": "Verifica siempre la URL del sitio web",
     "description": "Antes de ingresar información personal, verifica que la URL sea correcta y que el sitio use HTTPS (candado verde). Los sitios fraudulentos suelen usar URLs similares pero con pequeñas diferencias.",
-    "image": "/img/img19.webp",
+    "image": "/img/consejos/consejo-verificar-url.webp",
     "category": "Navegación Web"
   },
   {
     "id": 5,
     "title": "Mantén tu software actualizado",
     "description": "Actualiza regularmente tu sistema operativo, navegador y aplicaciones de seguridad. Las actualizaciones incluyen parches de seguridad que protegen contra nuevas amenazas.",
-    "image": "/img/img20.webp",
+    "image": "/img/consejos/consejo-software-actualizado.webp",
     "category": "Seguridad Técnica"
   }
 ]

@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "image": "/img/img01.webp",
+    "image": "/img/banners/banner-home-proyectos.webp",
     "title": "Innovación en Tecnología",
     "subtitle": "Soluciones TI Avanzadas",
     "description": "Un equipo de estudiantes de ingeniería informática creó un modelo de IA capaz de optimizar procesos industriales, reduciendo costos hasta en un 30%.",
@@ -9,7 +9,7 @@
   },
   {
     "id": 2,
-    "image": "/img/img02.webp",
+    "image": "/img/banners/banner-nosotros.webp",
     "title": "Transformación Digital",
     "subtitle": "Modernización Empresarial",
     "description": "Implementamos sistemas de gestión inteligente que automatizan procesos críticos y mejoran la eficiencia operacional de tu organización.",
@@ -17,7 +17,7 @@
   },
   {
     "id": 3,
-    "image": "/img/img03.webp",
+    "image": "/img/banners/banner-servicios.webp",
     "title": "Ciberseguridad Integral",
     "subtitle": "Protección Avanzada",
     "description": "Nuestras soluciones de seguridad protegen tu infraestructura digital con tecnologías de última generación y monitoreo 24/7.",

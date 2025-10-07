@@ -11,7 +11,7 @@
 
       <!-- Imagen principal con slider -->
       <div class="hero-image-container position-relative">
-        <img src="../assets/img/img01.webp" alt="Imagen de proyecto TI" class="img-fluid hero-image" />
+        <img src="/img/banners/banner-home-proyectos.webp" alt="Imagen de proyecto TI" class="img-fluid hero-image" />
 
         <!-- Pestañas en el pie de la imagen con contenido dinámico -->
         <div class="hero-tabs">
