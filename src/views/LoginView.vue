@@ -1,8 +1,5 @@
 <template>
-
-
-
-  <div class="login-container">
+  <div class="login-container view-fade-in">
     <!-- Imagen de fondo a pantalla completa -->
     <div class="background"></div>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="admin-projects">
+  <div class="admin-projects view-fade-in">
     <h1>Administrar Proyectos</h1>
 
     <!-- Mostrar proyectos en tarjetas -->

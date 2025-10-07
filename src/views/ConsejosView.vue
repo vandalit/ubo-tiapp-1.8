@@ -1,5 +1,5 @@
 <template>
-  <div class="consejos-view">
+  <div class="consejos-view view-fade-in">
     <!-- Sección principal / Hero -->
     <div class="section">
       <div class="about-header container">
@@ -231,19 +231,5 @@ const consejos = ref(consejosData)
   }
 }
 
-// Animaciones de entrada
-.consejos-view {
-  animation: fadeIn 0.6s ease-out;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+// La animación de entrada se aplica con la clase global .view-fade-in
 </style>

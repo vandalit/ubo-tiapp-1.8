@@ -1,7 +1,6 @@
 <template>
-
-
-  <div class="about-header container">
+  <div class="view-fade-in">
+    <div class="about-header container">
     <h2>Noticias</h2>
     <p>en sistemas TI</p>
   </div>
@@ -41,6 +40,7 @@
 
   <!-- Modal de En Construcción -->
   <UnderConstructionModal :show="showModal" @close="showModal = false" />
+  </div>
 </template>
 
 <script>
@@ -80,10 +80,5 @@ export default {
 /* Estilos específicos de NewsView - los estilos comunes están en main.scss */
 .flex-row-reverse {
   flex-direction: row-reverse !important;
-}
-
-/* Override del padding local para usar el global */
-.about-header {
-  padding: 20px 20px !important;
 }
 </style>

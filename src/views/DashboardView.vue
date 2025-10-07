@@ -1,5 +1,5 @@
 <template>
-  <div class="dashboard-container">
+  <div class="dashboard-container view-fade-in">
     <!-- Header del Dashboard -->
     <div class="dashboard-header">
       <div class="header-content">

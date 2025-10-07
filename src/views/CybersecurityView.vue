@@ -1,6 +1,5 @@
 <template>
-
-
+  <div class="view-fade-in">
     <!-- Sección principal / Hero -->
     <div class="section">
       <div class="about-header container">
@@ -56,6 +55,7 @@
 
     <!-- Si ESTAMOS en carrusel, muestra el componente Carousel -->
     <Carousel v-else :services="services" :selectedIndex="selectedIndex" @closeCarousel="closeCarousel" />
+  </div>
   </div>
 </template>
 

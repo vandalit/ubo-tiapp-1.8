@@ -1,5 +1,5 @@
 <template>
-  <div class="home-container">
+  <div class="home-container view-fade-in">
 
     <!-- ====================== HERO / PROYECTOS TI ====================== -->
     <section class="hero-section container mb-3">

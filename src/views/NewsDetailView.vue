@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="view-fade-in">
     <!-- Header de la noticia -->
     <div class="section">
 

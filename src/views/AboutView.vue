@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="view-fade-in">
     <!-- Sección principal / Hero -->
     <div class="section">
       <div class="about-header container">

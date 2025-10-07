@@ -1,6 +1,7 @@
 <template>
-  <!-- Sección principal / Hero -->
-  <div class="section">
+  <div class="view-fade-in">
+    <!-- Sección principal / Hero -->
+    <div class="section">
     <div class="about-header container">
       <h2>Nuestros Servicios</h2>
       <p>en sistemas TI</p>
@@ -47,6 +48,7 @@
 
     <!-- Si ESTAMOS en carrusel, muestra el componente Carousel -->
     <Carousel v-else :services="services" :selectedIndex="selectedIndex" @closeCarousel="closeCarousel" />
+  </div>
   </div>
 </template>
 
