@@ -76,7 +76,7 @@ const consejos = ref(consejosData)
 // Header styles (reutilizando estilos existentes)
 .about-header {
   padding: 20px 20px !important;
-  text-align: center;
+  text-align: left;
   
   h2 {
     font-family: 'DM Sans', sans-serif;
@@ -113,8 +113,9 @@ const consejos = ref(consejosData)
 
 // Sección del carrusel
 .consejos-section {
-  padding: 2rem 0 4rem;
+  padding: 6rem 0 3rem;
   background: #f8f9fa;
+  margin-top: -3rem;
 }
 
 // Sección de banderas rojas
@@ -127,7 +128,7 @@ const consejos = ref(consejosData)
     font-weight: 600;
     font-size: 1.8rem;
     color: $primary-color;
-    text-align: center;
+    text-align: left;
     margin-bottom: 3rem;
     max-width: 800px;
     margin-left: auto;

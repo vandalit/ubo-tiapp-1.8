@@ -24,10 +24,10 @@
           @click="selectCard(index)"
           :style="{ backgroundImage: `url(${consejo.image})` }"
         >
-          <div class="card-overlay">
+          <div class="card-text-box">
             <div class="card-content">
               <h3 class="card-title">{{ consejo.title }}</h3>
-              <div class="card-description" :class="{ 'show': index === currentIndex }">
+              <div class="card-description" :class="{ 'show': index === currentIndex }" v-if="index === currentIndex">
                 <p>{{ consejo.description }}</p>
               </div>
             </div>
@@ -123,18 +123,19 @@ const isVisible = (index, current) => {
   justify-content: center;
   position: relative;
   min-height: 400px;
+  margin-bottom: 120px
 }
 
 .nav-btn {
-  background: $secondary-color;
+  background: white;
   border: none;
-  border-radius: 50%;
-  width: 50px;
+  border-radius: 8px;
+  width: 70px;
   height: 50px;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: white;
+  color: $secondary-color;
   cursor: pointer;
   transition: all 0.3s ease;
   z-index: 10;
@@ -150,11 +151,11 @@ const isVisible = (index, current) => {
 }
 
 .nav-prev {
-  margin-right: 2rem;
+  margin-right: 6rem;
 }
 
 .nav-next {
-  margin-left: 2rem;
+  margin-left: 6rem;
 }
 
 .carrusel-content {
@@ -179,16 +180,16 @@ const isVisible = (index, current) => {
   background-repeat: no-repeat;
   
   // Card inactiva (lateral)
-  width: 280px;
-  height: 320px;
+  width: 400px;
+  height: 450px;
   opacity: 0.7;
   transform: scale(0.85);
   z-index: 1;
   
   // Card activa (centro)
   &.active {
-    width: 350px;
-    height: 400px;
+    width: 420px;
+    height: 540px;
     opacity: 1;
     transform: scale(1);
     z-index: 5;
@@ -215,31 +216,30 @@ const isVisible = (index, current) => {
   }
 }
 
-.card-overlay {
+.card-text-box {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-  padding: 2rem 1.5rem 1.5rem;
-  border-radius: 0 0 15px 15px;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  margin: 0;
 }
 
 .card-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
+  display: block;
+  text-align: left;
 }
 
 .card-title {
   font-family: 'DM Sans', sans-serif;
   font-weight: 600;
   font-size: 1.1rem;
-  color: white;
+  color: #2c3e50;
   margin-bottom: 0.5rem;
   line-height: 1.3;
-  text-align: center;
 }
 
 .card-description {
@@ -252,9 +252,9 @@ const isVisible = (index, current) => {
   
   p {
     font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: #666;
     line-height: 1.5;
-    text-align: center;
+    text-align: left;
     margin: 0;
   }
 }
@@ -329,7 +329,10 @@ const isVisible = (index, current) => {
     }
   }
   
-  .card-content {
+  .card-text-box {
+    bottom: 15px;
+    left: 15px;
+    right: 15px;
     padding: 1rem;
   }
   
