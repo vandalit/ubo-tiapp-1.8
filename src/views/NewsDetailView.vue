@@ -2,6 +2,12 @@
   <div>
     <!-- Header de la noticia -->
     <div class="section">
+
+      <!-- Banner de imagen -->
+      <div class="banner">
+        <img :src="news?.image" :alt="news?.title" class="img-fluid" />
+      </div>
+
       <div class="news-header container">
         <div class="breadcrumb">
           <router-link to="/news" class="breadcrumb-link">
@@ -16,10 +22,7 @@
         </div>
       </div>
 
-      <!-- Banner de imagen -->
-      <div class="banner">
-        <img :src="news?.image" :alt="news?.title" class="img-fluid" />
-      </div>
+
 
       <!-- Contenido principal -->
       <div class="content container">
@@ -32,14 +35,15 @@
           <!-- Contenido completo -->
           <div class="full-content" v-html="formattedContent"></div>
 
-          <!-- Imagen adicional simulada -->
-          <div class="additional-image">
-            <img src="/img/img18.webp" alt="Imagen adicional" class="img-fluid" />
-          </div>
+
         </div>
 
         <!-- Sidebar con información adicional -->
         <div class="sidebar">
+          <!-- Imagen adicional simulada -->
+          <div class="additional-image">
+            <img src="/img/img18.webp" alt="Imagen adicional" class="img-fluid" />
+          </div>
           <div class="info-card">
             <h4>Información del artículo</h4>
             <div class="info-item">
@@ -153,7 +157,9 @@ export default {
 <style scoped lang="scss">
 /* Header de la noticia */
 .news-header {
-  padding: 30px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 20px 10px 20px;
   text-align: left;
 }
 
@@ -187,20 +193,20 @@ export default {
 }
 
 .news-header h1 {
-  font-family: Roboto;
+  font-family: 'Roboto', sans-serif;
   font-weight: 700;
-  font-size: 2.5rem;
-  line-height: 1.2;
+  font-size: 2rem;
+  line-height: 1.3;
   color: $primary-color;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .news-meta {
   display: flex;
   gap: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   color: #666;
-  font-size: 0.95rem;
+  font-size: 0.9rem;
 }
 
 .author {
@@ -215,9 +221,9 @@ export default {
 /* Banner */
 .banner {
   width: 100%;
-  height: 400px;
+  height: 350px;
   background-color: #ccc;
-  margin-bottom: 40px;
+  margin-bottom: 30px;
 }
 
 .banner img {
@@ -229,48 +235,55 @@ export default {
 /* Contenido principal */
 .content {
   display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 40px;
+  grid-template-columns: 1.8fr 1fr;
+  gap: 50px;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
+  margin-bottom: 60px;
 }
 
 .content-wrapper {
   background: white;
+  text-align: left;
+  font-family: 'Roboto', sans-serif;
 }
 
 .additional-image {
-  margin: 40px 0;
+  margin: 0;
   text-align: left;
   
   img {
-    max-width: 80%;
+    width: 100%;
     height: auto;
+    min-height: 600px; /* altura mínima */
+    object-fit: cover; /* mantiene proporción sin deformar */
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 }
 
 .lead-paragraph {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  color: #444;
-  font-weight: 500;
-  margin-bottom: 30px;
-  padding: 20px;
-  background-color: #f8f9fa;
-  border-left: 4px solid $secondary-color;
-  border-radius: 0 8px 8px 0;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #333;
+  font-weight: 400;
+  margin-bottom: 25px;
+  padding: 0;
+  background-color: transparent;
+  border-left: none;
+  border-radius: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
 .full-content {
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.95rem;
+  line-height: 1.8;
   color: #333;
+  font-family: 'Roboto', sans-serif;
   
   :deep(p) {
-    margin-bottom: 20px;
+    margin-bottom: 18px;
   }
   
   :deep(strong) {
@@ -336,30 +349,30 @@ export default {
 }
 
 .share-btn {
-  background: linear-gradient(135deg, $secondary-color 0%, #4fa8c5 100%);
+  background: $secondary-color;
   color: white;
-  box-shadow: 0 4px 15px rgba(92, 189, 224, 0.3);
+  box-shadow: none;
+  border: none;
   
   &:hover {
-    background: linear-gradient(135deg, #4fa8c5 0%, $secondary-color 100%);
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(92, 189, 224, 0.4);
+    background: #4fa8c5;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(92, 189, 224, 0.3);
     color: white;
   }
 }
 
 .more-news-btn {
-  background: $secondary-color;
+  background: $primary-color;
   color: white;
-  border: 2px solid $secondary-color;
+  border: none;
   box-shadow: none;
   
   &:hover {
-    background: $primary-color;
+    background: #1a3a5c;
     color: white;
-    border-color: $primary-color;
-    transform: none;
-    box-shadow: none;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(35, 64, 99, 0.3);
     text-decoration: none;
   }
 }
@@ -370,51 +383,60 @@ export default {
 .sidebar {
   display: flex;
   flex-direction: column;
-  gap: 25px;
-  margin-top: 200px; /* Empuja el sidebar hacia abajo para alinearlo con el contenido */
+  gap: 0px;
+ /* Empuja el sidebar hacia abajo para alinearlo con el contenido */
+  justify-content: space-between;
 }
 
 .info-card {
-  background: white;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 20px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  background: #f5f5f5;
+  border: none;
+  border-radius: 12px;
+  padding: 35px 25px;
+  box-shadow: none;
 }
 
 .info-card h4 {
   color: $primary-color;
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 15px;
-  border-bottom: 2px solid $secondary-color;
-  padding-bottom: 8px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 25px;
+  border-bottom: none;
+  padding-bottom: 0;
+  line-height: 1.3;
+  font-family: 'Roboto', sans-serif;
 }
 
 .info-item {
   margin-bottom: 12px;
-  font-size: 0.85rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #333;
+  font-family: 'Roboto', sans-serif;
   
   strong {
     color: $primary-color;
     display: inline;
-    margin-right: 8px;
+    font-weight: 700;
   }
 }
 
 .sidebar-actions {
-  margin-top: 20px;
-  padding-top: 15px;
-  border-top: 1px solid #eee;
+  margin-top: 30px;
+  padding-top: 0;
+  border-top: none;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   gap: 12px;
   
   .share-btn, .more-news-btn {
-    width: 100%;
+    flex: 1;
     justify-content: center;
-    font-size: 0.9rem;
-    padding: 12px 20px;
+    font-size: 0.85rem;
+    padding: 12px 16px;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
   }
 }
 
@@ -427,7 +449,7 @@ export default {
   }
   
   .sidebar {
-    margin-top: 0; /* En móvil no necesita el margen superior */
+    margin-top: 0;
   }
   
   .news-header h1 {
@@ -437,11 +459,15 @@ export default {
   .banner {
     height: 300px;
   }
+  
+  .additional-image img {
+    min-height: 400px;
+  }
 }
 
 @media (max-width: 768px) {
   .news-header {
-    padding: 20px 15px;
+    padding: 20px 20px;
   }
   
   .news-header h1 {
@@ -449,7 +475,7 @@ export default {
   }
   
   .content {
-    padding: 0 15px;
+    padding: 0 20px;
   }
   
   .news-meta {
@@ -463,17 +489,42 @@ export default {
     
     img {
       max-width: 100%;
+      min-height: 300px;
     }
+  }
+  
+  .lead-paragraph {
+    font-size: 1.1rem;
+    padding: 16px;
   }
   
   .banner {
     height: 250px;
   }
   
-  .sidebar-actions .share-btn,
-  .sidebar-actions .more-news-btn {
-    font-size: 0.85rem;
-    padding: 10px 16px;
+  .sidebar-actions {
+    flex-direction: column;
+    gap: 12px;
+    
+    .share-btn, .more-news-btn {
+      font-size: 0.9rem;
+      padding: 12px 16px;
+    }
+  }
+  
+  .info-card {
+    padding: 25px 20px;
+    border-radius: 10px;
+    
+    h4 {
+      font-size: 1.3rem;
+      margin-bottom: 20px;
+    }
+  }
+  
+  .info-item {
+    font-size: 0.9rem;
+    margin-bottom: 10px;
   }
 }
 </style>

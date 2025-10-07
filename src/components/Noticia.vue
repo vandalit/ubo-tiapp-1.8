@@ -47,4 +47,22 @@ function openModal() {
 <style scoped lang="scss">
 /* Estilos específicos del componente Noticia ahora están en main.scss */
 /* Solo mantenemos estilos únicos si los hay */
+.btn-primary {
+  background-color: $secondary-color;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+
+  &:hover {
+    background-color: $primary-color;
+    color: white;
+    text-decoration: none;
+    transform: scale(1.05);
+  }
+}
 </style>
